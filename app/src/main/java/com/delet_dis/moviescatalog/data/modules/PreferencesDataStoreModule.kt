@@ -1,7 +1,7 @@
 package com.delet_dis.moviescatalog.data.modules
 
 import com.delet_dis.moviescatalog.data.implementations.PreferencesDataStoreRepositoryImpl
-import com.delet_dis.moviescatalog.data.models.preferencesDataStore.useCases.PreferencesDataStoreUseCases
+import com.delet_dis.moviescatalog.data.useCases.preferencesDataStore.PreferencesDataStoreUseCases
 import com.delet_dis.moviescatalog.domain.repositories.PreferencesDataStoreRepository
 import com.delet_dis.moviescatalog.domain.useCases.preferencesDataStore.GetUserTokenUseCase
 import com.delet_dis.moviescatalog.domain.useCases.preferencesDataStore.SetUserTokenUseCase

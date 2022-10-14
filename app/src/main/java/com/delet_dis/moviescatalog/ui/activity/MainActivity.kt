@@ -1,4 +1,4 @@
-package com.delet_dis.moviescatalog.ui
+package com.delet_dis.moviescatalog.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,10 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.delet_dis.moviescatalog.resources.theme.MoviesCatalogTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
+
+        splashScreen.setKeepOnScreenCondition { true }
+
         super.onCreate(savedInstanceState)
         setContent {
             MoviesCatalogTheme {

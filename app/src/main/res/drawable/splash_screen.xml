@@ -4,5 +4,5 @@
         <color android:color="@color/BlackDark" />
     </item>
 
-    <item android:drawable="@drawable/ic_launcher_foreground" />
+    <item android:drawable="@drawable/splash_image" />
 </layer-list>

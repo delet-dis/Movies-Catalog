@@ -12,8 +12,33 @@
 		300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540D028FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift */; };
 		300540D428FACCA000D6CD6F /* DefaultsKeysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */; };
 		300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540D628FADC5B00D6CD6F /* SplashView.swift */; };
-		300540D928FADE1900D6CD6F /* ViewModifierExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540D828FADE1900D6CD6F /* ViewModifierExtensions.swift */; };
 		300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540DB28FAE0D000D6CD6F /* MainViewDispalyingMode.swift */; };
+		300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540DF28FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift */; };
+		300540E728FAEC2600D6CD6F /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540E628FAEC2600D6CD6F /* AuthorizationView.swift */; };
+		300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540E828FAEC3400D6CD6F /* AuthorizationViewViewModel.swift */; };
+		300540EC28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540EB28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift */; };
+		300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540F628FB038400D6CD6F /* TextModifiers.swift */; };
+		300540FC28FB03A100D6CD6F /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 300540F928FB03A100D6CD6F /* IBMPlexSans-Regular.ttf */; };
+		300540FD28FB03A100D6CD6F /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 300540FA28FB03A100D6CD6F /* IBMPlexSans-Bold.ttf */; };
+		300540FE28FB03A100D6CD6F /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 300540FB28FB03A100D6CD6F /* IBMPlexSans-Medium.ttf */; };
+		3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540FF28FB073300D6CD6F /* AuthRepository.swift */; };
+		3005410528FB077200D6CD6F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410428FB077200D6CD6F /* LoginRequest.swift */; };
+		3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410728FB07A600D6CD6F /* LoginResponse.swift */; };
+		3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410A28FB085100D6CD6F /* LogoutRequest.swift */; };
+		3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410C28FB086C00D6CD6F /* LogoutResponse.swift */; };
+		3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */; };
+		3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */; };
+		3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411428FB09EB00D6CD6F /* RegisterResponse.swift */; };
+		3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */; };
+		3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */; };
+		3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */; };
+		3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411E28FB108700D6CD6F /* AppConstants.swift */; };
+		3005412128FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */; };
+		3005412428FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */; };
+		3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412728FB186B00D6CD6F /* RegisterUseCase.swift */; };
+		3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412928FB194100D6CD6F /* LoginUseCase.swift */; };
+		3005412C28FB197200D6CD6F /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412B28FB197200D6CD6F /* LogoutUseCase.swift */; };
+		3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */; };
 		30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */; };
 		30B9698128FAACF00026E190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698028FAACF00026E190 /* Assets.xcassets */; };
 		30B9698428FAACF10026E190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698328FAACF10026E190 /* Preview Assets.xcassets */; };
@@ -34,8 +59,33 @@
 		300540D028FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
 		300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtensions.swift; sourceTree = "<group>"; };
 		300540D628FADC5B00D6CD6F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		300540D828FADE1900D6CD6F /* ViewModifierExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierExtensions.swift; sourceTree = "<group>"; };
 		300540DB28FAE0D000D6CD6F /* MainViewDispalyingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDispalyingMode.swift; sourceTree = "<group>"; };
+		300540DF28FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAuthStatusUseCase.swift; sourceTree = "<group>"; };
+		300540E628FAEC2600D6CD6F /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		300540E828FAEC3400D6CD6F /* AuthorizationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewViewModel.swift; sourceTree = "<group>"; };
+		300540EB28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithValidationStyle.swift; sourceTree = "<group>"; };
+		300540F628FB038400D6CD6F /* TextModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifiers.swift; sourceTree = "<group>"; };
+		300540F928FB03A100D6CD6F /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		300540FA28FB03A100D6CD6F /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		300540FB28FB03A100D6CD6F /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
+		300540FF28FB073300D6CD6F /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		3005410428FB077200D6CD6F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		3005410728FB07A600D6CD6F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		3005410A28FB085100D6CD6F /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		3005410C28FB086C00D6CD6F /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestGenderEnum.swift; sourceTree = "<group>"; };
+		3005411428FB09EB00D6CD6F /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorResponse.swift; sourceTree = "<group>"; };
+		3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorsEnum.swift; sourceTree = "<group>"; };
+		3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImpl.swift; sourceTree = "<group>"; };
+		3005411E28FB108700D6CD6F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
+		3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResultProcessorHelper.swift; sourceTree = "<group>"; };
+		3005412728FB186B00D6CD6F /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		3005412928FB194100D6CD6F /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		3005412B28FB197200D6CD6F /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
+		3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
 		30B9697928FAACF00026E190 /* Movies Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCatalogApp.swift; sourceTree = "<group>"; };
 		30B9698028FAACF00026E190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +119,9 @@
 		300540C828FAC9BD00D6CD6F /* useCases */ = {
 			isa = PBXGroup;
 			children = (
+				3005412528FB185500D6CD6F /* networking */,
+				300540DE28FAE2E300D6CD6F /* defaultsRepository */,
+				300540DD28FAE2B400D6CD6F /* keychainRepository */,
 			);
 			path = useCases;
 			sourceTree = "<group>";
@@ -76,7 +129,9 @@
 		300540CD28FACAF100D6CD6F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3005410228FB075B00D6CD6F /* networking */,
 				300540CE28FACAF700D6CD6F /* enums */,
+				3005411E28FB108700D6CD6F /* AppConstants.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -94,6 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				300540D028FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift */,
+				3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */,
+				3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */,
+				3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -102,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */,
-				300540D828FADE1900D6CD6F /* ViewModifierExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -121,6 +178,156 @@
 				300540DB28FAE0D000D6CD6F /* MainViewDispalyingMode.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		300540DD28FAE2B400D6CD6F /* keychainRepository */ = {
+			isa = PBXGroup;
+			children = (
+				300540C928FAC9CE00D6CD6F /* SaveTokenUseCase.swift */,
+				300540CB28FACA7400D6CD6F /* GetTokenUseCase.swift */,
+			);
+			path = keychainRepository;
+			sourceTree = "<group>";
+		};
+		300540DE28FAE2E300D6CD6F /* defaultsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				300540DF28FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift */,
+			);
+			path = defaultsRepository;
+			sourceTree = "<group>";
+		};
+		300540E328FAEC0C00D6CD6F /* authorizationView */ = {
+			isa = PBXGroup;
+			children = (
+				300540E428FAEC1600D6CD6F /* component */,
+				300540E528FAEC1B00D6CD6F /* viewModel */,
+				300540E628FAEC2600D6CD6F /* AuthorizationView.swift */,
+			);
+			path = authorizationView;
+			sourceTree = "<group>";
+		};
+		300540E428FAEC1600D6CD6F /* component */ = {
+			isa = PBXGroup;
+			children = (
+				3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		300540E528FAEC1B00D6CD6F /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				300540E828FAEC3400D6CD6F /* AuthorizationViewViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		300540EA28FB008000D6CD6F /* styles */ = {
+			isa = PBXGroup;
+			children = (
+				300540EB28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift */,
+				300540F628FB038400D6CD6F /* TextModifiers.swift */,
+			);
+			path = styles;
+			sourceTree = "<group>";
+		};
+		300540F828FB039100D6CD6F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				300540FA28FB03A100D6CD6F /* IBMPlexSans-Bold.ttf */,
+				300540FB28FB03A100D6CD6F /* IBMPlexSans-Medium.ttf */,
+				300540F928FB03A100D6CD6F /* IBMPlexSans-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		3005410228FB075B00D6CD6F /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				3005410328FB076000D6CD6F /* auth */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		3005410328FB076000D6CD6F /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				3005410E28FB08CD00D6CD6F /* register */,
+				3005410928FB083D00D6CD6F /* logout */,
+				3005410628FB079B00D6CD6F /* login */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		3005410628FB079B00D6CD6F /* login */ = {
+			isa = PBXGroup;
+			children = (
+				3005410428FB077200D6CD6F /* LoginRequest.swift */,
+				3005410728FB07A600D6CD6F /* LoginResponse.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		3005410928FB083D00D6CD6F /* logout */ = {
+			isa = PBXGroup;
+			children = (
+				3005410A28FB085100D6CD6F /* LogoutRequest.swift */,
+				3005410C28FB086C00D6CD6F /* LogoutResponse.swift */,
+			);
+			path = logout;
+			sourceTree = "<group>";
+		};
+		3005410E28FB08CD00D6CD6F /* register */ = {
+			isa = PBXGroup;
+			children = (
+				3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */,
+				3005411428FB09EB00D6CD6F /* RegisterResponse.swift */,
+				3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */,
+			);
+			path = register;
+			sourceTree = "<group>";
+		};
+		3005411A28FB0FAD00D6CD6F /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		3005411B28FB0FB300D6CD6F /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				300540FF28FB073300D6CD6F /* AuthRepository.swift */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		3005412228FB154A00D6CD6F /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		3005412528FB185500D6CD6F /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				3005412628FB185F00D6CD6F /* authRepository */,
+			);
+			path = networking;
+			sourceTree = "<group>";
+		};
+		3005412628FB185F00D6CD6F /* authRepository */ = {
+			isa = PBXGroup;
+			children = (
+				3005412728FB186B00D6CD6F /* RegisterUseCase.swift */,
+				3005412928FB194100D6CD6F /* LoginUseCase.swift */,
+				3005412B28FB197200D6CD6F /* LogoutUseCase.swift */,
+			);
+			path = authRepository;
 			sourceTree = "<group>";
 		};
 		30B9697028FAACF00026E190 = {
@@ -167,6 +374,7 @@
 		30B9698D28FAADB90026E190 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				300540E328FAEC0C00D6CD6F /* authorizationView */,
 				300540D528FADC3B00D6CD6F /* splashView */,
 				30B9699028FAADD50026E190 /* mainView */,
 			);
@@ -176,9 +384,8 @@
 		30B9698E28FAADBF0026E190 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				3005412228FB154A00D6CD6F /* helpers */,
 				300540C828FAC9BD00D6CD6F /* useCases */,
-				300540C928FAC9CE00D6CD6F /* SaveTokenUseCase.swift */,
-				300540CB28FACA7400D6CD6F /* GetTokenUseCase.swift */,
 				30B969A528FAAF5A0026E190 /* repositories */,
 				300540D228FACC7700D6CD6F /* extensions */,
 			);
@@ -223,6 +430,8 @@
 		30B9699928FAAE880026E190 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				300540F828FB039100D6CD6F /* fonts */,
+				300540EA28FB008000D6CD6F /* styles */,
 				30B969A128FAAEF80026E190 /* generated */,
 				30B9699A28FAAE8C0026E190 /* localizable */,
 			);
@@ -248,6 +457,7 @@
 		30B969A528FAAF5A0026E190 /* repositories */ = {
 			isa = PBXGroup;
 			children = (
+				3005411B28FB0FB300D6CD6F /* networking */,
 				30B969A628FAAFC30026E190 /* KeychainRepository.swift */,
 			);
 			path = repositories;
@@ -256,6 +466,7 @@
 		30B969A828FAB02C0026E190 /* implementations */ = {
 			isa = PBXGroup;
 			children = (
+				3005411A28FB0FAD00D6CD6F /* networking */,
 				30B969A928FAB03B0026E190 /* KeychainRepositoryImpl.swift */,
 			);
 			path = implementations;
@@ -342,6 +553,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300540FE28FB03A100D6CD6F /* IBMPlexSans-Medium.ttf in Resources */,
+				300540FC28FB03A100D6CD6F /* IBMPlexSans-Regular.ttf in Resources */,
+				300540FD28FB03A100D6CD6F /* IBMPlexSans-Bold.ttf in Resources */,
 				30B9698428FAACF10026E190 /* Preview Assets.xcassets in Resources */,
 				30B9699D28FAAE990026E190 /* Localizable.strings in Resources */,
 				30B9698128FAACF00026E190 /* Assets.xcassets in Resources */,
@@ -451,20 +665,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */,
 				30B9698C28FAADA80026E190 /* NeedleGenerated.swift in Sources */,
+				3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */,
+				3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */,
+				3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */,
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
+				300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
 				300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */,
+				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
+				3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */,
 				30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */,
+				3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */,
+				300540E728FAEC2600D6CD6F /* AuthorizationView.swift in Sources */,
 				30B9699828FAAE170026E190 /* MainViewViewModel.swift in Sources */,
+				3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */,
 				300540CC28FACA7400D6CD6F /* GetTokenUseCase.swift in Sources */,
 				30B9699328FAADEA0026E190 /* MainComponent.swift in Sources */,
 				30B969AA28FAB03B0026E190 /* KeychainRepositoryImpl.swift in Sources */,
+				3005410528FB077200D6CD6F /* LoginRequest.swift in Sources */,
 				300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */,
+				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
+				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
+				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
+				3005412428FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift in Sources */,
+				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
+				3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */,
+				300540EC28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift in Sources */,
 				30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */,
 				300540CA28FAC9CE00D6CD6F /* SaveTokenUseCase.swift in Sources */,
-				300540D928FADE1900D6CD6F /* ViewModifierExtensions.swift in Sources */,
+				3005412C28FB197200D6CD6F /* LogoutUseCase.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
+				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
+				3005412128FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift in Sources */,
+				3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */,
+				3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */,
 				300540D428FACCA000D6CD6F /* DefaultsKeysExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

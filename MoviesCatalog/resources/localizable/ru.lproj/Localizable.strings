@@ -7,3 +7,5 @@
 */
 "unableToGetSavedValue" = "Произошла ошибка при сохранении";
 "unableToSaveValue" = "Произошла ошибка при получении значения";
+"unableToGetError" = "Текст ошибки неизвестен";
+"unableToGetData" = "Невозможно получить данные";

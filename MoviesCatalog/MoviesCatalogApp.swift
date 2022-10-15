@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MoviesCatalogApp: App {
+    init() {
+        registerProviderFactories()
+    }
+
     var body: some Scene {
         WindowGroup {
-            Text("Test")
+            MainComponent().mainView
         }
     }
 }

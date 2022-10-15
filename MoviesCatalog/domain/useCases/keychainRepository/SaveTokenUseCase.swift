@@ -21,7 +21,7 @@ class SaveTokenUseCase {
         self.keychainRepository = keychainRepository
     }
 
-    func execute(token: String, completion: ((Result<Void, Error>) -> Void)?) {
+    func execute(token: String, completion: ((Result<Void, Error>) -> Void)? = nil) {
         keychainRepository.saveValueByKey(Self.tokenKey, value: token, completion: completion)
     }
 }

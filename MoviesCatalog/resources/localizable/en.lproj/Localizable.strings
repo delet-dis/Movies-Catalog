@@ -7,3 +7,5 @@
 */
 "unableToGetSavedValue" = "Unable to get saved value";
 "unableToSaveValue" = "Unable to save value";
+"unableToGetError" = "Unable to get error";
+"unableToGetData" = "Unable to get data";

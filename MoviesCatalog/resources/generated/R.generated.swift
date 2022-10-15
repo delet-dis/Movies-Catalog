@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -227,6 +228,69 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 3 files.
+  struct file {
+    /// Resource file `IBMPlexSans-Bold.ttf`.
+    static let ibmPlexSansBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "IBMPlexSans-Bold", pathExtension: "ttf")
+    /// Resource file `IBMPlexSans-Medium.ttf`.
+    static let ibmPlexSansMediumTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "IBMPlexSans-Medium", pathExtension: "ttf")
+    /// Resource file `IBMPlexSans-Regular.ttf`.
+    static let ibmPlexSansRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "IBMPlexSans-Regular", pathExtension: "ttf")
+
+    /// `bundle.url(forResource: "IBMPlexSans-Bold", withExtension: "ttf")`
+    static func ibmPlexSansBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.ibmPlexSansBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "IBMPlexSans-Medium", withExtension: "ttf")`
+    static func ibmPlexSansMediumTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.ibmPlexSansMediumTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "IBMPlexSans-Regular", withExtension: "ttf")`
+    static func ibmPlexSansRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.ibmPlexSansRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 3 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `IBMPlexSans-Bold`.
+    static let ibmPlexSansBold = Rswift.FontResource(fontName: "IBMPlexSans-Bold")
+    /// Font `IBMPlexSans-Medium`.
+    static let ibmPlexSansMedium = Rswift.FontResource(fontName: "IBMPlexSans-Medium")
+    /// Font `IBMPlexSans-Regular`.
+    static let ibmPlexSansRegular = Rswift.FontResource(fontName: "IBMPlexSans-Regular")
+
+    /// `UIFont(name: "IBMPlexSans-Bold", size: ...)`
+    static func ibmPlexSansBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: ibmPlexSansBold, size: size)
+    }
+
+    /// `UIFont(name: "IBMPlexSans-Medium", size: ...)`
+    static func ibmPlexSansMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: ibmPlexSansMedium, size: size)
+    }
+
+    /// `UIFont(name: "IBMPlexSans-Regular", size: ...)`
+    static func ibmPlexSansRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: ibmPlexSansRegular, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.ibmPlexSansBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'IBMPlexSans-Bold' could not be loaded, is 'IBMPlexSans-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.ibmPlexSansMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'IBMPlexSans-Medium' could not be loaded, is 'IBMPlexSans-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.ibmPlexSansRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'IBMPlexSans-Regular' could not be loaded, is 'IBMPlexSans-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
     /// Image `SplashImage`.
@@ -244,8 +308,16 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
+      /// en translation: Unable to get data
+      ///
+      /// Locales: en, ru
+      static let unableToGetData = Rswift.StringResource(key: "unableToGetData", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Unable to get error
+      ///
+      /// Locales: en, ru
+      static let unableToGetError = Rswift.StringResource(key: "unableToGetError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Unable to get saved value
       ///
       /// Locales: en, ru
@@ -254,6 +326,36 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let unableToSaveValue = Rswift.StringResource(key: "unableToSaveValue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+
+      /// en translation: Unable to get data
+      ///
+      /// Locales: en, ru
+      static func unableToGetData(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("unableToGetData", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "unableToGetData"
+        }
+
+        return NSLocalizedString("unableToGetData", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Unable to get error
+      ///
+      /// Locales: en, ru
+      static func unableToGetError(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("unableToGetError", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "unableToGetError"
+        }
+
+        return NSLocalizedString("unableToGetError", bundle: bundle, comment: "")
+      }
 
       /// en translation: Unable to get saved value
       ///

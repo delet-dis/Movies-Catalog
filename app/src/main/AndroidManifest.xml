@@ -16,6 +16,20 @@
         android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.activity.HiltPreviewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".presentation.activity.authorizationActivity.AuthorizationActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -31,4 +45,5 @@
                 android:value="" />
         </activity>
     </application>
+
 </manifest>

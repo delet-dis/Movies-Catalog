@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="usernamePlaceholder">Логин</string>
-    <string name="passwordPlaceholder">Пароль</string>
-    <string name="loginButtonText">Войти</string>
-    <string name="registerButtonText">Зарегистрироваться</string>
-    <string name="usernameIsInvalid">Проверьте правильность ввода имени пользователя</string>
-    <string name="passwordIsInvalid">Проверьте правильность ввода пароля</string>
-</resources>

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Movies Catalog</string>
+    <string name="appName" translatable="false">Movies Catalog</string>
+
+    <string name="usernamePlaceholder">Login</string>
+    <string name="passwordPlaceholder">Password</string>
+    <string name="loginButtonText">Login</string>
+    <string name="usernameIsInvalid">Make sure that username is correct</string>
+    <string name="passwordIsInvalid">Make sure that password is correct</string>
 </resources>

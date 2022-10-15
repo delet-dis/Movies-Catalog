@@ -4,6 +4,7 @@
     <string name="usernamePlaceholder">Login</string>
     <string name="passwordPlaceholder">Password</string>
     <string name="loginButtonText">Login</string>
+    <string name="registerButtonText">Register</string>
     <string name="usernameIsInvalid">Make sure that username is correct</string>
     <string name="passwordIsInvalid">Make sure that password is correct</string>
 </resources>

@@ -9,3 +9,6 @@ val OrangeDark = Color(0xFFB40000)
 val BlackPrimary = Color(0xFF000000)
 val BlackLight = Color(0xFF2C2C2C)
 val BlackDark = Color(0xFF000000)
+
+val Gray = Color(0xFFB7B7B7)
+val GrayFaded = Color(0xFFD1D1D1)

@@ -88,25 +88,154 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
 
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 7 colors.
   struct color {
-    /// Color `AccentColor`.
-    static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
+    /// Color `Accent Faded`.
+    static let accentFaded = Rswift.ColorResource(bundle: R.hostingBundle, name: "Accent Faded")
+    /// Color `Accent`.
+    static let accent = Rswift.ColorResource(bundle: R.hostingBundle, name: "Accent")
+    /// Color `Base White`.
+    static let baseWhite = Rswift.ColorResource(bundle: R.hostingBundle, name: "Base White")
+    /// Color `Bright White`.
+    static let brightWhite = Rswift.ColorResource(bundle: R.hostingBundle, name: "Bright White")
+    /// Color `Dark Accent`.
+    static let darkAccent = Rswift.ColorResource(bundle: R.hostingBundle, name: "Dark Accent")
+    /// Color `Gray Faded`.
+    static let grayFaded = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray Faded")
+    /// Color `Gray`.
+    static let gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray")
 
     #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "Accent Faded", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
-    static func accentColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.accentColor, compatibleWith: traitCollection)
+    static func accentFaded(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.accentFaded, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Accent", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func accent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.accent, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Base White", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func baseWhite(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.baseWhite, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Bright White", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func brightWhite(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.brightWhite, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Dark Accent", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func darkAccent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.darkAccent, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Gray Faded", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func grayFaded(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.grayFaded, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Gray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gray, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(watchOS)
-    /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "Accent Faded", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
-    static func accentColor(_: Void = ()) -> UIKit.UIColor? {
-      return UIKit.UIColor(named: R.color.accentColor.name)
+    static func accentFaded(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.accentFaded.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Accent", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func accent(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.accent.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Base White", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func baseWhite(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.baseWhite.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Bright White", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func brightWhite(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.brightWhite.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Dark Accent", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func darkAccent(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.darkAccent.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Gray Faded", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func grayFaded(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.grayFaded.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Gray", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func gray(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.gray.name)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `SplashImage`.
+    static let splashImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "SplashImage")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "SplashImage", bundle: ..., traitCollection: ...)`
+    static func splashImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.splashImage, compatibleWith: traitCollection)
     }
     #endif
 
@@ -115,26 +244,45 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
     struct localizable {
-      /// en translation: Test
+      /// en translation: Unable to get saved value
       ///
       /// Locales: en, ru
-      static let test = Rswift.StringResource(key: "test", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      static let unableToGetSavedValue = Rswift.StringResource(key: "unableToGetSavedValue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Unable to save value
+      ///
+      /// Locales: en, ru
+      static let unableToSaveValue = Rswift.StringResource(key: "unableToSaveValue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
 
-      /// en translation: Test
+      /// en translation: Unable to get saved value
       ///
       /// Locales: en, ru
-      static func test(preferredLanguages: [String]? = nil) -> String {
+      static func unableToGetSavedValue(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("test", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("unableToGetSavedValue", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "test"
+          return "unableToGetSavedValue"
         }
 
-        return NSLocalizedString("test", bundle: bundle, comment: "")
+        return NSLocalizedString("unableToGetSavedValue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Unable to save value
+      ///
+      /// Locales: en, ru
+      static func unableToSaveValue(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("unableToSaveValue", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "unableToSaveValue"
+        }
+
+        return NSLocalizedString("unableToSaveValue", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

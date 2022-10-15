@@ -15,6 +15,8 @@ class KeychainRepositoryImpl: KeychainRepository {
     func getValueByKey(_ key: String, completion: ((Result<String, Error>) -> Void)?) {
         do {
             guard let result = try keychain.get(key) else {
+                completion?(.failure(KeychainRepositoryErrorsEnum.unableToGetSavedValue))
+
                 return
             }
             completion?(.success(result))

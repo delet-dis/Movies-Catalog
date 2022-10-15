@@ -5,4 +5,5 @@
   Created by Igor Efimov on 15.10.2022.
   
 */
-"test" = "Тест";
+"unableToGetSavedValue" = "Произошла ошибка при сохранении";
+"unableToSaveValue" = "Произошла ошибка при получении значения";

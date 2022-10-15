@@ -12,6 +12,7 @@ target 'MoviesCatalog' do
   pod 'SwiftLint'
   pod 'NeedleFoundation'
   pod 'SPAlert'
+  pod 'SwiftyUserDefaults', '~> 5.0'
 
 end
 

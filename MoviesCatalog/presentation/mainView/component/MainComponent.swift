@@ -34,6 +34,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var getAuthStatusUseCase: GetAuthStatusUseCase{
+        shared{
+            GetAuthStatusUseCase()
+        }
+    }
+
     var jsonDecoder: JSONDecoder {
         shared {
             JSONDecoder()
@@ -73,7 +79,8 @@ final class MainComponent: BootstrapComponent {
     var mainViewViewModel: MainViewViewModel {
         shared {
             MainViewViewModel(
-                authorizationComponent: authorizationComponent
+                authorizationComponent: authorizationComponent,
+                getAuthStatusUseCase: getAuthStatusUseCase
             )
         }
     }

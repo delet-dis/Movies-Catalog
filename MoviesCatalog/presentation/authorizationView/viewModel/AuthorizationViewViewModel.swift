@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SwiftyUserDefaults
 
 class AuthorizationViewViewModel: ObservableObject {
     @Published var usernameText = ""

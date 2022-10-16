@@ -11,6 +11,8 @@ import Foundation
 class AuthRepositoryImpl: AuthRepository {
     private static let url = AppConstants.baseUrl + "/api/account/"
 
+    private static let timeout = TimeInterval(10)
+
     private let jsonDecoder: JSONDecoder
 
     init(jsonDecoder: JSONDecoder) {
@@ -23,11 +25,11 @@ class AuthRepositoryImpl: AuthRepository {
             method: .post,
             parameters: request,
             encoder: JSONParameterEncoder.default
-        )
-        .validate()
-        .response { [self] result in
-            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        }
+        ) { $0.timeoutInterval = Self.timeout }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 
     func login(request: LoginRequest, completion: ((Result<LoginResponse, Error>) -> Void)?) {
@@ -36,11 +38,11 @@ class AuthRepositoryImpl: AuthRepository {
             method: .post,
             parameters: request,
             encoder: JSONParameterEncoder.default
-        )
-        .validate()
-        .response { [self] result in
-            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        }
+        ) { $0.timeoutInterval = Self.timeout }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 
     func logout(request: LogoutRequest, completion: ((Result<LogoutResponse, Error>) -> Void)?) {
@@ -49,10 +51,10 @@ class AuthRepositoryImpl: AuthRepository {
             method: .post,
             parameters: request,
             encoder: JSONParameterEncoder.default
-        )
-        .validate()
-        .response { [self] result in
-            result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-        }
+        ) { $0.timeoutInterval = Self.timeout }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 }

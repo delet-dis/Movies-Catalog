@@ -68,6 +68,8 @@ struct AuthorizationView: View {
                 .padding(.trailing, 1)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.horizontal, 16)
+            .contentShape(Rectangle())
 
             VStack(spacing: 8) {
                 Spacer()
@@ -105,16 +107,31 @@ struct AuthorizationView: View {
                         .padding(.vertical, 6)
                 }
             }
+            .padding(.horizontal, 16)
+            .contentShape(Rectangle())
 
-            ProgressView()
-                .opacity(isProgressViewShowing ? 1 : 0)
+            HStack {
+                Spacer()
+
+                VStack {
+                    Spacer()
+
+                    ProgressView()
+                        .opacity(isProgressViewShowing ? 1 : 0)
+
+                    Spacer()
+                }
+
+                Spacer()
+            }
+            .background(.gray)
+            .opacity(isProgressViewShowing ? 0.1 : 0)
         }
         .onReceive(viewModel.$areFieldsValid) { value in
             withAnimation(.default) {
                 self.areFieldsValid = value
             }
         }
-        .padding(.horizontal, 16)
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .SPAlert(
             isPresent: $viewModel.isAlertShowing,

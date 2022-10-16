@@ -10,14 +10,30 @@ import Foundation
 
 extension AFDataResponse {
     func processResult<T: Codable>(jsonDecoder: JSONDecoder, completion: ((Result<T, Error>) -> Void)?) {
-        if case .failure = self.result {
-            completion?(.failure(AuthRepositoryErrorsEnum.authorizationError))
+        if let underlyingError = self.error?.asAFError?.underlyingError {
+            completion?(.failure(underlyingError))
 
             return
         }
 
         guard let response = self.data else {
-            completion?(.failure(AuthRepositoryErrorsEnum.unableToGetData))
+            completion?(.failure(NetworkingErrorsEnum.unableToGetData))
+
+            return
+        }
+
+        if case .failure = self.result {
+            do {
+                let networkingError = try jsonDecoder.decode(NetworkingError.self, from: response)
+
+                completion?(.failure(
+                    NSError(domain: Bundle.main.bundleIdentifier ?? "com.delet-dis.MoviesCatalog",
+                            code: 0,
+                            userInfo: [NSLocalizedDescriptionKey: networkingError.message]))
+                )
+            } catch {
+                completion?(.failure(NetworkingErrorsEnum.unableToGetData))
+            }
 
             return
         }

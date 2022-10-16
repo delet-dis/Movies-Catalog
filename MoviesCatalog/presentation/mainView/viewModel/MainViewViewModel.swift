@@ -6,19 +6,40 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 class MainViewViewModel: ObservableObject {
-    @Published private(set) var mainViewDispalyingMode: MainViewDisaplyingMode = .splash
+    @Published private(set) var mainViewDispalyingMode: MainViewDisaplyingMode = .authorization
+    @Published private(set) var isSplashDisplaying = true
 
-    init() {}
+    private var authStatusObserver: DefaultsDisposable?
+
+    private(set) var authorizationComponent: AuthorizationComponent?
+
+    init(authorizationComponent: AuthorizationComponent? = nil) {
+        self.authorizationComponent = authorizationComponent
+
+        observeAuthStatus()
+    }
 
     func executeSplashCountdown() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-            mainViewDispalyingMode = .authorization
+        if isSplashDisplaying {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                isSplashDisplaying = false
+            }
         }
     }
 
-    func observeAuthStatus(){
-        
+    func observeAuthStatus() {
+        authStatusObserver = Defaults.observe(\.isAuthorized) { [self] update in
+            if let isAuthorized = update.newValue,
+               let isAuthorizedUnwrapped = isAuthorized {
+                if isAuthorizedUnwrapped {
+                    mainViewDispalyingMode = .homeScreen
+                } else {
+                    mainViewDispalyingMode = .authorization
+                }
+            }
+        }
     }
 }

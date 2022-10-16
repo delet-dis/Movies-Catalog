@@ -10,26 +10,35 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewViewModel
 
-    @State private var displayingMode = MainViewDisaplyingMode.splash
+    @State private var displayingMode = MainViewDisaplyingMode.authorization
+    @State private var isSplashDisplaying = true
 
     var body: some View {
-        HStack {
+        ZStack {
             switch displayingMode {
             case .authorization:
-                Text("Auth")
+                viewModel.authorizationComponent?.authorizationView
             case .homeScreen:
                 Text("Home")
-            case .splash:
+            }
+
+            if isSplashDisplaying {
                 SplashView()
             }
         }.onAppear {
             displayingMode = viewModel.mainViewDispalyingMode
+            isSplashDisplaying = viewModel.isSplashDisplaying
 
             viewModel.executeSplashCountdown()
         }
         .onReceive(viewModel.$mainViewDispalyingMode) { value in
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.displayingMode = value
+            }
+        }
+        .onReceive(viewModel.$isSplashDisplaying) { value in
+            withAnimation(.easeInOut(duration: 0.5)) {
+                self.isSplashDisplaying = value
             }
         }
     }

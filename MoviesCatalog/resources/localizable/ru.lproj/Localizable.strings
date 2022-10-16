@@ -7,3 +7,11 @@
 */
 "unableToGetSavedValue" = "Произошла ошибка при сохранении";
 "unableToSaveValue" = "Произошла ошибка при получении значения";
+"unableToGetError" = "Текст ошибки неизвестен";
+"unableToGetData" = "Невозможно получить данные";
+
+"username" = "Логин";
+"password" = "Пароль";
+
+"pleaseEnterValidUsername" = "Имя пользователя введено неверно";
+"pleaseEnterValidPassword" = "Пароль введен неверно";

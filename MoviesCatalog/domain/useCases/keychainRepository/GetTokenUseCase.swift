@@ -21,7 +21,7 @@ class GetTokenUseCase {
         self.keychainRepository = keychainRepository
     }
 
-    func execute(completion: ((Result<String, Error>) -> Void)?) {
+    func execute(completion: ((Result<String, Error>) -> Void)? = nil) {
         keychainRepository.getValueByKey(Self.tokenKey, completion: completion)
     }
 }

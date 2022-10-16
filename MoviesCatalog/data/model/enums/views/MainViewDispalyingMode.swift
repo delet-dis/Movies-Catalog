@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum MainViewDisaplyingMode{
-    case splash
+enum MainViewDisaplyingMode {
     case authorization
     case homeScreen
 }

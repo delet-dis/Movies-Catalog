@@ -9,12 +9,9 @@ import Alamofire
 import Foundation
 
 extension AFDataResponse {
-    func processResult<T: Codable>(jsonDecoder: JSONDecoder,completion: ((Result<T, Error>) -> Void)?) {
-        guard self.error == nil else {
-            if let error = self.error?.asAFError?.underlyingError {
-
-                completion?(.failure(error))
-            }
+    func processResult<T: Codable>(jsonDecoder: JSONDecoder, completion: ((Result<T, Error>) -> Void)?) {
+        if case .failure = self.result {
+            completion?(.failure(AuthRepositoryErrorsEnum.authorizationError))
 
             return
         }

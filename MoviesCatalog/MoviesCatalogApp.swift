@@ -16,6 +16,7 @@ struct MoviesCatalogApp: App {
     var body: some Scene {
         WindowGroup {
             MainComponent().mainView
+                .preferredColorScheme(.dark)
         }
     }
 }

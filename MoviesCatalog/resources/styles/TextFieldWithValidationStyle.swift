@@ -17,7 +17,7 @@ struct TextFieldWithValidationStyle: TextFieldStyle {
     // swiftlint:disable:next identifier_name
     func _body(configuration: TextField<_Label>) -> some View {
         configuration
-            .foregroundColor(Color(uiColor: R.color.grayFaded() ?? .gray))
+            .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
             .padding(.top, 13)
             .padding(.bottom, 13)
             .padding(.leading, 16)

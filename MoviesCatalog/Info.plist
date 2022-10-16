@@ -8,5 +8,9 @@
 		<string>IBMPlexSans-Medium.ttf</string>
 		<string>IBMPlexSans-Regular.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>User</key>
+	<string></string>
 </dict>
 </plist>

@@ -12,6 +12,9 @@
 
 "username" = "Username";
 "password" = "Password";
+"login" = "Login";
+"register" = "Register";
+"authorizationError" = "Authorization error";
 
 "pleaseEnterValidUsername" = "Please enter valid username";
 "pleaseEnterValidPassword" = "Please enter valid password";

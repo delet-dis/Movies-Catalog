@@ -9,7 +9,6 @@ import Alamofire
 import Foundation
 
 class AuthRepositoryImpl: AuthRepository {
-
     private static let url = AppConstants.baseUrl + "/api/account/"
 
     private let jsonDecoder: JSONDecoder
@@ -19,19 +18,40 @@ class AuthRepositoryImpl: AuthRepository {
     }
 
     func register(request: RegisterRequest, completion: ((Result<RegisterResponse, Error>) -> Void)?) {
-        AF.request(Self.url + "register", method: .post, parameters: request).response { [self] result in
+        AF.request(
+            Self.url + "register",
+            method: .post,
+            parameters: request,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate()
+        .response { [self] result in
             result.processResult(jsonDecoder: jsonDecoder, completion: completion)
         }
     }
 
     func login(request: LoginRequest, completion: ((Result<LoginResponse, Error>) -> Void)?) {
-        AF.request(Self.url + "login", method: .post, parameters: request).response { [self] result in
+        AF.request(
+            Self.url + "login",
+            method: .post,
+            parameters: request,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate()
+        .response { [self] result in
             result.processResult(jsonDecoder: jsonDecoder, completion: completion)
         }
     }
 
     func logout(request: LogoutRequest, completion: ((Result<LogoutResponse, Error>) -> Void)?) {
-        AF.request(Self.url + "logout", method: .post, parameters: request).response { [self] result in
+        AF.request(
+            Self.url + "logout",
+            method: .post,
+            parameters: request,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate()
+        .response { [self] result in
             result.processResult(jsonDecoder: jsonDecoder, completion: completion)
         }
     }

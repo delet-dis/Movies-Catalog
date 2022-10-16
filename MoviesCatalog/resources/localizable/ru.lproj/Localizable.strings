@@ -12,6 +12,9 @@
 
 "username" = "Логин";
 "password" = "Пароль";
+"login" = "Войти";
+"register" = "Регистрация";
+"authorizationError" = "Ошибка авторизации";
 
 "pleaseEnterValidUsername" = "Имя пользователя введено неверно";
 "pleaseEnterValidPassword" = "Пароль введен неверно";

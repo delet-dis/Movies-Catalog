@@ -22,10 +22,10 @@ struct MainView: View {
                 Text("Home")
             }
 
-            if isSplashDisplaying {
-                SplashView()
-            }
-        }.onAppear {
+            SplashView()
+                .opacity(isSplashDisplaying ? 1 : 0)
+        }
+        .onAppear {
             displayingMode = viewModel.mainViewDispalyingMode
             isSplashDisplaying = viewModel.isSplashDisplaying
 

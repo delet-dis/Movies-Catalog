@@ -14,7 +14,7 @@ class AuthorizationViewViewModel: ObservableObject {
 
     @Published private(set) var isUsernameValid = true
     @Published private(set) var isPasswordValid = true
-    @Published private(set) var areFieldsValid = true
+    @Published private(set) var areFieldsValid = false
 
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
@@ -35,12 +35,13 @@ class AuthorizationViewViewModel: ObservableObject {
         self.loginUseCase = loginUseCase
         self.saveAuthStatusUseCase = saveAuthStatusUseCase
         self.saveTokenUseCase = saveTokenUseCase
+
+        initFieldsObserving()
     }
 
     private func resetValidationState() {
         isUsernameValid = true
         isPasswordValid = true
-        areFieldsValid = true
     }
 
     private func initFieldsObserving() {
@@ -75,12 +76,18 @@ class AuthorizationViewViewModel: ObservableObject {
         resetValidationState()
 
         if !AuthenticationDataValidatorHelper.isUsernameValid(usernameText) {
+            areFieldsValid = false
+
             return false
         }
 
         if !AuthenticationDataValidatorHelper.isPasswordValid(passwordText) {
+            areFieldsValid = false
+
             return false
         }
+
+        areFieldsValid = true
 
         return true
     }
@@ -94,9 +101,12 @@ class AuthorizationViewViewModel: ObservableObject {
 
     func login() {
         if validateFields() {
+            isProgressViewShowing = true
+
             loginUseCase.execute(
                 request: LoginRequest(username: usernameText, password: passwordText)
             ) { [self] result in
+                isProgressViewShowing = false
                 switch result {
                 case .success(let response):
                     saveTokenUseCase.execute(token: response.token) { [self] result in

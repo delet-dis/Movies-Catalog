@@ -18,7 +18,7 @@ struct MainView: View {
         ZStack {
             switch displayingMode {
             case .authorization:
-                viewModel.authorizationComponent?.authorizationView
+                viewModel.loginComponent?.loginView
             case .homeScreen:
                 Text("Home")
             }

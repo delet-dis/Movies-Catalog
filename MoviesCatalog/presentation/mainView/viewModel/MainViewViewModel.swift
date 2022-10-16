@@ -17,15 +17,15 @@ class MainViewViewModel: ObservableObject {
 
     private var authStatusObserver: DefaultsDisposable?
 
-    private(set) var authorizationComponent: AuthorizationComponent?
+    private(set) var loginComponent: LoginComponent?
 
     private let getAuthStatusUseCase: GetAuthStatusUseCase
 
     init(
-        authorizationComponent: AuthorizationComponent? = nil,
+        loginComponent: LoginComponent? = nil,
         getAuthStatusUseCase: GetAuthStatusUseCase
     ) {
-        self.authorizationComponent = authorizationComponent
+        self.loginComponent = loginComponent
         self.getAuthStatusUseCase = getAuthStatusUseCase
 
         getAuthStatus()

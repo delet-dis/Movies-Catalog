@@ -34,8 +34,8 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-    var getAuthStatusUseCase: GetAuthStatusUseCase{
-        shared{
+    var getAuthStatusUseCase: GetAuthStatusUseCase {
+        shared {
             GetAuthStatusUseCase()
         }
     }
@@ -76,10 +76,16 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var loginComponent: LoginComponent {
+        shared {
+            LoginComponent(parent: self)
+        }
+    }
+
     var mainViewViewModel: MainViewViewModel {
         shared {
             MainViewViewModel(
-                authorizationComponent: authorizationComponent,
+                loginComponent: loginComponent,
                 getAuthStatusUseCase: getAuthStatusUseCase
             )
         }

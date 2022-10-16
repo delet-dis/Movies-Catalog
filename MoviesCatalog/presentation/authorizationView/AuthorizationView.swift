@@ -66,6 +66,7 @@ struct AuthorizationView: View {
                 }
                 .padding(.leading, 1)
                 .padding(.trailing, 1)
+                .padding(.top, 1)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 16)
@@ -86,7 +87,7 @@ struct AuthorizationView: View {
                         .modifier(BodyModifier())
                         .frame(maxWidth: .infinity)
                 }
-                .disabled(!areFieldsValid)
+                .disabled(!areFieldsValid && isProgressViewShowing)
                 .padding()
                 .background(areFieldsValid ?
                     Color(uiColor: R.color.accent() ?? .orange) :
@@ -100,7 +101,9 @@ struct AuthorizationView: View {
                         ).stroke().foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
                 )
 
-                NavigationLink {} label: {
+                Button {
+                    viewModel.registerClickClosure?()
+                } label: {
                     Text(R.string.localizable.register())
                         .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
                         .modifier(BodyModifier())
@@ -127,11 +130,6 @@ struct AuthorizationView: View {
             .background(.gray)
             .opacity(isProgressViewShowing ? 0.1 : 0)
         }
-        .onReceive(viewModel.$areFieldsValid) { value in
-            withAnimation(.default) {
-                self.areFieldsValid = value
-            }
-        }
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .SPAlert(
             isPresent: $viewModel.isAlertShowing,
@@ -140,9 +138,18 @@ struct AuthorizationView: View {
             preset: .error,
             haptic: .error
         )
+        .onAppear {
+            isProgressViewShowing = viewModel.isProgressViewShowing
+            areFieldsValid = viewModel.areFieldsValid
+        }
         .onReceive(viewModel.$isProgressViewShowing) { value in
             withAnimation(.default) {
                 self.isProgressViewShowing = value
+            }
+        }
+        .onReceive(viewModel.$areFieldsValid) { value in
+            withAnimation(.default) {
+                self.areFieldsValid = value
             }
         }
     }

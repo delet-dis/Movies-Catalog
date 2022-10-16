@@ -44,6 +44,10 @@
 		3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413828FC591D00D6CD6F /* NetworkingError.swift */; };
 		3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413A28FC63F400D6CD6F /* GetAuthStatusUseCase.swift */; };
 		3005413D28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */; };
+		3005414428FC69F900D6CD6F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414328FC69F900D6CD6F /* LoginView.swift */; };
+		3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414528FC6B7300D6CD6F /* LoginComponent.swift */; };
+		3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */; };
+		3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */; };
 		30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */; };
 		30B9698128FAACF00026E190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698028FAACF00026E190 /* Assets.xcassets */; };
 		30B9698428FAACF10026E190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698328FAACF10026E190 /* Preview Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		3005413828FC591D00D6CD6F /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		3005413A28FC63F400D6CD6F /* GetAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStatusUseCase.swift; sourceTree = "<group>"; };
 		3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
+		3005414328FC69F900D6CD6F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3005414528FC6B7300D6CD6F /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
+		3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
+		3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisaplyingMode.swift; sourceTree = "<group>"; };
 		30B9697928FAACF00026E190 /* Movies Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCatalogApp.swift; sourceTree = "<group>"; };
 		30B9698028FAACF00026E190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				300540DB28FAE0D000D6CD6F /* MainViewDispalyingMode.swift */,
+				3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -346,6 +355,32 @@
 			path = authRepository;
 			sourceTree = "<group>";
 		};
+		3005413E28FC69B500D6CD6F /* loginView */ = {
+			isa = PBXGroup;
+			children = (
+				3005413F28FC69C800D6CD6F /* component */,
+				3005414028FC69D300D6CD6F /* viewModel */,
+				3005414328FC69F900D6CD6F /* LoginView.swift */,
+			);
+			path = loginView;
+			sourceTree = "<group>";
+		};
+		3005413F28FC69C800D6CD6F /* component */ = {
+			isa = PBXGroup;
+			children = (
+				3005414528FC6B7300D6CD6F /* LoginComponent.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		3005414028FC69D300D6CD6F /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		30B9697028FAACF00026E190 = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +426,7 @@
 		30B9698D28FAADB90026E190 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3005413E28FC69B500D6CD6F /* loginView */,
 				300540E328FAEC0C00D6CD6F /* authorizationView */,
 				300540D528FADC3B00D6CD6F /* splashView */,
 				30B9699028FAADD50026E190 /* mainView */,
@@ -690,6 +726,7 @@
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
 				300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */,
 				3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */,
+				3005414428FC69F900D6CD6F /* LoginView.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
 				300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
@@ -698,6 +735,7 @@
 				3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */,
 				3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */,
 				300540E728FAEC2600D6CD6F /* AuthorizationView.swift in Sources */,
+				3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */,
 				30B9699828FAAE170026E190 /* MainViewViewModel.swift in Sources */,
 				3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */,
 				300540CC28FACA7400D6CD6F /* GetTokenUseCase.swift in Sources */,
@@ -708,6 +746,7 @@
 				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
+				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
 				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
 				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
@@ -720,6 +759,7 @@
 				3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
 				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
+				3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */,
 				3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */,
 				3005413D28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift in Sources */,
 				3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */,

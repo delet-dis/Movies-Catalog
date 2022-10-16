@@ -24,6 +24,8 @@ class AuthorizationViewViewModel: ObservableObject {
 
     private var subscribers: Set<AnyCancellable> = []
 
+    private(set) var registerClickClosure: (() -> Void)?
+
     private let loginUseCase: LoginUseCase
     private let saveAuthStatusUseCase: SaveAuthStatusUseCase
     private let saveTokenUseCase: SaveTokenUseCase
@@ -38,6 +40,10 @@ class AuthorizationViewViewModel: ObservableObject {
         self.saveTokenUseCase = saveTokenUseCase
 
         initFieldsObserving()
+    }
+
+    func setRegisterClickClosure(_ registerClickClosure: (() -> Void)? = nil) {
+        self.registerClickClosure = registerClickClosure
     }
 
     private func resetValidationState() {

@@ -21,6 +21,12 @@ private class AuthorizationComponentDependency01c300e9208281b9a593Provider: Auth
     var loginUseCase: LoginUseCase {
         return mainComponent.loginUseCase
     }
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase {
+        return mainComponent.saveAuthStatusUseCase
+    }
+    var saveTokenUseCase: SaveTokenUseCase {
+        return mainComponent.saveTokenUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -35,6 +41,8 @@ private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: Needle
 extension AuthorizationComponent: Registration {
     public func registerItems() {
         keyPathToName[\AuthorizationComponentDependency.loginUseCase] = "loginUseCase-LoginUseCase"
+        keyPathToName[\AuthorizationComponentDependency.saveAuthStatusUseCase] = "saveAuthStatusUseCase-SaveAuthStatusUseCase"
+        keyPathToName[\AuthorizationComponentDependency.saveTokenUseCase] = "saveTokenUseCase-SaveTokenUseCase"
     }
 }
 extension MainComponent: Registration {

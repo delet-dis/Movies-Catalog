@@ -28,6 +28,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase {
+        shared {
+            SaveAuthStatusUseCase()
+        }
+    }
+
     var jsonDecoder: JSONDecoder {
         shared {
             JSONDecoder()

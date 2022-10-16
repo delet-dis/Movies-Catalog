@@ -34,11 +34,13 @@
 		3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */; };
 		3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411E28FB108700D6CD6F /* AppConstants.swift */; };
 		3005412128FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */; };
-		3005412428FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */; };
+		3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */; };
 		3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412728FB186B00D6CD6F /* RegisterUseCase.swift */; };
 		3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412928FB194100D6CD6F /* LoginUseCase.swift */; };
 		3005412C28FB197200D6CD6F /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412B28FB197200D6CD6F /* LogoutUseCase.swift */; };
 		3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */; };
+		3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412F28FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift */; };
+		3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */; };
 		30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */; };
 		30B9698128FAACF00026E190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698028FAACF00026E190 /* Assets.xcassets */; };
 		30B9698428FAACF10026E190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698328FAACF10026E190 /* Preview Assets.xcassets */; };
@@ -81,11 +83,14 @@
 		3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImpl.swift; sourceTree = "<group>"; };
 		3005411E28FB108700D6CD6F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
-		3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResultProcessorHelper.swift; sourceTree = "<group>"; };
+		3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFDataReposnseExtensions.swift; sourceTree = "<group>"; };
 		3005412728FB186B00D6CD6F /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		3005412928FB194100D6CD6F /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		3005412B28FB197200D6CD6F /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationComponent.swift; sourceTree = "<group>"; };
+		3005412F28FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataValidatorHelper.swift; sourceTree = "<group>"; };
+		3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		3005413328FBCB6300D6CD6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		30B9697928FAACF00026E190 /* Movies Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCatalogApp.swift; sourceTree = "<group>"; };
 		30B9698028FAACF00026E190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */,
+				3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */,
+				3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -307,7 +314,7 @@
 		3005412228FB154A00D6CD6F /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3005412328FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift */,
+				3005412F28FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -351,6 +358,7 @@
 		30B9697B28FAACF00026E190 /* MoviesCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				3005413328FBCB6300D6CD6F /* Info.plist */,
 				30B9699928FAAE880026E190 /* resources */,
 				30B9698F28FAADC40026E190 /* data */,
 				30B9698E28FAADBF0026E190 /* domain */,
@@ -672,6 +680,7 @@
 				3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */,
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
 				300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */,
+				3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
 				300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
@@ -689,8 +698,9 @@
 				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
-				3005412428FB155A00D6CD6F /* AlamofireResultProcessorHelper.swift in Sources */,
+				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
 				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
+				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
 				3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift in Sources */,
 				30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */,
@@ -847,6 +857,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesCatalog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoviesCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -879,6 +890,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesCatalog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoviesCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

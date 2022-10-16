@@ -9,3 +9,9 @@
 "unableToSaveValue" = "Unable to save value";
 "unableToGetError" = "Unable to get error";
 "unableToGetData" = "Unable to get data";
+
+"username" = "Username";
+"password" = "Password";
+
+"pleaseEnterValidUsername" = "Please enter valid username";
+"pleaseEnterValidPassword" = "Please enter valid password";

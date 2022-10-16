@@ -308,8 +308,20 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
     struct localizable {
+      /// en translation: Password
+      ///
+      /// Locales: en, ru
+      static let password = Rswift.StringResource(key: "password", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Please enter valid password
+      ///
+      /// Locales: en, ru
+      static let pleaseEnterValidPassword = Rswift.StringResource(key: "pleaseEnterValidPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Please enter valid username
+      ///
+      /// Locales: en, ru
+      static let pleaseEnterValidUsername = Rswift.StringResource(key: "pleaseEnterValidUsername", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Unable to get data
       ///
       /// Locales: en, ru
@@ -326,6 +338,55 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let unableToSaveValue = Rswift.StringResource(key: "unableToSaveValue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Username
+      ///
+      /// Locales: en, ru
+      static let username = Rswift.StringResource(key: "username", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+
+      /// en translation: Password
+      ///
+      /// Locales: en, ru
+      static func password(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("password", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "password"
+        }
+
+        return NSLocalizedString("password", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Please enter valid password
+      ///
+      /// Locales: en, ru
+      static func pleaseEnterValidPassword(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pleaseEnterValidPassword", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "pleaseEnterValidPassword"
+        }
+
+        return NSLocalizedString("pleaseEnterValidPassword", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Please enter valid username
+      ///
+      /// Locales: en, ru
+      static func pleaseEnterValidUsername(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pleaseEnterValidUsername", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "pleaseEnterValidUsername"
+        }
+
+        return NSLocalizedString("pleaseEnterValidUsername", bundle: bundle, comment: "")
+      }
 
       /// en translation: Unable to get data
       ///
@@ -385,6 +446,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("unableToSaveValue", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Username
+      ///
+      /// Locales: en, ru
+      static func username(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("username", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "username"
+        }
+
+        return NSLocalizedString("username", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

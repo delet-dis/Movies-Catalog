@@ -11,13 +11,17 @@ import SwiftUI
 
 protocol AuthorizationComponentDependency: Dependency {
     var loginUseCase: LoginUseCase { get }
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase { get }
+    var saveTokenUseCase: SaveTokenUseCase { get }
 }
 
 final class AuthorizationComponent: Component<AuthorizationComponentDependency> {
     var authorizationViewViewModel: AuthorizationViewViewModel {
         shared {
             AuthorizationViewViewModel(
-                loginUseCase: dependency.loginUseCase
+                loginUseCase: dependency.loginUseCase,
+                saveAuthStatusUseCase: dependency.saveAuthStatusUseCase,
+                saveTokenUseCase: dependency.saveTokenUseCase
             )
         }
     }

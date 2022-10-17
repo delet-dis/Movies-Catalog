@@ -43,7 +43,18 @@ struct LoginView: View {
                     Spacer()
                 }
             case .registration:
-                Spacer()
+                if let registrationView = viewModel.registrationComponent?.registrationView {
+                    registrationView
+                        .padding(.top, 24)
+                        .onAppear {
+                            viewModel.registrationComponent?.registrationViweViewModel
+                                .setLoginClickClosure {
+                                    viewModel.displayAuthorization()
+                                }
+                        }
+                } else {
+                    Spacer()
+                }
             }
         }
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
@@ -51,7 +62,7 @@ struct LoginView: View {
             displayingMode = viewModel.loginViewDisplayingMode
         }
         .onReceive(viewModel.$loginViewDisplayingMode) { value in
-            withAnimation(.easeInOut(duration: 0.5)) {
+            withAnimation(.easeInOut(duration: 0.3)) {
                 self.displayingMode = value
             }
         }

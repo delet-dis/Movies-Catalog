@@ -70,12 +70,6 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-    var authorizationComponent: AuthorizationComponent {
-        shared {
-            AuthorizationComponent(parent: self)
-        }
-    }
-
     var loginComponent: LoginComponent {
         shared {
             LoginComponent(parent: self)

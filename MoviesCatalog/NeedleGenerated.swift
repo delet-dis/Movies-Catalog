@@ -13,11 +13,15 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
     return component.parent
 }
 
+private func parent2(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Scope {
+    return component.parent.parent
+}
+
 // MARK: - Providers
 
 #if !NEEDLE_DYNAMIC
 
-private class AuthorizationComponentDependency01c300e9208281b9a593Provider: AuthorizationComponentDependency {
+private class AuthorizationComponentDependencydf77d81b4f68502c365aProvider: AuthorizationComponentDependency {
     var loginUseCase: LoginUseCase {
         return mainComponent.loginUseCase
     }
@@ -32,22 +36,39 @@ private class AuthorizationComponentDependency01c300e9208281b9a593Provider: Auth
         self.mainComponent = mainComponent
     }
 }
-/// ^->MainComponent->AuthorizationComponent
-private func factory36d2db3a6303047193540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return AuthorizationComponentDependency01c300e9208281b9a593Provider(mainComponent: parent1(component) as! MainComponent)
+/// ^->MainComponent->LoginComponent->AuthorizationComponent
+private func factorya6199ac68a26a06ced8ff18a7758ab7ce8b9cf79(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return AuthorizationComponentDependencydf77d81b4f68502c365aProvider(mainComponent: parent2(component) as! MainComponent)
 }
-private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
-    var authorizationComponent: AuthorizationComponent {
-        return mainComponent.authorizationComponent
+private class RegistrationComponentDependency2c8ea1f383264282a7c7Provider: RegistrationComponentDependency {
+    var registerUseCase: RegisterUseCase {
+        return mainComponent.registerUseCase
+    }
+    var saveAuthStatusUseCase: SaveAuthStatusUseCase {
+        return mainComponent.saveAuthStatusUseCase
+    }
+    var saveTokenUseCase: SaveTokenUseCase {
+        return mainComponent.saveTokenUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
     }
 }
+/// ^->MainComponent->LoginComponent->RegistrationComponent
+private func factory43ef21cc81db779b06e1f18a7758ab7ce8b9cf79(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return RegistrationComponentDependency2c8ea1f383264282a7c7Provider(mainComponent: parent2(component) as! MainComponent)
+}
+private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
+
+
+    init() {
+
+    }
+}
 /// ^->MainComponent->LoginComponent
-private func factory7d788d11c001389505f70ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return LoginComponentDependency09f1bea0f04d764af082Provider(mainComponent: parent1(component) as! MainComponent)
+private func factory7d788d11c001389505f7e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return LoginComponentDependency09f1bea0f04d764af082Provider()
 }
 
 #else
@@ -58,6 +79,13 @@ extension AuthorizationComponent: Registration {
         keyPathToName[\AuthorizationComponentDependency.saveTokenUseCase] = "saveTokenUseCase-SaveTokenUseCase"
     }
 }
+extension RegistrationComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\RegistrationComponentDependency.registerUseCase] = "registerUseCase-RegisterUseCase"
+        keyPathToName[\RegistrationComponentDependency.saveAuthStatusUseCase] = "saveAuthStatusUseCase-SaveAuthStatusUseCase"
+        keyPathToName[\RegistrationComponentDependency.saveTokenUseCase] = "saveTokenUseCase-SaveTokenUseCase"
+    }
+}
 extension MainComponent: Registration {
     public func registerItems() {
 
@@ -66,7 +94,8 @@ extension MainComponent: Registration {
 }
 extension LoginComponent: Registration {
     public func registerItems() {
-        keyPathToName[\LoginComponentDependency.authorizationComponent] = "authorizationComponent-AuthorizationComponent"
+
+
     }
 }
 
@@ -85,9 +114,10 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 private func register1() {
-    registerProviderFactory("^->MainComponent->AuthorizationComponent", factory36d2db3a6303047193540ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->LoginComponent->AuthorizationComponent", factorya6199ac68a26a06ced8ff18a7758ab7ce8b9cf79)
+    registerProviderFactory("^->MainComponent->LoginComponent->RegistrationComponent", factory43ef21cc81db779b06e1f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
-    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif
 

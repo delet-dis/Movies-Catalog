@@ -13,5 +13,5 @@ struct RegisterRequest: Codable {
     let password: String
     let email: String
     let birthDate: Date
-    let gender: RegisterRequestGenderEnum
+    let gender: GenderTypeEnum
 }

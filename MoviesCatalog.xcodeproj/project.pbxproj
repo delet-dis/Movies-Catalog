@@ -27,7 +27,6 @@
 		3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410A28FB085100D6CD6F /* LogoutRequest.swift */; };
 		3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410C28FB086C00D6CD6F /* LogoutResponse.swift */; };
 		3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */; };
-		3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */; };
 		3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411428FB09EB00D6CD6F /* RegisterResponse.swift */; };
 		3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */; };
 		3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */; };
@@ -59,6 +58,12 @@
 		30B969A328FAAF010026E190 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A228FAAF010026E190 /* R.generated.swift */; };
 		30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A628FAAFC30026E190 /* KeychainRepository.swift */; };
 		30B969AA28FAB03B0026E190 /* KeychainRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A928FAB03B0026E190 /* KeychainRepositoryImpl.swift */; };
+		30F387E628FD1EB500346326 /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387E528FD1EB500346326 /* RegistrationComponent.swift */; };
+		30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */; };
+		30F387EB28FD1ED700346326 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387EA28FD1ED700346326 /* RegistrationView.swift */; };
+		30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387ED28FD216700346326 /* GenderTypeEnum.swift */; };
+		30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387EF28FD5AE000346326 /* BindingExtensions.swift */; };
+		30F387F228FD5DD200346326 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387F128FD5DD200346326 /* UIImageExtensions.swift */; };
 		5F4F60AE344DAB8B1E8E095A /* Pods_MoviesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +88,6 @@
 		3005410A28FB085100D6CD6F /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
 		3005410C28FB086C00D6CD6F /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
-		3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestGenderEnum.swift; sourceTree = "<group>"; };
 		3005411428FB09EB00D6CD6F /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorResponse.swift; sourceTree = "<group>"; };
 		3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorsEnum.swift; sourceTree = "<group>"; };
@@ -105,7 +109,7 @@
 		3005414528FC6B7300D6CD6F /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisaplyingMode.swift; sourceTree = "<group>"; };
-		30B9697928FAACF00026E190 /* Movies Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B9697928FAACF00026E190 /* Movie Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCatalogApp.swift; sourceTree = "<group>"; };
 		30B9698028FAACF00026E190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B9698328FAACF10026E190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -118,6 +122,12 @@
 		30B969A228FAAF010026E190 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		30B969A628FAAFC30026E190 /* KeychainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepository.swift; sourceTree = "<group>"; };
 		30B969A928FAB03B0026E190 /* KeychainRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryImpl.swift; sourceTree = "<group>"; };
+		30F387E528FD1EB500346326 /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
+		30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewViewModel.swift; sourceTree = "<group>"; };
+		30F387EA28FD1ED700346326 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		30F387ED28FD216700346326 /* GenderTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTypeEnum.swift; sourceTree = "<group>"; };
+		30F387EF28FD5AE000346326 /* BindingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtensions.swift; sourceTree = "<group>"; };
+		30F387F128FD5DD200346326 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6221C9CF5D08C0234E8E3DC /* Pods-MoviesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.release.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		E812D7F72D4ED032809EFF4E /* Pods-MoviesCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +171,7 @@
 				300540DA28FAE0C600D6CD6F /* views */,
 				300540CF28FACB0100D6CD6F /* repositories */,
 				3005413628FC569A00D6CD6F /* NetworkingErrorsEnum.swift */,
+				30F387ED28FD216700346326 /* GenderTypeEnum.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -169,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				300540D028FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift */,
-				3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */,
 				3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */,
 				3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */,
 			);
@@ -182,6 +192,8 @@
 				300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */,
 				3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */,
 				3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */,
+				30F387EF28FD5AE000346326 /* BindingExtensions.swift */,
+				30F387F128FD5DD200346326 /* UIImageExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -394,7 +406,7 @@
 		30B9697A28FAACF00026E190 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30B9697928FAACF00026E190 /* Movies Catalog.app */,
+				30B9697928FAACF00026E190 /* Movie Catalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				3005413E28FC69B500D6CD6F /* loginView */,
+				30F387E328FD1E7100346326 /* registrationComponent */,
 				300540E328FAEC0C00D6CD6F /* authorizationView */,
 				300540D528FADC3B00D6CD6F /* splashView */,
 				30B9699028FAADD50026E190 /* mainView */,
@@ -525,6 +538,32 @@
 			path = implementations;
 			sourceTree = "<group>";
 		};
+		30F387E328FD1E7100346326 /* registrationComponent */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E428FD1E8100346326 /* component */,
+				30F387E728FD1EBB00346326 /* viewModel */,
+				30F387EA28FD1ED700346326 /* RegistrationView.swift */,
+			);
+			path = registrationComponent;
+			sourceTree = "<group>";
+		};
+		30F387E428FD1E8100346326 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E528FD1EB500346326 /* RegistrationComponent.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		30F387E728FD1EBB00346326 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		3A9111821407A0F7C8B91F28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,7 +603,7 @@
 			);
 			name = MoviesCatalog;
 			productName = MoviesCatalog;
-			productReference = 30B9697928FAACF00026E190 /* Movies Catalog.app */;
+			productReference = 30B9697928FAACF00026E190 /* Movie Catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -721,16 +760,17 @@
 				3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */,
 				30B9698C28FAADA80026E190 /* NeedleGenerated.swift in Sources */,
 				3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */,
-				3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */,
 				3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */,
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
 				300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */,
 				3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */,
 				3005414428FC69F900D6CD6F /* LoginView.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
+				30F387EB28FD1ED700346326 /* RegistrationView.swift in Sources */,
 				300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
 				3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */,
+				30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */,
 				30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */,
 				3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */,
 				3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */,
@@ -738,6 +778,7 @@
 				3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */,
 				30B9699828FAAE170026E190 /* MainViewViewModel.swift in Sources */,
 				3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */,
+				30F387E628FD1EB500346326 /* RegistrationComponent.swift in Sources */,
 				300540CC28FACA7400D6CD6F /* GetTokenUseCase.swift in Sources */,
 				30B9699328FAADEA0026E190 /* MainComponent.swift in Sources */,
 				30B969AA28FAB03B0026E190 /* KeychainRepositoryImpl.swift in Sources */,
@@ -745,9 +786,11 @@
 				300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */,
 				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
+				30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
 				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
+				30F387F228FD5DD200346326 /* UIImageExtensions.swift in Sources */,
 				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
 				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
 				3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */,
@@ -759,6 +802,7 @@
 				3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
 				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
+				30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */,
 				3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */,
 				3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */,
 				3005413D28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift in Sources */,
@@ -911,6 +955,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesCatalog/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -924,7 +969,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.MoviesCatalog";
-				PRODUCT_NAME = "Movies Catalog";
+				PRODUCT_NAME = "Movie Catalog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -947,6 +992,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesCatalog/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -960,7 +1006,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.MoviesCatalog";
-				PRODUCT_NAME = "Movies Catalog";
+				PRODUCT_NAME = "Movie Catalog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

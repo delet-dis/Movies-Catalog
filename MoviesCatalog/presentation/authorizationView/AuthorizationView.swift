@@ -30,17 +30,11 @@ struct AuthorizationView: View {
                         .modifier(BodySmallModifier())
                         .textFieldStyle(
                             TextFieldWithValidationStyle(
-                                validationState: viewModel.isUsernameValid
+                                validationState: viewModel.isUsernameValid,
+                                isPlaceholderDispalying: viewModel.usernameText.isEmpty,
+                                placeholderText: R.string.localizable.username()
                             )
                         )
-                        .placeholder(when: viewModel.usernameText.isEmpty) {
-                            Text(R.string.localizable.username())
-                                .foregroundColor(Color(uiColor: R.color.grayFaded() ?? .gray))
-                                .modifier(BodySmallModifier())
-                                .padding(.leading, 16)
-                                .padding(.top, 13)
-                                .padding(.bottom, 13)
-                        }
                         .focused($focusedField, equals: .username)
                         .onSubmit {
                             focusedField = .password
@@ -51,17 +45,11 @@ struct AuthorizationView: View {
                         .submitLabel(.done)
                         .textFieldStyle(
                             TextFieldWithValidationStyle(
-                                validationState: viewModel.isPasswordValid
+                                validationState: viewModel.isPasswordValid,
+                                isPlaceholderDispalying: viewModel.passwordText.isEmpty,
+                                placeholderText: R.string.localizable.password()
                             )
                         )
-                        .placeholder(when: viewModel.passwordText.isEmpty) {
-                            Text(R.string.localizable.password())
-                                .foregroundColor(Color(uiColor: R.color.grayFaded() ?? .gray))
-                                .modifier(BodySmallModifier())
-                                .padding(.leading, 16)
-                                .padding(.top, 13)
-                                .padding(.bottom, 13)
-                        }
                         .focused($focusedField, equals: .password)
                 }
                 .padding(.leading, 1)

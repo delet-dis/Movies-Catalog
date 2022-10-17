@@ -9,15 +9,26 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-protocol LoginComponentDependency: Dependency {
-    var authorizationComponent: AuthorizationComponent { get }
-}
+protocol LoginComponentDependency: Dependency {}
 
 final class LoginComponent: Component<LoginComponentDependency> {
+    var authorizationComponent: AuthorizationComponent {
+        shared {
+            AuthorizationComponent(parent: self)
+        }
+    }
+
+    var registrationComponent: RegistrationComponent {
+        shared {
+            RegistrationComponent(parent: self)
+        }
+    }
+
     var loginViewViewModel: LoginViewViewModel {
         shared {
             LoginViewViewModel(
-                authorizationComponent: dependency.authorizationComponent
+                authorizationComponent: authorizationComponent,
+                registrationComponent: registrationComponent
             )
         }
     }

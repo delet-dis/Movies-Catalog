@@ -84,12 +84,14 @@ class AuthorizationViewViewModel: ObservableObject {
 
         if !AuthenticationDataValidatorHelper.isUsernameValid(usernameText) {
             areFieldsValid = false
+//            isUsernameValid = false
 
             return false
         }
 
         if !AuthenticationDataValidatorHelper.isPasswordValid(passwordText) {
             areFieldsValid = false
+//            isPasswordValid = false
 
             return false
         }

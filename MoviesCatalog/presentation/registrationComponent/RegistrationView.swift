@@ -33,16 +33,18 @@ struct RegistrationView: View {
             [.foregroundColor: R.color.grayFaded() ?? .gray, NSAttributedString.Key.font: font], for: .normal
         )
 
-        let tintColorImage = UIImage(color: R.color.accent() ?? .orange, size: CGSize(width: 20, height: 15))
+        let defaultSize = CGSize(width: 20, height: 15)
+
+        let tintColorImage = UIImage(color: R.color.accent() ?? .orange, size: defaultSize)
         UISegmentedControl.appearance().setBackgroundImage(
-            UIImage(color: .clear, size: CGSize(width: 20, height: 15)), for: .normal, barMetrics: .default
+            UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default
         )
         UISegmentedControl.appearance().setBackgroundImage(
             tintColorImage, for: .selected, barMetrics: .default
         )
         UISegmentedControl.appearance().setBackgroundImage(
             UIImage(color: (R.color.accent() ?? .orange).withAlphaComponent(0.2),
-                    size: CGSize(width: 20, height: 15)),
+                    size: defaultSize),
             for: .highlighted, barMetrics: .default
         )
         UISegmentedControl.appearance().setBackgroundImage(
@@ -51,7 +53,7 @@ struct RegistrationView: View {
 
         UISegmentedControl.appearance().setDividerImage(
             UIImage(color: R.color.gray() ?? .gray,
-                    size: CGSize(width: 0.5, height: 15)),
+                    size: defaultSize),
             forLeftSegmentState: .normal,
             rightSegmentState: .normal,
             barMetrics: .default

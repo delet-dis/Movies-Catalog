@@ -16,5 +16,7 @@
 "register" = "Регистрация";
 "authorizationError" = "Ошибка авторизации";
 
+"done" = "Закончить";
+
 "pleaseEnterValidUsername" = "Имя пользователя введено неверно";
 "pleaseEnterValidPassword" = "Пароль введен неверно";

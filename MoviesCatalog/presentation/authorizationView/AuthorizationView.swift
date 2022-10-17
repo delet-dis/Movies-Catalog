@@ -70,7 +70,6 @@ struct AuthorizationView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 16)
-            .contentShape(Rectangle())
 
             VStack(spacing: 8) {
                 Spacer()
@@ -87,7 +86,7 @@ struct AuthorizationView: View {
                         .modifier(BodyModifier())
                         .frame(maxWidth: .infinity)
                 }
-                .disabled(!areFieldsValid && isProgressViewShowing)
+                .disabled(!areFieldsValid || isProgressViewShowing)
                 .padding()
                 .background(areFieldsValid ?
                     Color(uiColor: R.color.accent() ?? .orange) :
@@ -111,26 +110,24 @@ struct AuthorizationView: View {
                 }
             }
             .padding(.horizontal, 16)
-            .contentShape(Rectangle())
+            .ignoresSafeArea(.keyboard)
 
-            HStack {
-                Spacer()
-
-                VStack {
-                    Spacer()
-
-                    ProgressView()
-                        .opacity(isProgressViewShowing ? 1 : 0)
+            ProgressView()
+                .opacity(isProgressViewShowing ? 1 : 0)
+        }
+        .background(Color(uiColor: R.color.darkAccent() ?? .black))
+        .toolbar {
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Button(R.string.localizable.done()) {
+                        focusedField = nil
+                    }
+                    .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
 
                     Spacer()
                 }
-
-                Spacer()
             }
-            .background(.gray)
-            .opacity(isProgressViewShowing ? 0.1 : 0)
         }
-        .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .SPAlert(
             isPresent: $viewModel.isAlertShowing,
             message: viewModel.alertText,

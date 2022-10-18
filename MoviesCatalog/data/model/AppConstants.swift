@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import Alamofire
 
 class AppConstants {
     static let baseUrl = "https://react-midterm.kreosoft.space"
+
+    static let networkingHeaders: HTTPHeaders = [
+        "Content-Type": "application/json"
+    ]
 }

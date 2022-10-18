@@ -24,19 +24,19 @@ extension AFDataResponse {
 
         if case .failure = self.result {
             do {
-                let dictionary = try JSONSerialization.jsonObject(
-                    with: response, options: []
-                ) as? [String: Any]
+                let decodedError = try jsonDecoder.decode(NetworkingError.self, from: response)
 
-                guard let error = dictionary?["title"] as? String else {
-                    completion?(.failure(NetworkingErrorsEnum.unableToGetData))
-
-                    return
+                if let errorTitle = decodedError.title {
+                    completion?(.failure(
+                        NSError.createErrorWithLocalizedDescription(errorTitle)
+                    ))
                 }
 
-                completion?(.failure(
-                    NSError.createErrorWithLocalizedDescription(error)
-                ))
+                if let errorMessage = decodedError.message {
+                    completion?(.failure(
+                        NSError.createErrorWithLocalizedDescription(errorMessage)
+                    ))
+                }
             } catch {
                 completion?(.failure(NetworkingErrorsEnum.unableToGetData))
             }

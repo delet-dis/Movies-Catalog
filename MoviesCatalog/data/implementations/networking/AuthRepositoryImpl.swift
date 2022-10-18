@@ -14,47 +14,79 @@ class AuthRepositoryImpl: AuthRepository {
     private static let timeout = TimeInterval(10)
 
     private let jsonDecoder: JSONDecoder
+    private let jsonEncoder: JSONEncoder
 
-    init(jsonDecoder: JSONDecoder) {
+    init(jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
         self.jsonDecoder = jsonDecoder
+        self.jsonEncoder = jsonEncoder
     }
 
     func register(request: RegisterRequest, completion: ((Result<RegisterResponse, Error>) -> Void)?) {
-        AF.request(
-            Self.url + "register",
-            method: .post,
-            parameters: request,
-            encoder: JSONParameterEncoder.default
-        ) { $0.timeoutInterval = Self.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+        do {
+            let encodedParameters = try jsonEncoder.encode(request)
+            let parameters = try JSONSerialization.jsonObject(
+                with: encodedParameters, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                Self.url + "register",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: AppConstants.networkingHeaders
+            ) { $0.timeoutInterval = Self.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 
     func login(request: LoginRequest, completion: ((Result<LoginResponse, Error>) -> Void)?) {
-        AF.request(
-            Self.url + "login",
-            method: .post,
-            parameters: request,
-            encoder: JSONParameterEncoder.default
-        ) { $0.timeoutInterval = Self.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+        do {
+            let encodedParameters = try jsonEncoder.encode(request)
+            let parameters = try JSONSerialization.jsonObject(
+                with: encodedParameters, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                Self.url + "login",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: AppConstants.networkingHeaders
+            ) { $0.timeoutInterval = Self.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 
     func logout(request: LogoutRequest, completion: ((Result<LogoutResponse, Error>) -> Void)?) {
-        AF.request(
-            Self.url + "logout",
-            method: .post,
-            parameters: request,
-            encoder: JSONParameterEncoder.default
-        ) { $0.timeoutInterval = Self.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-            }
+        do {
+            let encodedParameters = try jsonEncoder.encode(request)
+            let parameters = try JSONSerialization.jsonObject(
+                with: encodedParameters, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                Self.url + "logout",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: AppConstants.networkingHeaders
+            ) { $0.timeoutInterval = Self.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 }

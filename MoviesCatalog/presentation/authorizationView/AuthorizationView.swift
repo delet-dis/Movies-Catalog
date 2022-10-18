@@ -25,6 +25,7 @@ struct AuthorizationView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     TextField("", text: $viewModel.usernameText)
+                        .disableAutocorrection(true)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.next)
                         .modifier(BodySmallModifier())
@@ -142,7 +143,9 @@ struct AuthorizationView: View {
 }
 
 struct AuthorizationView_Previews: PreviewProvider {
-    private static let authRepository = AuthRepositoryImpl(jsonDecoder: JSONDecoder())
+    private static let authRepository = AuthRepositoryImpl(
+        jsonDecoder: JSONDecoder(), jsonEncoder: JSONEncoder()
+    )
     private static let keychainRepository = KeychainRepositoryImpl()
 
     private static let loginUseCase = LoginUseCase(authRepository: authRepository)

@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension NSError{
-    static func createErrorWithLocalizedDescription(_ text: String) -> NSError{
+extension NSError {
+    static func createErrorWithLocalizedDescription(_ text: String) -> NSError {
         NSError(domain: Bundle.main.bundleIdentifier ?? "com.delet-dis.MoviesCatalog",
                 code: 0,
                 userInfo: [NSLocalizedDescriptionKey: text])

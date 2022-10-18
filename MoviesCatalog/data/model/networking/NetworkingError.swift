@@ -8,5 +8,6 @@
 import Foundation
 
 struct NetworkingError: Codable {
-    let message: String
+    let title: String?
+    let message: String?
 }

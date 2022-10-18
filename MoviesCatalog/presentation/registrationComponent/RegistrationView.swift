@@ -53,6 +53,7 @@ struct RegistrationView: View {
                             }
 
                         TextField("", text: $viewModel.emailText)
+                            .disableAutocorrection(true)
                             .keyboardType(.emailAddress)
                             .textInputAutocapitalization(.never)
                             .submitLabel(.next)
@@ -119,35 +120,43 @@ struct RegistrationView: View {
                                 focusedField = .birthDate
                             }
 
-                        HStack {
-                            TextField("", text: $viewModel.birthDateAsString)
-                                .textInputAutocapitalization(.never)
-                                .submitLabel(.next)
-                                .modifier(BodySmallModifier())
-                                .textFieldStyle(
-                                    TextFieldWithValidationStyle(
-                                        validationState: viewModel.isBirthDateValid,
-                                        isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
-                                        placeholderText: R.string.localizable.birthDate()
-                                    )
-                                )
-                                .focused($focusedField, equals: .birthDate)
-                                .disabled(true)
+                            ZStack {
+                                HStack {
+                                    TextField("", text: $viewModel.birthDateAsString)
+                                        .textInputAutocapitalization(.never)
+                                        .submitLabel(.next)
+                                        .modifier(BodySmallModifier())
+                                        .textFieldStyle(
+                                            TextFieldWithValidationStyle(
+                                                validationState: viewModel.isBirthDateValid,
+                                                isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
+                                                placeholderText: R.string.localizable.birthDate()
+                                            )
+                                        )
+                                        .focused($focusedField, equals: .birthDate)
+                                        .disabled(true)
+                                }
 
-                            Spacer()
-                        }
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            focusedField = nil
-                            viewModel.isDatePickerDisplaying.toggle()
-                        }
+                                HStack {
+                                    Spacer()
+
+                                    Image(uiImage: R.image.calendarIcon() ?? .strokedCheckmark)
+                                        .padding(.trailing, 20)
+                                        .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+                                }
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                focusedField = nil
+                                viewModel.isDatePickerDisplaying.toggle()
+                            }
 
                         if isDatePickerDisplaying {
                             DatePicker(
                                 R.string.localizable.birthDate(),
                                 selection: Binding<Date>(
-                                    get: {viewModel.birthDate ?? Date()},
-                                    set: {viewModel.birthDate = $0}
+                                    get: { viewModel.birthDate ?? Date() },
+                                    set: { viewModel.birthDate = $0 }
                                 ),
                                 in: ...Date(),
                                 displayedComponents: [.date]
@@ -340,7 +349,9 @@ struct RegistrationView: View {
 }
 
 struct RegistrationView_Previews: PreviewProvider {
-    private static let authRepository = AuthRepositoryImpl(jsonDecoder: JSONDecoder())
+    private static let authRepository = AuthRepositoryImpl(
+        jsonDecoder: JSONDecoder(), jsonEncoder: JSONEncoder()
+    )
     private static let keychainRepository = KeychainRepositoryImpl()
 
     private static let registerUseCase = RegisterUseCase(authRepository: authRepository)

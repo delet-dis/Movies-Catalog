@@ -34,15 +34,33 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var getAuthStatusUseCase: GetAuthStatusUseCase {
+        shared {
+            GetAuthStatusUseCase()
+        }
+    }
+
     var jsonDecoder: JSONDecoder {
         shared {
-            JSONDecoder()
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+
+            return decoder
+        }
+    }
+
+    var jsonEncoder: JSONEncoder {
+        shared {
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+
+            return encoder
         }
     }
 
     var authRepository: AuthRepository {
         shared {
-            AuthRepositoryImpl(jsonDecoder: jsonDecoder)
+            AuthRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
         }
     }
 
@@ -64,16 +82,17 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-    var authorizationComponent: AuthorizationComponent {
+    var loginComponent: LoginComponent {
         shared {
-            AuthorizationComponent(parent: self)
+            LoginComponent(parent: self)
         }
     }
 
     var mainViewViewModel: MainViewViewModel {
         shared {
             MainViewViewModel(
-                authorizationComponent: authorizationComponent
+                loginComponent: loginComponent,
+                getAuthStatusUseCase: getAuthStatusUseCase
             )
         }
     }

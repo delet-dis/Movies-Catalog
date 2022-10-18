@@ -12,6 +12,21 @@
 
 "username" = "Логин";
 "password" = "Пароль";
+"login" = "Войти";
+"register" = "Регистрация";
+"authorizationError" = "Ошибка авторизации";
+
+"done" = "Готово";
+
+"iHaveAnAccount" = "У меня уже есть аккаунт";
+"registration" = "Регистрация";
+"email" = "E-mail";
+"name" = "Имя";
+"passwordConfirmation" = "Подтвердите пароль";
+"birthDate" = "Дата рождения";
+"pickGender" = "Выберите гендер";
+"male" = "Мужчина";
+"female" = "Женщина";
 
 "pleaseEnterValidUsername" = "Имя пользователя введено неверно";
 "pleaseEnterValidPassword" = "Пароль введен неверно";

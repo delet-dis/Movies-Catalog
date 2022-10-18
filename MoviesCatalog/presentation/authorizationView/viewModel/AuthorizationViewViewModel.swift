@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import SwiftyUserDefaults
 
 class AuthorizationViewViewModel: ObservableObject {
     @Published var usernameText = ""
@@ -14,7 +15,7 @@ class AuthorizationViewViewModel: ObservableObject {
 
     @Published private(set) var isUsernameValid = true
     @Published private(set) var isPasswordValid = true
-    @Published private(set) var areFieldsValid = true
+    @Published private(set) var areFieldsValid = false
 
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
@@ -22,6 +23,8 @@ class AuthorizationViewViewModel: ObservableObject {
     @Published private(set) var isProgressViewShowing = false
 
     private var subscribers: Set<AnyCancellable> = []
+
+    private(set) var registerClickClosure: (() -> Void)?
 
     private let loginUseCase: LoginUseCase
     private let saveAuthStatusUseCase: SaveAuthStatusUseCase
@@ -35,12 +38,17 @@ class AuthorizationViewViewModel: ObservableObject {
         self.loginUseCase = loginUseCase
         self.saveAuthStatusUseCase = saveAuthStatusUseCase
         self.saveTokenUseCase = saveTokenUseCase
+
+        initFieldsObserving()
+    }
+
+    func setRegisterClickClosure(_ registerClickClosure: (() -> Void)? = nil) {
+        self.registerClickClosure = registerClickClosure
     }
 
     private func resetValidationState() {
         isUsernameValid = true
         isPasswordValid = true
-        areFieldsValid = true
     }
 
     private func initFieldsObserving() {
@@ -75,12 +83,20 @@ class AuthorizationViewViewModel: ObservableObject {
         resetValidationState()
 
         if !AuthenticationDataValidatorHelper.isUsernameValid(usernameText) {
+            areFieldsValid = false
+//            isUsernameValid = false
+
             return false
         }
 
         if !AuthenticationDataValidatorHelper.isPasswordValid(passwordText) {
+            areFieldsValid = false
+//            isPasswordValid = false
+
             return false
         }
+
+        areFieldsValid = true
 
         return true
     }
@@ -94,9 +110,12 @@ class AuthorizationViewViewModel: ObservableObject {
 
     func login() {
         if validateFields() {
+            isProgressViewShowing = true
+
             loginUseCase.execute(
                 request: LoginRequest(username: usernameText, password: passwordText)
             ) { [self] result in
+                isProgressViewShowing = false
                 switch result {
                 case .success(let response):
                     saveTokenUseCase.execute(token: response.token) { [self] result in

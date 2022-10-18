@@ -12,6 +12,21 @@
 
 "username" = "Username";
 "password" = "Password";
+"login" = "Login";
+"register" = "Register";
+"authorizationError" = "Authorization error";
+
+"done" = "Done";
+
+"iHaveAnAccount" = "I have an account";
+"registration" = "Registration";
+"email" = "E-mail";
+"name" = "Name";
+"passwordConfirmation" = "Password confirmation";
+"birthDate" = "Birth date";
+"pickGender" = "Pick gender";
+"male" = "Male";
+"female" = "Female";
 
 "pleaseEnterValidUsername" = "Please enter valid username";
 "pleaseEnterValidPassword" = "Please enter valid password";

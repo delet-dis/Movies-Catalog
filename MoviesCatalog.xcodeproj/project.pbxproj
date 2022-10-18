@@ -27,13 +27,11 @@
 		3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410A28FB085100D6CD6F /* LogoutRequest.swift */; };
 		3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410C28FB086C00D6CD6F /* LogoutResponse.swift */; };
 		3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */; };
-		3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */; };
 		3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411428FB09EB00D6CD6F /* RegisterResponse.swift */; };
 		3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */; };
 		3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */; };
 		3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */; };
 		3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411E28FB108700D6CD6F /* AppConstants.swift */; };
-		3005412128FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */; };
 		3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */; };
 		3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412728FB186B00D6CD6F /* RegisterUseCase.swift */; };
 		3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412928FB194100D6CD6F /* LoginUseCase.swift */; };
@@ -41,6 +39,14 @@
 		3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412D28FB1A0F00D6CD6F /* AuthorizationComponent.swift */; };
 		3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005412F28FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift */; };
 		3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */; };
+		3005413728FC569A00D6CD6F /* NetworkingErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413628FC569A00D6CD6F /* NetworkingErrorsEnum.swift */; };
+		3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413828FC591D00D6CD6F /* NetworkingError.swift */; };
+		3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413A28FC63F400D6CD6F /* GetAuthStatusUseCase.swift */; };
+		3005413D28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */; };
+		3005414428FC69F900D6CD6F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414328FC69F900D6CD6F /* LoginView.swift */; };
+		3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414528FC6B7300D6CD6F /* LoginComponent.swift */; };
+		3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */; };
+		3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */; };
 		30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */; };
 		30B9698128FAACF00026E190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698028FAACF00026E190 /* Assets.xcassets */; };
 		30B9698428FAACF10026E190 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9698328FAACF10026E190 /* Preview Assets.xcassets */; };
@@ -52,6 +58,13 @@
 		30B969A328FAAF010026E190 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A228FAAF010026E190 /* R.generated.swift */; };
 		30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A628FAAFC30026E190 /* KeychainRepository.swift */; };
 		30B969AA28FAB03B0026E190 /* KeychainRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B969A928FAB03B0026E190 /* KeychainRepositoryImpl.swift */; };
+		30F387E628FD1EB500346326 /* RegistrationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387E528FD1EB500346326 /* RegistrationComponent.swift */; };
+		30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */; };
+		30F387EB28FD1ED700346326 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387EA28FD1ED700346326 /* RegistrationView.swift */; };
+		30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387ED28FD216700346326 /* GenderTypeEnum.swift */; };
+		30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387EF28FD5AE000346326 /* BindingExtensions.swift */; };
+		30F387F228FD5DD200346326 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F387F128FD5DD200346326 /* UIImageExtensions.swift */; };
+		30F3880528FE513B00346326 /* NSErrorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3880428FE513B00346326 /* NSErrorExtensions.swift */; };
 		5F4F60AE344DAB8B1E8E095A /* Pods_MoviesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,13 +89,11 @@
 		3005410A28FB085100D6CD6F /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
 		3005410C28FB086C00D6CD6F /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
-		3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestGenderEnum.swift; sourceTree = "<group>"; };
 		3005411428FB09EB00D6CD6F /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		3005411628FB0A8600D6CD6F /* RegisterErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorResponse.swift; sourceTree = "<group>"; };
 		3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorsEnum.swift; sourceTree = "<group>"; };
 		3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImpl.swift; sourceTree = "<group>"; };
 		3005411E28FB108700D6CD6F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
 		3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFDataReposnseExtensions.swift; sourceTree = "<group>"; };
 		3005412728FB186B00D6CD6F /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		3005412928FB194100D6CD6F /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -91,7 +102,15 @@
 		3005412F28FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataValidatorHelper.swift; sourceTree = "<group>"; };
 		3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		3005413328FBCB6300D6CD6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		30B9697928FAACF00026E190 /* Movies Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movies Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3005413628FC569A00D6CD6F /* NetworkingErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorsEnum.swift; sourceTree = "<group>"; };
+		3005413828FC591D00D6CD6F /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		3005413A28FC63F400D6CD6F /* GetAuthStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStatusUseCase.swift; sourceTree = "<group>"; };
+		3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsRepositoryErrorsEnum.swift; sourceTree = "<group>"; };
+		3005414328FC69F900D6CD6F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3005414528FC6B7300D6CD6F /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
+		3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
+		3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDisaplyingMode.swift; sourceTree = "<group>"; };
+		30B9697928FAACF00026E190 /* Movie Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Catalog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9697C28FAACF00026E190 /* MoviesCatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCatalogApp.swift; sourceTree = "<group>"; };
 		30B9698028FAACF00026E190 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B9698328FAACF10026E190 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -104,6 +123,13 @@
 		30B969A228FAAF010026E190 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		30B969A628FAAFC30026E190 /* KeychainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepository.swift; sourceTree = "<group>"; };
 		30B969A928FAB03B0026E190 /* KeychainRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainRepositoryImpl.swift; sourceTree = "<group>"; };
+		30F387E528FD1EB500346326 /* RegistrationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationComponent.swift; sourceTree = "<group>"; };
+		30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewViewModel.swift; sourceTree = "<group>"; };
+		30F387EA28FD1ED700346326 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		30F387ED28FD216700346326 /* GenderTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTypeEnum.swift; sourceTree = "<group>"; };
+		30F387EF28FD5AE000346326 /* BindingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtensions.swift; sourceTree = "<group>"; };
+		30F387F128FD5DD200346326 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		30F3880428FE513B00346326 /* NSErrorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSErrorExtensions.swift; sourceTree = "<group>"; };
 		3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6221C9CF5D08C0234E8E3DC /* Pods-MoviesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.release.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		E812D7F72D4ED032809EFF4E /* Pods-MoviesCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +172,8 @@
 			children = (
 				300540DA28FAE0C600D6CD6F /* views */,
 				300540CF28FACB0100D6CD6F /* repositories */,
+				3005413628FC569A00D6CD6F /* NetworkingErrorsEnum.swift */,
+				30F387ED28FD216700346326 /* GenderTypeEnum.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -154,9 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				300540D028FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift */,
-				3005411228FB093600D6CD6F /* RegisterRequestGenderEnum.swift */,
 				3005411828FB0F1300D6CD6F /* RegisterErrorsEnum.swift */,
-				3005412028FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift */,
+				3005413C28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -167,6 +194,9 @@
 				300540D328FACCA000D6CD6F /* DefaultsKeysExtensions.swift */,
 				3005412328FB155A00D6CD6F /* AFDataReposnseExtensions.swift */,
 				3005413128FBCA2C00D6CD6F /* ViewExtensions.swift */,
+				30F387EF28FD5AE000346326 /* BindingExtensions.swift */,
+				30F387F128FD5DD200346326 /* UIImageExtensions.swift */,
+				30F3880428FE513B00346326 /* NSErrorExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -183,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				300540DB28FAE0D000D6CD6F /* MainViewDispalyingMode.swift */,
+				3005414928FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -200,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				300540DF28FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift */,
+				3005413A28FC63F400D6CD6F /* GetAuthStatusUseCase.swift */,
 			);
 			path = defaultsRepository;
 			sourceTree = "<group>";
@@ -253,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				3005410328FB076000D6CD6F /* auth */,
+				3005413828FC591D00D6CD6F /* NetworkingError.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -337,6 +370,32 @@
 			path = authRepository;
 			sourceTree = "<group>";
 		};
+		3005413E28FC69B500D6CD6F /* loginView */ = {
+			isa = PBXGroup;
+			children = (
+				3005413F28FC69C800D6CD6F /* component */,
+				3005414028FC69D300D6CD6F /* viewModel */,
+				3005414328FC69F900D6CD6F /* LoginView.swift */,
+			);
+			path = loginView;
+			sourceTree = "<group>";
+		};
+		3005413F28FC69C800D6CD6F /* component */ = {
+			isa = PBXGroup;
+			children = (
+				3005414528FC6B7300D6CD6F /* LoginComponent.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		3005414028FC69D300D6CD6F /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3005414728FC6BA500D6CD6F /* LoginViewViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		30B9697028FAACF00026E190 = {
 			isa = PBXGroup;
 			children = (
@@ -350,7 +409,7 @@
 		30B9697A28FAACF00026E190 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30B9697928FAACF00026E190 /* Movies Catalog.app */,
+				30B9697928FAACF00026E190 /* Movie Catalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,6 +441,8 @@
 		30B9698D28FAADB90026E190 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3005413E28FC69B500D6CD6F /* loginView */,
+				30F387E328FD1E7100346326 /* registrationComponent */,
 				300540E328FAEC0C00D6CD6F /* authorizationView */,
 				300540D528FADC3B00D6CD6F /* splashView */,
 				30B9699028FAADD50026E190 /* mainView */,
@@ -480,6 +541,32 @@
 			path = implementations;
 			sourceTree = "<group>";
 		};
+		30F387E328FD1E7100346326 /* registrationComponent */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E428FD1E8100346326 /* component */,
+				30F387E728FD1EBB00346326 /* viewModel */,
+				30F387EA28FD1ED700346326 /* RegistrationView.swift */,
+			);
+			path = registrationComponent;
+			sourceTree = "<group>";
+		};
+		30F387E428FD1E8100346326 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E528FD1EB500346326 /* RegistrationComponent.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		30F387E728FD1EBB00346326 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30F387E828FD1ECA00346326 /* RegistrationViewViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		3A9111821407A0F7C8B91F28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,7 +606,7 @@
 			);
 			name = MoviesCatalog;
 			productName = MoviesCatalog;
-			productReference = 30B9697928FAACF00026E190 /* Movies Catalog.app */;
+			productReference = 30B9697928FAACF00026E190 /* Movie Catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -676,20 +763,26 @@
 				3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */,
 				30B9698C28FAADA80026E190 /* NeedleGenerated.swift in Sources */,
 				3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */,
-				3005411328FB093600D6CD6F /* RegisterRequestGenderEnum.swift in Sources */,
 				3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */,
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
 				300540E928FAEC3400D6CD6F /* AuthorizationViewViewModel.swift in Sources */,
 				3005413228FBCA2C00D6CD6F /* ViewExtensions.swift in Sources */,
+				3005414428FC69F900D6CD6F /* LoginView.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
+				30F3880528FE513B00346326 /* NSErrorExtensions.swift in Sources */,
+				30F387EB28FD1ED700346326 /* RegistrationView.swift in Sources */,
 				300540D128FACB0E00D6CD6F /* KeychainRepositoryErrorsEnum.swift in Sources */,
 				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
 				3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */,
+				30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */,
 				30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */,
 				3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */,
+				3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */,
 				300540E728FAEC2600D6CD6F /* AuthorizationView.swift in Sources */,
+				3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */,
 				30B9699828FAAE170026E190 /* MainViewViewModel.swift in Sources */,
 				3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */,
+				30F387E628FD1EB500346326 /* RegistrationComponent.swift in Sources */,
 				300540CC28FACA7400D6CD6F /* GetTokenUseCase.swift in Sources */,
 				30B9699328FAADEA0026E190 /* MainComponent.swift in Sources */,
 				30B969AA28FAB03B0026E190 /* KeychainRepositoryImpl.swift in Sources */,
@@ -697,19 +790,26 @@
 				300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */,
 				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
+				30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
+				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
+				30F387F228FD5DD200346326 /* UIImageExtensions.swift in Sources */,
 				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
 				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
 				3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift in Sources */,
 				30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */,
+				3005413728FC569A00D6CD6F /* NetworkingErrorsEnum.swift in Sources */,
 				300540CA28FAC9CE00D6CD6F /* SaveTokenUseCase.swift in Sources */,
 				3005412C28FB197200D6CD6F /* LogoutUseCase.swift in Sources */,
+				3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
 				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
-				3005412128FB12D200D6CD6F /* AuthRepositoryErrorsEnum.swift in Sources */,
+				30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */,
+				3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */,
 				3005411928FB0F1300D6CD6F /* RegisterErrorsEnum.swift in Sources */,
+				3005413D28FC649C00D6CD6F /* DefaultsRepositoryErrorsEnum.swift in Sources */,
 				3005412828FB186B00D6CD6F /* RegisterUseCase.swift in Sources */,
 				300540D428FACCA000D6CD6F /* DefaultsKeysExtensions.swift in Sources */,
 			);
@@ -855,21 +955,25 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesCatalog/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesCatalog/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.MoviesCatalog";
-				PRODUCT_NAME = "Movies Catalog";
+				PRODUCT_NAME = "Movie Catalog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -888,21 +992,25 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesCatalog/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesCatalog/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.MoviesCatalog";
-				PRODUCT_NAME = "Movies Catalog";
+				PRODUCT_NAME = "Movie Catalog";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

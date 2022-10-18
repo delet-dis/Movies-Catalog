@@ -5,6 +5,7 @@
 //  Created by Igor Efimov on 15.10.2022.
 //
 
+import SPAlert
 import SwiftUI
 
 struct MainView: View {
@@ -17,15 +18,22 @@ struct MainView: View {
         ZStack {
             switch displayingMode {
             case .authorization:
-                viewModel.authorizationComponent?.authorizationView
+                viewModel.loginComponent?.loginView
             case .homeScreen:
                 Text("Home")
             }
 
-            if isSplashDisplaying {
-                SplashView()
-            }
-        }.onAppear {
+            SplashView()
+                .opacity(isSplashDisplaying ? 1 : 0)
+        }
+        .SPAlert(
+            isPresent: $viewModel.isAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .error,
+            haptic: .error
+        )
+        .onAppear {
             displayingMode = viewModel.mainViewDispalyingMode
             isSplashDisplaying = viewModel.isSplashDisplaying
 
@@ -45,8 +53,14 @@ struct MainView: View {
 }
 
 struct MainView_Previews: PreviewProvider {
+    private static let getAuthStatusUseCase = GetAuthStatusUseCase()
+
     static var previews: some View {
         MainView()
-            .environmentObject(MainViewViewModel())
+            .environmentObject(
+                MainViewViewModel(
+                    getAuthStatusUseCase: getAuthStatusUseCase
+                )
+            )
     }
 }

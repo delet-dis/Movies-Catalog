@@ -41,6 +41,7 @@ struct AuthorizationView: View {
                         }
 
                     SecureField("", text: $viewModel.passwordText)
+                        .disableAutocorrection(true)
                         .textInputAutocapitalization(.never)
                         .submitLabel(.done)
                         .textFieldStyle(

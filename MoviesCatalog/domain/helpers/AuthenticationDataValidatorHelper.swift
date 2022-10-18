@@ -47,7 +47,7 @@ class AuthenticationDataValidatorHelper {
             return false
         }
 
-        return true
+        return gender != GenderTypeEnum.none
     }
 
     private static func isEmptyAndBlank(_ string: String) -> Bool {

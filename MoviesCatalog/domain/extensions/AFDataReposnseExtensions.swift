@@ -1,5 +1,5 @@
 //
-//  AlamofireResultProcessorHelper.swift
+//  AFDataResponseExtensions.swift
 //  MoviesCatalog
 //
 //  Created by Igor Efimov on 15.10.2022.
@@ -24,13 +24,19 @@ extension AFDataResponse {
 
         if case .failure = self.result {
             do {
-                let networkingError = try jsonDecoder.decode(NetworkingError.self, from: response)
+                let dictionary = try JSONSerialization.jsonObject(
+                    with: response, options: []
+                ) as? [String: Any]
+
+                guard let error = dictionary?["title"] as? String else {
+                    completion?(.failure(NetworkingErrorsEnum.unableToGetData))
+
+                    return
+                }
 
                 completion?(.failure(
-                    NSError(domain: Bundle.main.bundleIdentifier ?? "com.delet-dis.MoviesCatalog",
-                            code: 0,
-                            userInfo: [NSLocalizedDescriptionKey: networkingError.message]))
-                )
+                    NSError.createErrorWithLocalizedDescription(error)
+                ))
             } catch {
                 completion?(.failure(NetworkingErrorsEnum.unableToGetData))
             }

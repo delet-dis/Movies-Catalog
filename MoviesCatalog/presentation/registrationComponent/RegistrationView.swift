@@ -21,44 +21,7 @@ struct RegistrationView: View {
     @State private var isProgressViewShowing = false
     @State private var isDatePickerDisplaying = false
 
-    @Namespace var datepickerId
-
-    init() {
-        UIDatePicker.appearance().tintColor = R.color.accent() ?? .orange
-        UIDatePicker.appearance().backgroundColor = R.color.darkAccent() ?? .black
-
-        let font = R.font.ibmPlexSansRegular(size: 14) ?? .systemFont(ofSize: 14)
-
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [.foregroundColor: R.color.grayFaded() ?? .gray, NSAttributedString.Key.font: font], for: .normal
-        )
-
-        let defaultSize = CGSize(width: 20, height: 15)
-
-        let tintColorImage = UIImage(color: R.color.accent() ?? .orange, size: defaultSize)
-        UISegmentedControl.appearance().setBackgroundImage(
-            UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            tintColorImage, for: .selected, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            UIImage(color: (R.color.accent() ?? .orange).withAlphaComponent(0.2),
-                    size: defaultSize),
-            for: .highlighted, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            tintColorImage, for: [.highlighted, .selected], barMetrics: .default
-        )
-
-        UISegmentedControl.appearance().setDividerImage(
-            UIImage(color: R.color.gray() ?? .gray,
-                    size: defaultSize),
-            forLeftSegmentState: .normal,
-            rightSegmentState: .normal,
-            barMetrics: .default
-        )
-    }
+    @Namespace var genderPickerId
 
     var body: some View {
         ZStack {
@@ -123,6 +86,7 @@ struct RegistrationView: View {
                             }
 
                         SecureField("", text: $viewModel.passwordText)
+                            .disableAutocorrection(true)
                             .textInputAutocapitalization(.never)
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
@@ -139,6 +103,7 @@ struct RegistrationView: View {
                             }
 
                         SecureField("", text: $viewModel.confirmPasswordText)
+                            .disableAutocorrection(true)
                             .textInputAutocapitalization(.never)
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
@@ -154,37 +119,44 @@ struct RegistrationView: View {
                                 focusedField = .birthDate
                             }
 
-                        TextField("", text: $viewModel.birthDateAsString)
-                            .textInputAutocapitalization(.never)
-                            .submitLabel(.next)
-                            .modifier(BodySmallModifier())
-                            .textFieldStyle(
-                                TextFieldWithValidationStyle(
-                                    validationState: viewModel.isBirthDateValid,
-                                    isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
-                                    placeholderText: R.string.localizable.birthDate()
+                        HStack {
+                            TextField("", text: $viewModel.birthDateAsString)
+                                .textInputAutocapitalization(.never)
+                                .submitLabel(.next)
+                                .modifier(BodySmallModifier())
+                                .textFieldStyle(
+                                    TextFieldWithValidationStyle(
+                                        validationState: viewModel.isBirthDateValid,
+                                        isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
+                                        placeholderText: R.string.localizable.birthDate()
+                                    )
                                 )
-                            )
-                            .focused($focusedField, equals: .birthDate)
-                            .disabled(true)
-                            .simultaneousGesture(TapGesture().onEnded {
-                                focusedField = nil
-                                viewModel.isDatePickerDisplaying.toggle()
-                            })
+                                .focused($focusedField, equals: .birthDate)
+                                .disabled(true)
+
+                            Spacer()
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            focusedField = nil
+                            viewModel.isDatePickerDisplaying.toggle()
+                        }
 
                         if isDatePickerDisplaying {
                             DatePicker(
                                 R.string.localizable.birthDate(),
-                                selection: $viewModel.birthDate,
+                                selection: Binding<Date>(
+                                    get: {viewModel.birthDate ?? Date()},
+                                    set: {viewModel.birthDate = $0}
+                                ),
                                 in: ...Date(),
                                 displayedComponents: [.date]
                             )
                             .datePickerStyle(.graphical)
-                            .id(datepickerId)
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     withAnimation {
-                                        proxy.scrollTo(datepickerId, anchor: .bottom)
+                                        proxy.scrollTo(genderPickerId)
                                     }
                                 }
                             }
@@ -204,13 +176,14 @@ struct RegistrationView: View {
                                 .tag(GenderTypeEnum.female)
                         }
                         .pickerStyle(.segmented)
+                        .id(genderPickerId)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8).stroke().foregroundColor(
                                 Color(uiColor: R.color.gray() ?? .gray
                                 )
                             )
                         )
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 150)
                     }
                     .padding(.leading, 1)
                     .padding(.trailing, 1)
@@ -288,6 +261,11 @@ struct RegistrationView: View {
             isProgressViewShowing = viewModel.isProgressViewShowing
             areFieldsValid = viewModel.areFieldsValid
             isDatePickerDisplaying = viewModel.isDatePickerDisplaying
+
+            setAppearance()
+        }
+        .onDisappear {
+            removeAppearance()
         }
         .onReceive(viewModel.$isProgressViewShowing) { value in
             withAnimation(.default) {
@@ -304,6 +282,60 @@ struct RegistrationView: View {
                 self.isDatePickerDisplaying = value
             }
         }
+    }
+
+    private func setAppearance() {
+        UIDatePicker.appearance().tintColor = R.color.accent() ?? .orange
+        UIDatePicker.appearance().backgroundColor = R.color.darkAccent() ?? .black
+
+        let font = R.font.ibmPlexSansRegular(size: 14) ?? .systemFont(ofSize: 14)
+
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [.foregroundColor: R.color.grayFaded() ?? .gray, NSAttributedString.Key.font: font], for: .normal
+        )
+
+        let defaultSize = CGSize(width: 20, height: 15)
+
+        let tintColorImage = UIImage(color: R.color.accent() ?? .orange, size: defaultSize)
+        UISegmentedControl.appearance().setBackgroundImage(
+            UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default
+        )
+        UISegmentedControl.appearance().setBackgroundImage(
+            tintColorImage, for: .selected, barMetrics: .default
+        )
+        UISegmentedControl.appearance().setBackgroundImage(
+            UIImage(color: (R.color.accent() ?? .orange).withAlphaComponent(0.2),
+                    size: defaultSize),
+            for: .highlighted, barMetrics: .default
+        )
+        UISegmentedControl.appearance().setBackgroundImage(
+            tintColorImage, for: [.highlighted, .selected], barMetrics: .default
+        )
+
+        UISegmentedControl.appearance().setDividerImage(
+            UIImage(color: R.color.gray() ?? .gray,
+                    size: CGSize(width: 0.5, height: 15)),
+            forLeftSegmentState: .normal,
+            rightSegmentState: .normal,
+            barMetrics: .default
+        )
+    }
+
+    private func removeAppearance() {
+        UIDatePicker.appearance().tintColor = nil
+        UIDatePicker.appearance().backgroundColor = nil
+
+        UISegmentedControl.appearance().setBackgroundImage(
+            nil,
+            for: [.normal, .highlighted, .selected],
+            barMetrics: .default
+        )
+        UISegmentedControl.appearance().setDividerImage(
+            nil,
+            forLeftSegmentState: .normal,
+            rightSegmentState: .normal,
+            barMetrics: .default
+        )
     }
 }
 

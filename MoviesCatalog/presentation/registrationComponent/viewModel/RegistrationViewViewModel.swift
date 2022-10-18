@@ -14,7 +14,7 @@ class RegistrationViewViewModel: ObservableObject {
     @Published var nameText = ""
     @Published var passwordText = ""
     @Published var confirmPasswordText = ""
-    @Published var birthDate = Date.now
+    @Published var birthDate: Date?
     @Published var birthDateAsString = ""
     @Published var gender: GenderTypeEnum = .none
 
@@ -127,6 +127,10 @@ class RegistrationViewViewModel: ObservableObject {
         $birthDate.sink { [self] value in
             self.isBirthDateValid = true
 
+            guard let value = value else {
+                return
+            }
+
             birthDateAsString = dateFormatter.string(from: value)
 
             validateFields()
@@ -137,7 +141,11 @@ class RegistrationViewViewModel: ObservableObject {
         $gender.sink { [self] _ in
             self.isGenderValid = true
 
-            validateFields()
+            // When the property changes, publishing occurs in the property’s willSet block, meaning
+            // subscribers receive the new value before it’s actually set on the property.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.validateFields()
+            }
         }.store(in: &subscribers)
     }
 
@@ -217,6 +225,10 @@ class RegistrationViewViewModel: ObservableObject {
 
     func register() {
         if validateFields() {
+            guard let birthDate = birthDate else {
+                return
+            }
+
             isProgressViewShowing = true
 
             registerUseCase.execute(
@@ -246,5 +258,18 @@ class RegistrationViewViewModel: ObservableObject {
                 }
             }
         }
+    }
+
+    func resetDisplayingData() {
+        resetValidationState()
+
+        usernameText = ""
+        emailText = ""
+        nameText = ""
+        passwordText = ""
+        confirmPasswordText = ""
+        birthDate = Date.now
+        birthDateAsString = ""
+        gender = .none
     }
 }

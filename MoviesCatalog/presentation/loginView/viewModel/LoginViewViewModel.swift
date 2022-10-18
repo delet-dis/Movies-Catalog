@@ -28,4 +28,9 @@ class LoginViewViewModel: ObservableObject {
     func dispalyRegistration() {
         loginViewDisplayingMode = .registration
     }
+
+    func resetDisplayingData() {
+        authorizationComponent?.authorizationViewViewModel.resetDisplayingData()
+        registrationComponent?.registrationViweViewModel.resetDisplayingData()
+    }
 }

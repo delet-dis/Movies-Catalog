@@ -61,6 +61,9 @@ struct LoginView: View {
         .onAppear {
             displayingMode = viewModel.loginViewDisplayingMode
         }
+        .onDisappear {
+            viewModel.resetDisplayingData()
+        }
         .onReceive(viewModel.$loginViewDisplayingMode) { value in
             withAnimation(.easeInOut(duration: 0.3)) {
                 self.displayingMode = value

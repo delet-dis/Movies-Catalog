@@ -8,7 +8,7 @@
 import Foundation
 
 class LoginViewViewModel: ObservableObject {
-    @Published private(set) var loginViewDisplayingMode = LoginViewDisplayingMode.authorization
+    @Published private(set) var loginViewDisplayingMode = LoginViewDisplayingModeEnum.authorization
 
     let authorizationComponent: AuthorizationComponent?
     let registrationComponent: RegistrationComponent?

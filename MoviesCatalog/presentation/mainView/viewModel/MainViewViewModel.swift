@@ -9,7 +9,7 @@ import Foundation
 import SwiftyUserDefaults
 
 class MainViewViewModel: ObservableObject {
-    @Published private(set) var mainViewDispalyingMode: MainViewDisaplyingMode = .authorization
+    @Published private(set) var mainViewDispalyingMode: MainViewDisaplyingModeEnum = .authorization
     @Published private(set) var isSplashDisplaying = true
 
     @Published var isAlertShowing = false

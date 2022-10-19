@@ -13,7 +13,6 @@ target 'MoviesCatalog' do
   pod 'NeedleFoundation'
   pod 'SPAlert'
   pod 'SwiftyUserDefaults', '~> 5.0'
-
 end
 
 post_install do |installer|

@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject private var viewModel: LoginViewViewModel
 
-    @State private var displayingMode = LoginViewDisplayingMode.authorization
+    @State private var displayingMode = LoginViewDisplayingModeEnum.authorization
 
     var body: some View {
         VStack {

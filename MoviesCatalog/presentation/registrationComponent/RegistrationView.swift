@@ -222,12 +222,12 @@ struct RegistrationView: View {
                 .background(areFieldsValid ?
                     Color(uiColor: R.color.accent() ?? .orange) :
                     .gray.opacity(0))
-                .cornerRadius(10)
+                .cornerRadius(4)
                 .overlay(
                     areFieldsValid ?
                         nil :
                         RoundedRectangle(
-                            cornerRadius: 10
+                            cornerRadius: 4
                         ).stroke().foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
                 )
 

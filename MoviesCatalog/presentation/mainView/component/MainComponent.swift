@@ -88,11 +88,18 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var homeComponent: HomeComponent {
+        shared {
+            HomeComponent(parent: self)
+        }
+    }
+
     var mainViewViewModel: MainViewViewModel {
         shared {
             MainViewViewModel(
+                getAuthStatusUseCase: getAuthStatusUseCase,
                 loginComponent: loginComponent,
-                getAuthStatusUseCase: getAuthStatusUseCase
+                homeComponent: homeComponent
             )
         }
     }

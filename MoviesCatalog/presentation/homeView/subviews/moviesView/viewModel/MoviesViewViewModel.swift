@@ -8,7 +8,7 @@
 import Foundation
 
 class MoviesViewViewModel: ObservableObject {
-    @Published private(set) var headerMovie: DisplayingMovie?
+    @Published private(set) var displayingHeaderMovie: DisplayingMovie?
     @Published private(set) var displayingMovies: [DisplayingMovie] = []
     @Published private(set) var displayingFavoriteMovies: [DisplayingFavotireMovie] = []
 }

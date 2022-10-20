@@ -26,6 +26,7 @@ struct LoginView: View {
                             62
                     )
                     .padding(.top, 32)
+                    .zIndex(1)
             }
 
             switch displayingMode {

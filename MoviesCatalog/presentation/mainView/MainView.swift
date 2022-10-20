@@ -20,7 +20,7 @@ struct MainView: View {
             case .authorization:
                 viewModel.loginComponent?.loginView
             case .homeScreen:
-                Text("Home")
+                viewModel.homeComponent?.homeView
             }
 
             SplashView()

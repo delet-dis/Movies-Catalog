@@ -13,9 +13,9 @@ struct MoviesView: View {
     var body: some View {
         ScrollView {
             VStack {
-                HeaderMovieView(displayingMovie: viewModel.headerMovie)
+                HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
 
-                if viewModel.displayingFavoriteMovies.count > 0 {
+                if !viewModel.displayingFavoriteMovies.isEmpty {
                     FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
                 }
 

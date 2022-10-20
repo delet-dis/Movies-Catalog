@@ -15,7 +15,9 @@ struct MoviesView: View {
             VStack {
                 HeaderMovieView(displayingMovie: viewModel.headerMovie)
 
-                FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
+                if viewModel.displayingFavoriteMovies.count > 0 {
+                    FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
+                }
 
                 MoviesListView(displayingMovies: viewModel.displayingMovies)
 

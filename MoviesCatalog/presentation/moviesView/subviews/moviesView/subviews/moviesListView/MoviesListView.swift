@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoviesListView: View {
     var displayingMovies: [DisplayingMovie]
+    var requestNewMoviesClosure: (() -> Void)?
 
     var body: some View {
         VStack {
@@ -22,8 +23,13 @@ struct MoviesListView: View {
             .padding(.bottom, 8)
 
             LazyVStack(spacing: 16) {
-                ForEach(displayingMovies, id: \.self.id) { movie in
+                ForEach(Array(displayingMovies.enumerated()), id: \.element.id) { index, movie in
                     MoviesListItemView(displayingMovie: movie)
+                        .onAppear {
+                            if index == displayingMovies.count - 1 {
+                                requestNewMoviesClosure?()
+                            }
+                        }
                 }
             }
         }

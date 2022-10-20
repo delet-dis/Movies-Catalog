@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
 
-  /// This `R.color` struct is generated, and contains static references to 7 colors.
+  /// This `R.color` struct is generated, and contains static references to 9 colors.
   struct color {
     /// Color `Accent Faded`.
     static let accentFaded = Rswift.ColorResource(bundle: R.hostingBundle, name: "Accent Faded")
@@ -105,6 +105,10 @@ struct R: Rswift.Validatable {
     static let grayFaded = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray Faded")
     /// Color `Gray`.
     static let gray = Rswift.ColorResource(bundle: R.hostingBundle, name: "Gray")
+    /// Color `Shade2`.
+    static let shade2 = Rswift.ColorResource(bundle: R.hostingBundle, name: "Shade2")
+    /// Color `Shade4`.
+    static let shade4 = Rswift.ColorResource(bundle: R.hostingBundle, name: "Shade4")
 
     #if os(iOS) || os(tvOS)
     /// `UIColor(named: "Accent Faded", bundle: ..., traitCollection: ...)`
@@ -169,6 +173,24 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Shade2", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func shade2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.shade2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "Shade4", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func shade4(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.shade4, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
     /// `UIColor(named: "Accent Faded", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
@@ -222,6 +244,22 @@ struct R: Rswift.Validatable {
     @available(watchOSApplicationExtension 4.0, *)
     static func gray(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.gray.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Shade2", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func shade2(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.shade2.name)
+    }
+    #endif
+
+    #if os(watchOS)
+    /// `UIColor(named: "Shade4", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func shade4(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.shade4.name)
     }
     #endif
 
@@ -317,7 +355,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
     struct localizable {
       /// en translation: Authorization error
       ///
@@ -335,10 +373,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let email = Rswift.StringResource(key: "email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Favorites
+      ///
+      /// Locales: en, ru
+      static let favorites = Rswift.StringResource(key: "favorites", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Female
       ///
       /// Locales: en, ru
       static let female = Rswift.StringResource(key: "female", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static let gallery = Rswift.StringResource(key: "gallery", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: I have an account
       ///
       /// Locales: en, ru
@@ -403,6 +449,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let username = Rswift.StringResource(key: "username", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Watch
+      ///
+      /// Locales: en, ru
+      static let watch = Rswift.StringResource(key: "watch", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
 
       /// en translation: Authorization error
       ///
@@ -464,6 +514,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("email", bundle: bundle, comment: "")
       }
 
+      /// en translation: Favorites
+      ///
+      /// Locales: en, ru
+      static func favorites(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("favorites", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "favorites"
+        }
+
+        return NSLocalizedString("favorites", bundle: bundle, comment: "")
+      }
+
       /// en translation: Female
       ///
       /// Locales: en, ru
@@ -477,6 +542,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("female", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Gallery
+      ///
+      /// Locales: en, ru
+      static func gallery(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("gallery", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "gallery"
+        }
+
+        return NSLocalizedString("gallery", bundle: bundle, comment: "")
       }
 
       /// en translation: I have an account
@@ -717,6 +797,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("username", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Watch
+      ///
+      /// Locales: en, ru
+      static func watch(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("watch", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "watch"
+        }
+
+        return NSLocalizedString("watch", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

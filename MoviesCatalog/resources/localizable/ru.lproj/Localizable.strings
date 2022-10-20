@@ -30,3 +30,7 @@
 
 "pleaseEnterValidUsername" = "Имя пользователя введено неверно";
 "pleaseEnterValidPassword" = "Пароль введен неверно";
+
+"watch" = "Смотреть";
+"favorites" = "Избранное";
+"gallery" = "Галерея";

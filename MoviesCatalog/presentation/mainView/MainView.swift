@@ -11,7 +11,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject private var viewModel: MainViewViewModel
 
-    @State private var displayingMode = MainViewDisaplyingMode.authorization
+    @State private var displayingMode = MainViewDisaplyingModeEnum.authorization
     @State private var isSplashDisplaying = true
 
     var body: some View {

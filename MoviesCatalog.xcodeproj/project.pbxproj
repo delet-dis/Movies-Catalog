@@ -86,6 +86,10 @@
 		30F3884028FFE3F700346326 /* CollectionViewPagingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 30F3883F28FFE3F700346326 /* CollectionViewPagingLayout */; };
 		30F3884328FFE46600346326 /* FavoriteMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3884228FFE46600346326 /* FavoriteMovieView.swift */; };
 		30F3884528FFE47600346326 /* DisplayingFavotireMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3884428FFE47600346326 /* DisplayingFavotireMovie.swift */; };
+		30F388482900FA3800346326 /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388472900FA3800346326 /* MoviesListView.swift */; };
+		30F3884D2900FB0300346326 /* MoviesListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3884C2900FB0300346326 /* MoviesListItemView.swift */; };
+		30F3884F290105AC00346326 /* FlexboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3884E290105AC00346326 /* FlexboxView.swift */; };
+		30F388522901106F00346326 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30F388512901106F00346326 /* SkeletonUI */; };
 		5F4F60AE344DAB8B1E8E095A /* Pods_MoviesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +175,9 @@
 		30F3883C28FFE2F500346326 /* FavoriteMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesView.swift; sourceTree = "<group>"; };
 		30F3884228FFE46600346326 /* FavoriteMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieView.swift; sourceTree = "<group>"; };
 		30F3884428FFE47600346326 /* DisplayingFavotireMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingFavotireMovie.swift; sourceTree = "<group>"; };
+		30F388472900FA3800346326 /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
+		30F3884C2900FB0300346326 /* MoviesListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListItemView.swift; sourceTree = "<group>"; };
+		30F3884E290105AC00346326 /* FlexboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexboxView.swift; sourceTree = "<group>"; };
 		3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6221C9CF5D08C0234E8E3DC /* Pods-MoviesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.release.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		E812D7F72D4ED032809EFF4E /* Pods-MoviesCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F60AE344DAB8B1E8E095A /* Pods_MoviesCatalog.framework in Frameworks */,
+				30F388522901106F00346326 /* SkeletonUI in Frameworks */,
 				30F3884028FFE3F700346326 /* CollectionViewPagingLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,6 +692,7 @@
 		30F3881F28FFC18A00346326 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				30F388492900FA5200346326 /* moviesListView */,
 				30F3884128FFE45500346326 /* favoriteMoviesView */,
 				30F3882228FFC1C400346326 /* HeaderMovieView.swift */,
 			);
@@ -704,6 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				30F3883828FFD38200346326 /* RatingView.swift */,
+				30F3884E290105AC00346326 /* FlexboxView.swift */,
 			);
 			path = subviews;
 			sourceTree = "<group>";
@@ -711,10 +721,35 @@
 		30F3884128FFE45500346326 /* favoriteMoviesView */ = {
 			isa = PBXGroup;
 			children = (
+				30F3884A2900FA7200346326 /* subviews */,
 				30F3883C28FFE2F500346326 /* FavoriteMoviesView.swift */,
-				30F3884228FFE46600346326 /* FavoriteMovieView.swift */,
 			);
 			path = favoriteMoviesView;
+			sourceTree = "<group>";
+		};
+		30F388492900FA5200346326 /* moviesListView */ = {
+			isa = PBXGroup;
+			children = (
+				30F3884B2900FA8500346326 /* subviews */,
+				30F388472900FA3800346326 /* MoviesListView.swift */,
+			);
+			path = moviesListView;
+			sourceTree = "<group>";
+		};
+		30F3884A2900FA7200346326 /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				30F3884228FFE46600346326 /* FavoriteMovieView.swift */,
+			);
+			path = subviews;
+			sourceTree = "<group>";
+		};
+		30F3884B2900FA8500346326 /* subviews */ = {
+			isa = PBXGroup;
+			children = (
+				30F3884C2900FB0300346326 /* MoviesListItemView.swift */,
+			);
+			path = subviews;
 			sourceTree = "<group>";
 		};
 		3A9111821407A0F7C8B91F28 /* Pods */ = {
@@ -757,6 +792,7 @@
 			name = MoviesCatalog;
 			packageProductDependencies = (
 				30F3883F28FFE3F700346326 /* CollectionViewPagingLayout */,
+				30F388512901106F00346326 /* SkeletonUI */,
 			);
 			productName = MoviesCatalog;
 			productReference = 30B9697928FAACF00026E190 /* Movie Catalog.app */;
@@ -789,6 +825,7 @@
 			mainGroup = 30B9697028FAACF00026E190;
 			packageReferences = (
 				30F3883E28FFE3F700346326 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
+				30F388502901106F00346326 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			productRefGroup = 30B9697A28FAACF00026E190 /* Products */;
 			projectDirPath = "";
@@ -962,8 +999,10 @@
 				300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */,
 				30F3882328FFC1C400346326 /* HeaderMovieView.swift in Sources */,
 				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
+				30F3884F290105AC00346326 /* FlexboxView.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
 				30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */,
+				30F388482900FA3800346326 /* MoviesListView.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
 				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
@@ -979,6 +1018,7 @@
 				3005412C28FB197200D6CD6F /* LogoutUseCase.swift in Sources */,
 				3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */,
 				30F3883B28FFDB7900346326 /* ColorExtensions.swift in Sources */,
+				30F3884D2900FB0300346326 /* MoviesListItemView.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
 				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
 				30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */,
@@ -1228,6 +1268,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		30F388502901106F00346326 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1235,6 +1283,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30F3883E28FFE3F700346326 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */;
 			productName = CollectionViewPagingLayout;
+		};
+		30F388512901106F00346326 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30F388502901106F00346326 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

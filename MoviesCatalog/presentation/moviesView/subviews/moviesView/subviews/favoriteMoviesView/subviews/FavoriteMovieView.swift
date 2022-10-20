@@ -5,16 +5,17 @@
 //  Created by Igor Efimov on 19.10.2022.
 //
 
+import SkeletonUI
 import SwiftUI
 
 struct FavoriteMovieView: View {
-    var disaplyingFavoriteMovie: DisplayingFavotireMovie
+    var displayingFavoriteMovie: DisplayingFavotireMovie
 
     var body: some View {
         Button {
-            disaplyingFavoriteMovie.tapClosure?()
+            displayingFavoriteMovie.tapClosure?()
         } label: {
-            AsyncImage(url: URL(string: disaplyingFavoriteMovie.movie.poster)) { image in
+            AsyncImage(url: URL(string: displayingFavoriteMovie.movie.poster)) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -26,7 +27,7 @@ struct FavoriteMovieView: View {
                                 Spacer()
 
                                 Button {
-                                    disaplyingFavoriteMovie.removeClosure?()
+                                    displayingFavoriteMovie.removeClosure?()
                                 } label: {
                                     ZStack {
                                         Circle()
@@ -51,16 +52,20 @@ struct FavoriteMovieView: View {
                     }
 
             } placeholder: {
-                ProgressView()
+                Rectangle()
+                    .skeleton(with: true)
+                    .shape(type: .rectangle)
+                    .frame(width: 99, height: 144)
             }
-            .cornerRadius(8)        }
+            .cornerRadius(8)
+        }
     }
 }
 
 struct FavoriteMovieView_Previews: PreviewProvider {
     static var previews: some View {
         FavoriteMovieView(
-            disaplyingFavoriteMovie: DisplayingFavotireMovie(
+            displayingFavoriteMovie: DisplayingFavotireMovie(
                 movie: MockDataHelper.getMockMovie(),
                 tapClosure: nil,
                 removeClosure: nil

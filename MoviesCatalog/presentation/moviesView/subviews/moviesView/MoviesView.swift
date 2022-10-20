@@ -11,10 +11,16 @@ struct MoviesView: View {
     @EnvironmentObject private var viewModel: MoviesViewViewModel
 
     var body: some View {
-        VStack {
-            HeaderMovieView(displayingMovie: viewModel.displayingMovies.first)
+        ScrollView {
+            VStack {
+                HeaderMovieView(displayingMovie: viewModel.headerMovie)
 
-            Spacer()
+                FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
+
+                MoviesListView(displayingMovies: viewModel.displayingMovies)
+
+                Spacer()
+            }
         }
         .ignoresSafeArea()
     }

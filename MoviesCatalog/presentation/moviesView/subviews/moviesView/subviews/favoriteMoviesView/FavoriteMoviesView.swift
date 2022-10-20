@@ -50,7 +50,7 @@ struct FavoriteMoviesView: View {
             .padding(.leading, 16)
 
             ScalePageView(displayingFavotireMovies) { item in
-                FavoriteMovieView(disaplyingFavoriteMovie: item)
+                FavoriteMovieView(displayingFavoriteMovie: item)
             }
             .options(scaleOptions)
             .pagePadding(

@@ -50,7 +50,10 @@ struct HeaderMovieView: View {
                     }
 
             } placeholder: {
-                ProgressView()
+                Rectangle()
+                    .skeleton(with: true)
+                    .shape(type: .rectangle)
+                    .frame(height: 400)
             }
             .ignoresSafeArea()
         }

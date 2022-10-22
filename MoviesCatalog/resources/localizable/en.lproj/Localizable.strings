@@ -34,3 +34,5 @@
 "watch" = "Watch";
 "favorites" = "Favorites";
 "gallery" = "Gallery";
+
+"sessionIsExpired" = "Session in expired.\nPlease login again";

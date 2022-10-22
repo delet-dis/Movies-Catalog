@@ -10,16 +10,23 @@ import SwiftUI
 struct RatingView: View {
     var rating: Double
 
+    @State var ratingColor: Color = .gray
+
     var body: some View {
         ZStack {
-            Text(String(rating))
+            Text(!rating.isNaN ? String(format: "%.1f", rating) : "-")
+                .foregroundColor(ratingColor)
+                .brightness(-0.3)
                 .modifier(BodyModifier())
                 .padding(.horizontal, 16)
                 .padding(.vertical, 4)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(Color.getRatingColor(rating))
+                        .foregroundColor(ratingColor)
                 }
+        }
+        .onAppear {
+            ratingColor = !rating.isNaN ? Color.getRatingColor(rating) : .gray
         }
     }
 }

@@ -76,9 +76,59 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var favoritesRepository: FavoritesRepository {
+        shared {
+            FavoritesRepositoryImpl(
+                jsonDecoder: jsonDecoder,
+                jsonEncoder: jsonEncoder,
+                logoutUseCase: logoutUseCase
+            )
+        }
+    }
+
+    var getFavoritesUseCase: GetFavoritesUseCase {
+        shared {
+            GetFavoritesUseCase(favoritesRepository: favoritesRepository)
+        }
+    }
+
+    var addFavoriteUseCase: AddFavoriteUseCase {
+        shared {
+            AddFavoriteUseCase(favoritesRepository: favoritesRepository)
+        }
+    }
+
+    var deleteFavoriteUseCase: DeleteFavoriteUseCase {
+        shared {
+            DeleteFavoriteUseCase(favoritesRepository: favoritesRepository)
+        }
+    }
+
+    var moviesRepository: MoviesRepositoryImpl {
+        shared {
+            MoviesRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
+
+    var loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase {
+        shared {
+            LoadMoviesAtPositionUseCase(moviesRepository: moviesRepository)
+        }
+    }
+
+    var loadMovieDetailsUseCase: LoadMovieDetailsUseCase {
+        shared {
+            LoadMovieDetailsUseCase(moviesRepository: moviesRepository)
+        }
+    }
+
     var logoutUseCase: LogoutUseCase {
         shared {
-            LogoutUseCase(authRepository: authRepository)
+            LogoutUseCase(
+                authRepository: authRepository,
+                saveAuthStatusUseCase: saveAuthStatusUseCase,
+                saveTokenUseCase: saveTokenUseCase
+            )
         }
     }
 

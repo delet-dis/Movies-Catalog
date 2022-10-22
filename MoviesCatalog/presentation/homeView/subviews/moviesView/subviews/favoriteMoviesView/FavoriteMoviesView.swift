@@ -12,9 +12,9 @@ struct FavoriteMoviesView: View {
     var displayingFavotireMovies: [DisplayingFavotireMovie]
 
     var scaleOptions = ScaleTransformViewOptions(
-        minScale: 0.60,
+        minScale: 0.83,
         maxScale: 1.00,
-        scaleRatio: 0.40,
+        scaleRatio: 0.17,
         translationRatio: .init(x: 0.61, y: 0.27),
         minTranslationRatio: .init(x: -5.00, y: -5.00),
         maxTranslationRatio: .init(x: 2.00, y: 0.00),
@@ -39,7 +39,7 @@ struct FavoriteMoviesView: View {
     )
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             HStack {
                 Text(R.string.localizable.favorites())
                     .modifier(H1Modifier())
@@ -54,7 +54,7 @@ struct FavoriteMoviesView: View {
             }
             .options(scaleOptions)
             .pagePadding(
-                horizontal: .absolute(150)
+                horizontal: .absolute(120)
             )
         }
         .frame(height: 212)
@@ -68,7 +68,7 @@ struct FavoriteMoviesView_Previews: PreviewProvider {
                 DisplayingFavotireMovie(
                     movie: MockDataHelper.getMockMovie(),
                     tapClosure: nil,
-                    removeClosure: nil
+                    deleteClosure: nil
                 )
             ].repeated(count: 5)
         )

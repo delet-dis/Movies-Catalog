@@ -8,10 +8,14 @@
 import Foundation
 import Alamofire
 
-class AppConstants {
+class NetworkingConstants {
     static let baseUrl = "https://react-midterm.kreosoft.space"
 
-    static let networkingHeaders: HTTPHeaders = [
+    static let headers: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
+
+    static let unauthorizedStatusCode = 401
+
+    static let timeout = TimeInterval(10)
 }

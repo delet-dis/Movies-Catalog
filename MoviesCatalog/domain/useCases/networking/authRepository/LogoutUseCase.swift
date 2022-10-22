@@ -14,12 +14,23 @@ protocol LogoutUseCaseDependency: Dependency {
 
 class LogoutUseCase {
     private let authRepository: AuthRepository
+    private let saveAuthStatusUseCase: SaveAuthStatusUseCase
+    private let saveTokenUseCase: SaveTokenUseCase
 
-    init(authRepository: AuthRepository) {
+    init(
+        authRepository: AuthRepository,
+        saveAuthStatusUseCase: SaveAuthStatusUseCase,
+        saveTokenUseCase: SaveTokenUseCase
+    ) {
         self.authRepository = authRepository
+        self.saveAuthStatusUseCase = saveAuthStatusUseCase
+        self.saveTokenUseCase = saveTokenUseCase
     }
 
-    func execute(request: LogoutRequest, completion: ((Result<LogoutResponse, Error>) -> Void)? = nil) {
-        authRepository.logout(request: request, completion: completion)
+    func execute(completion: ((Result<LogoutResponse, Error>) -> Void)? = nil) {
+        authRepository.logout(completion: completion)
+
+        saveAuthStatusUseCase.execute(isAuthorized: false)
+        saveTokenUseCase.execute(token: "")
     }
 }

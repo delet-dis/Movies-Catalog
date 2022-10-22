@@ -355,7 +355,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
     struct localizable {
       /// en translation: Authorization error
       ///
@@ -429,6 +429,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let registration = Rswift.StringResource(key: "registration", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Session in expired. Please login again
+      ///
+      /// Locales: en, ru
+      static let sessionIsExpired = Rswift.StringResource(key: "sessionIsExpired", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Unable to get data
       ///
       /// Locales: en, ru
@@ -722,6 +726,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("registration", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Session in expired. Please login again
+      ///
+      /// Locales: en, ru
+      static func sessionIsExpired(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("sessionIsExpired", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "sessionIsExpired"
+        }
+
+        return NSLocalizedString("sessionIsExpired", bundle: bundle, comment: "")
       }
 
       /// en translation: Unable to get data

@@ -67,26 +67,16 @@ class AuthRepositoryImpl: AuthRepository {
         }
     }
 
-    func logout(request: LogoutRequest, completion: ((Result<LogoutResponse, Error>) -> Void)?) {
-        do {
-            let encodedParameters = try jsonEncoder.encode(request)
-            let parameters = try JSONSerialization.jsonObject(
-                with: encodedParameters, options: .allowFragments
-            ) as? [String: Any]
-
-            AF.request(
-                Self.url + "logout",
-                method: .post,
-                parameters: parameters,
-                encoding: JSONEncoding.default,
-                headers: AppConstants.networkingHeaders
-            ) { $0.timeoutInterval = Self.timeout }
-                .validate()
-                .response { [self] result in
-                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
-                }
-        } catch {
-            completion?(.failure(error))
-        }
+    func logout(completion: ((Result<LogoutResponse, Error>) -> Void)?) {
+        AF.request(
+            Self.url + "logout",
+            method: .post,
+            encoding: JSONEncoding.default,
+            headers: AppConstants.networkingHeaders
+        ) { $0.timeoutInterval = Self.timeout }
+            .validate()
+            .response { [self] result in
+                result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+            }
     }
 }

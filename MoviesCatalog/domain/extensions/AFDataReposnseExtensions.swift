@@ -9,9 +9,21 @@ import Alamofire
 import Foundation
 
 extension AFDataResponse {
-    func processResult<T: Codable>(jsonDecoder: JSONDecoder, completion: ((Result<T, Error>) -> Void)?) {
+    func processResult<T: Codable>(
+        jsonDecoder: JSONDecoder,
+        completion: ((Result<T, Error>) -> Void)?,
+        logoutUseCase: LogoutUseCase? = nil
+    ) {
         if let underlyingError = self.error?.asAFError?.underlyingError {
             completion?(.failure(underlyingError))
+
+            return
+        }
+
+        if self.response?.statusCode == AppConstants.unauthorizedStatusCode {
+            logoutUseCase?.execute { _ in
+                completion?(.failure(NetworkingErrorsEnum.sessionIsExpired))
+            }
 
             return
         }
@@ -30,12 +42,16 @@ extension AFDataResponse {
                     completion?(.failure(
                         NSError.createErrorWithLocalizedDescription(errorTitle)
                     ))
+
+                    return
                 }
 
                 if let errorMessage = decodedError.message {
                     completion?(.failure(
                         NSError.createErrorWithLocalizedDescription(errorMessage)
                     ))
+
+                    return
                 }
             } catch {
                 completion?(.failure(NetworkingErrorsEnum.unableToGetData))

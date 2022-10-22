@@ -71,15 +71,23 @@ private func factory9bc7b43729f663f09312e3b0c44298fc1c149afb(_ component: Needle
     return HomeComponentDependency887e91671f4424758155Provider()
 }
 private class MoviesComponentDependencyc4af3944b260ec3bd2b5Provider: MoviesComponentDependency {
-
-
-    init() {
-
+    var getTokenUseCase: GetTokenUseCase {
+        return mainComponent.getTokenUseCase
+    }
+    var getFavoritesUseCase: GetFavoritesUseCase {
+        return mainComponent.getFavoritesUseCase
+    }
+    var deleteFavoriteUseCase: DeleteFavoriteUseCase {
+        return mainComponent.deleteFavoriteUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->HomeComponent->MoviesComponent
-private func factoryf7325156a5bbfdeeb2f5e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return MoviesComponentDependencyc4af3944b260ec3bd2b5Provider()
+private func factoryf7325156a5bbfdeeb2f5f18a7758ab7ce8b9cf79(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MoviesComponentDependencyc4af3944b260ec3bd2b5Provider(mainComponent: parent2(component) as! MainComponent)
 }
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
 
@@ -116,7 +124,9 @@ extension HomeComponent: Registration {
 }
 extension MoviesComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\MoviesComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
+        keyPathToName[\MoviesComponentDependency.getFavoritesUseCase] = "getFavoritesUseCase-GetFavoritesUseCase"
+        keyPathToName[\MoviesComponentDependency.deleteFavoriteUseCase] = "deleteFavoriteUseCase-DeleteFavoriteUseCase"
     }
 }
 extension MainComponent: Registration {
@@ -150,7 +160,7 @@ private func register1() {
     registerProviderFactory("^->MainComponent->LoginComponent->AuthorizationComponent", factorya6199ac68a26a06ced8ff18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->LoginComponent->RegistrationComponent", factory43ef21cc81db779b06e1f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f09312e3b0c44298fc1c149afb)
-    registerProviderFactory("^->MainComponent->HomeComponent->MoviesComponent", factoryf7325156a5bbfdeeb2f5e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->HomeComponent->MoviesComponent", factoryf7325156a5bbfdeeb2f5f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }

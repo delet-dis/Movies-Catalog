@@ -27,7 +27,7 @@ struct FavoriteMovieView: View {
                                 Spacer()
 
                                 Button {
-                                    displayingFavoriteMovie.removeClosure?()
+                                    displayingFavoriteMovie.deleteClosure?()
                                 } label: {
                                     ZStack {
                                         Circle()
@@ -68,7 +68,7 @@ struct FavoriteMovieView_Previews: PreviewProvider {
             displayingFavoriteMovie: DisplayingFavotireMovie(
                 movie: MockDataHelper.getMockMovie(),
                 tapClosure: nil,
-                removeClosure: nil
+                deleteClosure: nil
             )
         )
     }

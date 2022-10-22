@@ -11,5 +11,5 @@ struct DisplayingFavotireMovie: Identifiable {
     let id = UUID().uuidString
     let movie: Movie
     let tapClosure: (() -> Void)?
-    let removeClosure: (() -> Void)?
+    let deleteClosure: (() -> Void)?
 }

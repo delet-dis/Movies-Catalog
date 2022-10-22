@@ -24,7 +24,6 @@
 		3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300540FF28FB073300D6CD6F /* AuthRepository.swift */; };
 		3005410528FB077200D6CD6F /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410428FB077200D6CD6F /* LoginRequest.swift */; };
 		3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410728FB07A600D6CD6F /* LoginResponse.swift */; };
-		3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410A28FB085100D6CD6F /* LogoutRequest.swift */; };
 		3005410D28FB086C00D6CD6F /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410C28FB086C00D6CD6F /* LogoutResponse.swift */; };
 		3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */; };
 		3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005411428FB09EB00D6CD6F /* RegisterResponse.swift */; };
@@ -90,6 +89,13 @@
 		30F3884F290105AC00346326 /* FlexboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3884E290105AC00346326 /* FlexboxView.swift */; };
 		30F388522901106F00346326 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30F388512901106F00346326 /* SkeletonUI */; };
 		30F388552901484D00346326 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388542901484D00346326 /* HomeViewViewModel.swift */; };
+		30F388682902996700346326 /* FavoritesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388672902996700346326 /* FavoritesRepository.swift */; };
+		30F3886B2902BC4A00346326 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3886A2902BC4A00346326 /* Favorites.swift */; };
+		30F3886D2903A54500346326 /* FavoritesRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3886C2903A54500346326 /* FavoritesRepositoryImpl.swift */; };
+		30F3886F2903AC6B00346326 /* VoidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F3886E2903AC6B00346326 /* VoidResponse.swift */; };
+		30F388722903B40B00346326 /* GetFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388712903B40B00346326 /* GetFavoritesUseCase.swift */; };
+		30F388742903C95500346326 /* AddFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388732903C95500346326 /* AddFavoriteUseCase.swift */; };
+		30F388762903CA5000346326 /* DeleteFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F388752903CA5000346326 /* DeleteFavoriteUseCase.swift */; };
 		5F4F60AE344DAB8B1E8E095A /* Pods_MoviesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +117,6 @@
 		300540FF28FB073300D6CD6F /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		3005410428FB077200D6CD6F /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		3005410728FB07A600D6CD6F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		3005410A28FB085100D6CD6F /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
 		3005410C28FB086C00D6CD6F /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3005410F28FB08DC00D6CD6F /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		3005411428FB09EB00D6CD6F /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
@@ -178,6 +183,13 @@
 		30F3884C2900FB0300346326 /* MoviesListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListItemView.swift; sourceTree = "<group>"; };
 		30F3884E290105AC00346326 /* FlexboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexboxView.swift; sourceTree = "<group>"; };
 		30F388542901484D00346326 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		30F388672902996700346326 /* FavoritesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepository.swift; sourceTree = "<group>"; };
+		30F3886A2902BC4A00346326 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		30F3886C2903A54500346326 /* FavoritesRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRepositoryImpl.swift; sourceTree = "<group>"; };
+		30F3886E2903AC6B00346326 /* VoidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidResponse.swift; sourceTree = "<group>"; };
+		30F388712903B40B00346326 /* GetFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesUseCase.swift; sourceTree = "<group>"; };
+		30F388732903C95500346326 /* AddFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteUseCase.swift; sourceTree = "<group>"; };
+		30F388752903CA5000346326 /* DeleteFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteUseCase.swift; sourceTree = "<group>"; };
 		3889655ECF9999C858E1162D /* Pods_MoviesCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6221C9CF5D08C0234E8E3DC /* Pods-MoviesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.release.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		E812D7F72D4ED032809EFF4E /* Pods-MoviesCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesCatalog.debug.xcconfig"; path = "Target Support Files/Pods-MoviesCatalog/Pods-MoviesCatalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,9 +352,11 @@
 		3005410228FB075B00D6CD6F /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				30F38869290299D800346326 /* favorites */,
 				30F3882428FFC2EA00346326 /* movie */,
 				3005410328FB076000D6CD6F /* auth */,
 				3005413828FC591D00D6CD6F /* NetworkingError.swift */,
+				30F3886E2903AC6B00346326 /* VoidResponse.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -369,7 +383,6 @@
 		3005410928FB083D00D6CD6F /* logout */ = {
 			isa = PBXGroup;
 			children = (
-				3005410A28FB085100D6CD6F /* LogoutRequest.swift */,
 				3005410C28FB086C00D6CD6F /* LogoutResponse.swift */,
 			);
 			path = logout;
@@ -389,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				3005411C28FB0FC200D6CD6F /* AuthRepositoryImpl.swift */,
+				30F3886C2903A54500346326 /* FavoritesRepositoryImpl.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -397,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				300540FF28FB073300D6CD6F /* AuthRepository.swift */,
+				30F388672902996700346326 /* FavoritesRepository.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
@@ -413,6 +428,7 @@
 		3005412528FB185500D6CD6F /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				30F388702903B3EA00346326 /* favoritesRepository */,
 				3005412628FB185F00D6CD6F /* authRepository */,
 			);
 			path = networking;
@@ -752,6 +768,24 @@
 			path = viewModel;
 			sourceTree = "<group>";
 		};
+		30F38869290299D800346326 /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				30F3886A2902BC4A00346326 /* Favorites.swift */,
+			);
+			path = favorites;
+			sourceTree = "<group>";
+		};
+		30F388702903B3EA00346326 /* favoritesRepository */ = {
+			isa = PBXGroup;
+			children = (
+				30F388712903B40B00346326 /* GetFavoritesUseCase.swift */,
+				30F388732903C95500346326 /* AddFavoriteUseCase.swift */,
+				30F388752903CA5000346326 /* DeleteFavoriteUseCase.swift */,
+			);
+			path = favoritesRepository;
+			sourceTree = "<group>";
+		};
 		3A9111821407A0F7C8B91F28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,6 +992,7 @@
 				30B9698C28FAADA80026E190 /* NeedleGenerated.swift in Sources */,
 				30F3881828FFB82C00346326 /* HomeViewDisplayingModeEnum.swift in Sources */,
 				30F3884528FFE47600346326 /* DisplayingFavotireMovie.swift in Sources */,
+				30F3886D2903A54500346326 /* FavoritesRepositoryImpl.swift in Sources */,
 				3005411028FB08DC00D6CD6F /* RegisterRequest.swift in Sources */,
 				3005412A28FB194100D6CD6F /* LoginUseCase.swift in Sources */,
 				300540DC28FAE0D000D6CD6F /* MainViewDispalyingMode.swift in Sources */,
@@ -976,6 +1011,7 @@
 				300540E028FAE2F500D6CD6F /* SaveAuthStatusUseCase.swift in Sources */,
 				30F3882E28FFC62D00346326 /* ArrayExtensions.swift in Sources */,
 				3005411528FB09EB00D6CD6F /* RegisterResponse.swift in Sources */,
+				30F388682902996700346326 /* FavoritesRepository.swift in Sources */,
 				30F3882828FFC38900346326 /* ShortReview.swift in Sources */,
 				30F3883428FFD15800346326 /* MoviesComponent.swift in Sources */,
 				30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */,
@@ -985,6 +1021,7 @@
 				3005412E28FB1A0F00D6CD6F /* AuthorizationComponent.swift in Sources */,
 				3005413B28FC63F400D6CD6F /* GetAuthStatusUseCase.swift in Sources */,
 				30F3883D28FFE2F500346326 /* FavoriteMoviesView.swift in Sources */,
+				30F3886F2903AC6B00346326 /* VoidResponse.swift in Sources */,
 				30F3883228FFCD8D00346326 /* MovieExtensions.swift in Sources */,
 				300540E728FAEC2600D6CD6F /* AuthorizationView.swift in Sources */,
 				3005414A28FC6CA200D6CD6F /* LoginViewDisaplyingMode.swift in Sources */,
@@ -992,6 +1029,7 @@
 				30B9699828FAAE170026E190 /* MainViewViewModel.swift in Sources */,
 				3005411D28FB0FC200D6CD6F /* AuthRepositoryImpl.swift in Sources */,
 				30F387E628FD1EB500346326 /* RegistrationComponent.swift in Sources */,
+				30F388762903CA5000346326 /* DeleteFavoriteUseCase.swift in Sources */,
 				30F3882C28FFC52500346326 /* MockDataHelper.swift in Sources */,
 				300540CC28FACA7400D6CD6F /* GetTokenUseCase.swift in Sources */,
 				30B9699328FAADEA0026E190 /* MainComponent.swift in Sources */,
@@ -999,11 +1037,11 @@
 				3005410528FB077200D6CD6F /* LoginRequest.swift in Sources */,
 				300540D728FADC5B00D6CD6F /* SplashView.swift in Sources */,
 				30F3882328FFC1C400346326 /* HeaderMovieView.swift in Sources */,
-				3005410B28FB085100D6CD6F /* LogoutRequest.swift in Sources */,
 				30F3884F290105AC00346326 /* FlexboxView.swift in Sources */,
 				3005410028FB073300D6CD6F /* AuthRepository.swift in Sources */,
 				30F387F028FD5AE000346326 /* BindingExtensions.swift in Sources */,
 				30F388482900FA3800346326 /* MoviesListView.swift in Sources */,
+				30F388742903C95500346326 /* AddFavoriteUseCase.swift in Sources */,
 				3005411728FB0A8600D6CD6F /* RegisterErrorResponse.swift in Sources */,
 				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
@@ -1012,6 +1050,7 @@
 				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
 				30F3881628FFB7FD00346326 /* HomeView.swift in Sources */,
 				3005411F28FB108700D6CD6F /* AppConstants.swift in Sources */,
+				30F3886B2902BC4A00346326 /* Favorites.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationStyle.swift in Sources */,
 				30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */,
 				3005413728FC569A00D6CD6F /* NetworkingErrorsEnum.swift in Sources */,
@@ -1021,6 +1060,7 @@
 				30F3883B28FFDB7900346326 /* ColorExtensions.swift in Sources */,
 				30F3884D2900FB0300346326 /* MoviesListItemView.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
+				30F388722903B40B00346326 /* GetFavoritesUseCase.swift in Sources */,
 				3005410828FB07A600D6CD6F /* LoginResponse.swift in Sources */,
 				30F387EE28FD216700346326 /* GenderTypeEnum.swift in Sources */,
 				3005414828FC6BA500D6CD6F /* LoginViewViewModel.swift in Sources */,

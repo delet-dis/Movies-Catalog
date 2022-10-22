@@ -14,4 +14,6 @@ class AppConstants {
     static let networkingHeaders: HTTPHeaders = [
         "Content-Type": "application/json"
     ]
+
+    static let unauthorizedStatusCode = 401
 }

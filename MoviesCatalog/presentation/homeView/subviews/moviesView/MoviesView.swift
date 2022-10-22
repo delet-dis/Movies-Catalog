@@ -24,15 +24,20 @@ struct MoviesView: View {
                     EmptyView()
                 }
 
-                MoviesListView(displayingMovies: viewModel.displayingMovies)
+                MoviesListView(displayingMovies: viewModel.displayingMovies) {
+                    viewModel.requestMoreMovies()
+                }
 
                 Spacer()
             }
         }
+        .refreshable {
+            viewModel.refreshDisplayingData()
+        }
         .onAppear {
             isDisplayingFavoriteMovies = viewModel.displayingFavoriteMovies.isEmpty
 
-            viewModel.updateDisplayingFavorites()
+            getDisplayingData()
         }
         .ignoresSafeArea()
         .SPAlert(
@@ -47,6 +52,11 @@ struct MoviesView: View {
                 self.isDisplayingFavoriteMovies = !value.isEmpty
             }
         }
+    }
+
+    private func getDisplayingData() {
+        viewModel.getDisplayingFavorites()
+        viewModel.getDispalyingMovies()
     }
 }
 
@@ -66,6 +76,10 @@ struct MoviesView_Previews: PreviewProvider {
             saveTokenUseCase: saveTokenUseCase
         )
     )
+    private static let moviesRepository = MoviesRepositoryImpl(
+        jsonDecoder: JSONDecoder(),
+        jsonEncoder: JSONEncoder()
+    )
 
     private static let saveAuthStatusUseCase = SaveAuthStatusUseCase()
 
@@ -75,13 +89,18 @@ struct MoviesView_Previews: PreviewProvider {
     private static let getFavoritesUseCase = GetFavoritesUseCase(favoritesRepository: favoritesRepository)
     private static let deleteFavoriteUseCase = DeleteFavoriteUseCase(favoritesRepository: favoritesRepository)
 
+    private static let loadMoviesAtPositionUseCase =
+        LoadMoviesAtPositionUseCase(moviesRepository: moviesRepository)
+
     static var previews: some View {
         MoviesView()
             .environmentObject(
                 MoviesViewViewModel(
                     getTokenUseCase: getTokenUseCase,
                     getFavoritesUseCase: getFavoritesUseCase,
-                    deleteFavoriteUseCase: deleteFavoriteUseCase
-                ))
+                    deleteFavoriteUseCase: deleteFavoriteUseCase,
+                    loadMoviesAtPositionUseCase: loadMoviesAtPositionUseCase
+                )
+            )
     }
 }

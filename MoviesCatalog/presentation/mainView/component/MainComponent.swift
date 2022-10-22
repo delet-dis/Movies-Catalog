@@ -104,6 +104,24 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var moviesRepository: MoviesRepositoryImpl {
+        shared {
+            MoviesRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
+
+    var loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase {
+        shared {
+            LoadMoviesAtPositionUseCase(moviesRepository: moviesRepository)
+        }
+    }
+
+    var loadMovieDetailsUseCase: LoadMovieDetailsUseCase {
+        shared {
+            LoadMovieDetailsUseCase(moviesRepository: moviesRepository)
+        }
+    }
+
     var logoutUseCase: LogoutUseCase {
         shared {
             LogoutUseCase(

@@ -21,19 +21,21 @@ struct MoviesListItemView: View {
                         .scaledToFill()
                         .frame(width: 100, height: 144, alignment: .center)
                         .clipped()
-                        .cornerRadius(8)
                 } placeholder: {
                     Rectangle()
                         .skeleton(with: true)
                         .shape(type: .rectangle)
                         .frame(width:100, height: 144)
                 }
+                .cornerRadius(8)
 
                 VStack {
                     VStack(spacing: 4) {
                         HStack {
                             Text(displayingMovie.movie.name)
                                 .modifier(H2Modifier())
+                                .fixedSize(horizontal: false, vertical: true)
+                                .multilineTextAlignment(.leading)
 
                             Spacer()
                         }

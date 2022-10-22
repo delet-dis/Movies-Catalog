@@ -9,9 +9,7 @@ import Alamofire
 import Foundation
 
 class FavoritesRepositoryImpl: FavoritesRepository {
-    private static let url = AppConstants.baseUrl + "/api/favorites/"
-
-    private static let timeout = TimeInterval(10)
+    private static let url = NetworkingConstants.baseUrl + "/api/favorites/"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder
@@ -31,7 +29,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             method: .get,
             encoding: JSONEncoding.default,
             headers: getHeadersWithBearer(token: token)
-        ) { $0.timeoutInterval = Self.timeout }
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
                 result.processResult(
@@ -48,7 +46,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             method: .post,
             encoding: JSONEncoding.default,
             headers: getHeadersWithBearer(token: token)
-        ) { $0.timeoutInterval = Self.timeout }
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
                 result.processResult(
@@ -65,7 +63,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             method: .delete,
             encoding: JSONEncoding.default,
             headers: getHeadersWithBearer(token: token)
-        ) { $0.timeoutInterval = Self.timeout }
+        ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
                 result.processResult(
@@ -77,7 +75,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
     }
 
     private func getHeadersWithBearer(token: String) -> HTTPHeaders {
-        var headers: HTTPHeaders = AppConstants.networkingHeaders
+        var headers: HTTPHeaders = NetworkingConstants.headers
         headers.add(.authorization(bearerToken: token))
 
         return headers

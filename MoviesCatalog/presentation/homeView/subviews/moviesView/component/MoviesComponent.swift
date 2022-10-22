@@ -13,6 +13,7 @@ protocol MoviesComponentDependency: Dependency {
     var getTokenUseCase: GetTokenUseCase { get }
     var getFavoritesUseCase: GetFavoritesUseCase { get }
     var deleteFavoriteUseCase: DeleteFavoriteUseCase { get }
+    var loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase { get }
 }
 
 final class MoviesComponent: Component<MoviesComponentDependency> {
@@ -21,7 +22,8 @@ final class MoviesComponent: Component<MoviesComponentDependency> {
             MoviesViewViewModel(
                 getTokenUseCase: dependency.getTokenUseCase,
                 getFavoritesUseCase: dependency.getFavoritesUseCase,
-                deleteFavoriteUseCase: dependency.deleteFavoriteUseCase
+                deleteFavoriteUseCase: dependency.deleteFavoriteUseCase,
+                loadMoviesAtPositionUseCase: dependency.loadMoviesAtPositionUseCase
             )
         }
     }

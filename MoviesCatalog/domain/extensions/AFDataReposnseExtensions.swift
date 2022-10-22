@@ -20,7 +20,7 @@ extension AFDataResponse {
             return
         }
 
-        if self.response?.statusCode == AppConstants.unauthorizedStatusCode {
+        if self.response?.statusCode == NetworkingConstants.unauthorizedStatusCode {
             logoutUseCase?.execute { _ in
                 completion?(.failure(NetworkingErrorsEnum.sessionIsExpired))
             }

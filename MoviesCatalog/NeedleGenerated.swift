@@ -80,6 +80,9 @@ private class MoviesComponentDependencyc4af3944b260ec3bd2b5Provider: MoviesCompo
     var deleteFavoriteUseCase: DeleteFavoriteUseCase {
         return mainComponent.deleteFavoriteUseCase
     }
+    var loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase {
+        return mainComponent.loadMoviesAtPositionUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -127,6 +130,7 @@ extension MoviesComponent: Registration {
         keyPathToName[\MoviesComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
         keyPathToName[\MoviesComponentDependency.getFavoritesUseCase] = "getFavoritesUseCase-GetFavoritesUseCase"
         keyPathToName[\MoviesComponentDependency.deleteFavoriteUseCase] = "deleteFavoriteUseCase-DeleteFavoriteUseCase"
+        keyPathToName[\MoviesComponentDependency.loadMoviesAtPositionUseCase] = "loadMoviesAtPositionUseCase-LoadMoviesAtPositionUseCase"
     }
 }
 extension MainComponent: Registration {

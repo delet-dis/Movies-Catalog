@@ -19,7 +19,7 @@ struct FavoriteMovieView: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 99, height: 144, alignment: .center)
+                    .frame(width: 120, height: 172)
                     .clipped()
                     .overlay {
                         VStack {
@@ -55,7 +55,7 @@ struct FavoriteMovieView: View {
                 Rectangle()
                     .skeleton(with: true)
                     .shape(type: .rectangle)
-                    .frame(width: 99, height: 144)
+                    .frame(width: 120, height: 172)
             }
             .cornerRadius(8)
         }

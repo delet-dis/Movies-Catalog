@@ -11,7 +11,7 @@ import SwiftUI
 struct MoviesView: View {
     @EnvironmentObject private var viewModel: MoviesViewViewModel
 
-    @State private var isDisplayingFavoriteMovies = false
+    @State private var isDisplayingFavoriteMovies = true
 
     var body: some View {
         ScrollView {
@@ -29,14 +29,13 @@ struct MoviesView: View {
                 }
 
                 Spacer()
+                    .padding(.bottom, 100)
             }
         }
         .refreshable {
             viewModel.refreshDisplayingData()
         }
         .onAppear {
-            isDisplayingFavoriteMovies = viewModel.displayingFavoriteMovies.isEmpty
-
             getDisplayingData()
         }
         .ignoresSafeArea()

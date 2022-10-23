@@ -36,3 +36,6 @@
 "gallery" = "Gallery";
 
 "sessionIsExpired" = "Session in expired.\nPlease login again";
+
+"moviesScreenTabDescription" = "Movies";
+"profileScreenTabDescription" = "Profile";

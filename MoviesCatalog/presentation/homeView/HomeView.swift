@@ -13,12 +13,44 @@ struct HomeView: View {
     @State private var viewDisplayingMode: HomeViewDisplayingModeEnum = .movies
 
     var body: some View {
-        switch viewDisplayingMode {
-        case .movies:
-            viewModel.moviesComponent?.moviesView
-        case .profile:
-            EmptyView()
+        TabView(selection: $viewDisplayingMode) {
+            if let moviesView = viewModel.moviesComponent?.moviesView {
+                moviesView
+                    .tabItem {
+                        Label {
+                            Text(R.string.localizable.moviesScreenTabDescription())
+                                .modifier(FootnoteModifier())
+                        } icon: {
+                            Image(uiImage: R.image.tvIcon() ?? .strokedCheckmark)
+                        }
+                    }
+            }
+
+            VStack {}
+                .tabItem {
+                    Label {
+                        Text(R.string.localizable.moviesScreenTabDescription())
+                            .modifier(FootnoteModifier())
+                    } icon: {
+                        Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)
+                    }
+                }
         }
+        .onAppear {
+            setAppearance()
+        }
+        .onDisappear {
+            removeAppearance()
+        }
+        .accentColor(Color(uiColor: R.color.accent() ?? .orange))
+    }
+
+    private func setAppearance() {
+        UITabBar.appearance().unselectedItemTintColor = R.color.gray()
+    }
+
+    private func removeAppearance() {
+        UITabBar.appearance().unselectedItemTintColor = nil
     }
 }
 

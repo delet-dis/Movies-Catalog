@@ -66,16 +66,18 @@ class MoviesViewViewModel: ObservableObject {
     }
 
     private func updateDisplayingFavorites(_ favorites: Favorites) {
-        displayingFavoriteMovies = []
+        var tempDisplayingFavoriteMovies: [DisplayingFavotireMovie] = []
 
         favorites.movies.forEach { movie in
-            displayingFavoriteMovies.append(DisplayingFavotireMovie(movie: movie) {
+            tempDisplayingFavoriteMovies.append(DisplayingFavotireMovie(movie: movie) {
                 print("movie tap")
             } deleteClosure: { [self] in
                 deleteFavoriteMovie(movie)
             }
             )
         }
+
+        displayingFavoriteMovies = tempDisplayingFavoriteMovies
     }
 
     private func deleteFavoriteMovie(_ movie: Movie) {

@@ -329,17 +329,28 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `CalendarIcon`.
     static let calendarIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CalendarIcon")
+    /// Image `PersonIcon`.
+    static let personIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "PersonIcon")
     /// Image `SplashImage`.
     static let splashImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "SplashImage")
+    /// Image `TvIcon`.
+    static let tvIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "TvIcon")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "CalendarIcon", bundle: ..., traitCollection: ...)`
     static func calendarIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.calendarIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "PersonIcon", bundle: ..., traitCollection: ...)`
+    static func personIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.personIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -350,12 +361,19 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "TvIcon", bundle: ..., traitCollection: ...)`
+    static func tvIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tvIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 25 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
     struct localizable {
       /// en translation: Authorization error
       ///
@@ -397,6 +415,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let male = Rswift.StringResource(key: "male", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Movies
+      ///
+      /// Locales: en, ru
+      static let moviesScreenTabDescription = Rswift.StringResource(key: "moviesScreenTabDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Name
       ///
       /// Locales: en, ru
@@ -421,6 +443,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let pleaseEnterValidUsername = Rswift.StringResource(key: "pleaseEnterValidUsername", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Profile
+      ///
+      /// Locales: en, ru
+      static let profileScreenTabDescription = Rswift.StringResource(key: "profileScreenTabDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Register
       ///
       /// Locales: en, ru
@@ -608,6 +634,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("male", bundle: bundle, comment: "")
       }
 
+      /// en translation: Movies
+      ///
+      /// Locales: en, ru
+      static func moviesScreenTabDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("moviesScreenTabDescription", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "moviesScreenTabDescription"
+        }
+
+        return NSLocalizedString("moviesScreenTabDescription", bundle: bundle, comment: "")
+      }
+
       /// en translation: Name
       ///
       /// Locales: en, ru
@@ -696,6 +737,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("pleaseEnterValidUsername", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Profile
+      ///
+      /// Locales: en, ru
+      static func profileScreenTabDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("profileScreenTabDescription", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "profileScreenTabDescription"
+        }
+
+        return NSLocalizedString("profileScreenTabDescription", bundle: bundle, comment: "")
       }
 
       /// en translation: Register

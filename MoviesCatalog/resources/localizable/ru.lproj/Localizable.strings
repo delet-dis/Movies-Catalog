@@ -36,3 +36,6 @@
 "gallery" = "Галерея";
 
 "sessionIsExpired" = "Сессия устарела.\nПожалуйста, войдите еще раз";
+
+"moviesScreenTabDescription" = "Главное";
+"profileScreenTabDescription" = "Профиль";

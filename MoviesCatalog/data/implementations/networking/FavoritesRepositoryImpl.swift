@@ -28,7 +28,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             Self.url,
             method: .get,
             encoding: JSONEncoding.default,
-            headers: getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -45,7 +45,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             Self.url + "\(id)/add",
             method: .post,
             encoding: JSONEncoding.default,
-            headers: getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -62,7 +62,7 @@ class FavoritesRepositoryImpl: FavoritesRepository {
             Self.url + "\(id)/delete",
             method: .delete,
             encoding: JSONEncoding.default,
-            headers: getHeadersWithBearer(token: token)
+            headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }
             .validate()
             .response { [self] result in
@@ -72,12 +72,5 @@ class FavoritesRepositoryImpl: FavoritesRepository {
                     logoutUseCase: logoutUseCase
                 )
             }
-    }
-
-    private func getHeadersWithBearer(token: String) -> HTTPHeaders {
-        var headers: HTTPHeaders = NetworkingConstants.headers
-        headers.add(.authorization(bearerToken: token))
-
-        return headers
     }
 }

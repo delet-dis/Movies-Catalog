@@ -132,6 +132,24 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var profileRepository: ProfileRepository {
+        shared {
+            ProfileRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
+
+    var getUserProfileUseCase: GetUserProfileUseCase {
+        shared {
+            GetUserProfileUseCase(profileRepository: profileRepository)
+        }
+    }
+
+    var saveUserProfileUseCase: SaveUserProfileUseCase {
+        shared {
+            SaveUserProfileUseCase(profileRepository: profileRepository)
+        }
+    }
+
     var loginComponent: LoginComponent {
         shared {
             LoginComponent(parent: self)

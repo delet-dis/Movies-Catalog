@@ -26,15 +26,17 @@ struct HomeView: View {
                     }
             }
 
-            VStack {}
-                .tabItem {
-                    Label {
-                        Text(R.string.localizable.moviesScreenTabDescription())
-                            .modifier(FootnoteModifier())
-                    } icon: {
-                        Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)
+            if let profileView = viewModel.profileComponent?.profileView {
+                profileView
+                    .tabItem {
+                        Label {
+                            Text(R.string.localizable.moviesScreenTabDescription())
+                                .modifier(FootnoteModifier())
+                        } icon: {
+                            Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)
+                        }
                     }
-                }
+            }
         }
         .onAppear {
             setAppearance()

@@ -18,10 +18,17 @@ final class HomeComponent: Component<HomeComponentDependency> {
         }
     }
 
+    var profileComponent: ProfileComponent {
+        shared {
+            ProfileComponent(parent: self)
+        }
+    }
+
     var homeViewViewModel: HomeViewViewModel {
         shared {
             HomeViewViewModel(
-                moviesComponent: moviesComponent
+                moviesComponent: moviesComponent,
+                profileComponent: profileComponent
             )
         }
     }

@@ -63,31 +63,12 @@ extension AFDataResponse {
         do {
             // Thanks to the buggy api
             if T.self == Profile.self {
-                var decodedResponse = try jsonDecoder.decode(ProfileDTO.self, from: response)
-                if let birthDate = decodedResponse.birthDate {
-                    decodedResponse.birthDate = birthDate + "Z"
-                }
+                let profile = Profile.getNormalizedProfileFromBrokenData(response)
 
-                if decodedResponse.avatarLink == "null" {
-                    decodedResponse.avatarLink = nil
-                }
+                if let profileAsGeneric = profile as? T {
+                    completion?(.success(profileAsGeneric))
 
-                if let birthDate = decodedResponse.birthDate {
-                    let profile = Profile(
-                        id: decodedResponse.id,
-                        nickName: decodedResponse.nickName,
-                        email: decodedResponse.email,
-                        avatarLink: decodedResponse.avatarLink,
-                        name: decodedResponse.name,
-                        birthDate: ISO8601DateFormatter().date(from: birthDate),
-                        gender: decodedResponse.gender
-                    )
-
-                    if let profileAsGeneric = profile as? T {
-                        completion?(.success(profileAsGeneric))
-
-                        return
-                    }
+                    return
                 }
             }
 

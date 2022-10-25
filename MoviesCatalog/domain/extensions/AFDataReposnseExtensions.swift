@@ -73,8 +73,6 @@ extension AFDataResponse {
                 }
 
                 if let birthDate = decodedResponse.birthDate {
-                    print(birthDate)
-
                     let profile = Profile(
                         id: decodedResponse.id,
                         nickName: decodedResponse.nickName,

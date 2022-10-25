@@ -28,7 +28,7 @@ extension AFDataResponse {
             return
         }
 
-        guard let response = self.data else {
+        guard var response = self.data else {
             completion?(.failure(NetworkingErrorsEnum.unableToGetData))
 
             return
@@ -61,6 +61,38 @@ extension AFDataResponse {
         }
 
         do {
+            // Thanks to the buggy api
+            if T.self == Profile.self {
+                var decodedResponse = try jsonDecoder.decode(ProfileDTO.self, from: response)
+                if let birthDate = decodedResponse.birthDate {
+                    decodedResponse.birthDate = birthDate + "Z"
+                }
+
+                if decodedResponse.avatarLink == "null" {
+                    decodedResponse.avatarLink = nil
+                }
+
+                if let birthDate = decodedResponse.birthDate {
+                    print(birthDate)
+
+                    let profile = Profile(
+                        id: decodedResponse.id,
+                        nickName: decodedResponse.nickName,
+                        email: decodedResponse.email,
+                        avatarLink: decodedResponse.avatarLink,
+                        name: decodedResponse.name,
+                        birthDate: ISO8601DateFormatter().date(from: birthDate),
+                        gender: decodedResponse.gender
+                    )
+
+                    if let profileAsGeneric = profile as? T {
+                        completion?(.success(profileAsGeneric))
+
+                        return
+                    }
+                }
+            }
+
             let decodedResponse = try jsonDecoder.decode(T.self, from: response)
 
             completion?(.success(decodedResponse))

@@ -39,3 +39,6 @@
 
 "moviesScreenTabDescription" = "Movies";
 "profileScreenTabDescription" = "Profile";
+
+"noNickname" = "No nickname";
+"avatarLink" = "Avatar link";

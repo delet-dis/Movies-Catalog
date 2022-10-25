@@ -229,6 +229,7 @@ class RegistrationViewViewModel: ObservableObject {
                 return
             }
 
+            isDatePickerDisplaying = false
             isProgressViewShowing = true
 
             registerUseCase.execute(

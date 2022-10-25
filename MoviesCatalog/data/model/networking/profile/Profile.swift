@@ -9,10 +9,10 @@ import Foundation
 
 struct Profile: Codable {
     let id: String
-    let nickName: String
+    let nickName: String?
     let email: String
-    let avatarLink: String
+    let avatarLink: String?
     let name: String
-    let birthDate: String
+    let birthDate: Date?
     let gender: GenderTypeEnum
 }

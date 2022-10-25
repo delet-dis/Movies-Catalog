@@ -41,8 +41,8 @@ struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
         MoviesListView(
             displayingMovies: [
-                DisplayingMovie(movie: MockDataHelper.getMockMovie(), tapClosure: nil),
-                DisplayingMovie(movie: MockDataHelper.getMockMovie(), tapClosure: nil)
+                DisplayingMovie(movie: MockDataHelper.getMovie(), tapClosure: nil),
+                DisplayingMovie(movie: MockDataHelper.getMovie(), tapClosure: nil)
             ])
     }
 }

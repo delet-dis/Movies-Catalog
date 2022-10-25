@@ -39,3 +39,6 @@
 
 "moviesScreenTabDescription" = "Главное";
 "profileScreenTabDescription" = "Профиль";
+
+"noNickname" = "Никнейма нет";
+"avatarLink" = "Ссылка на аватарку";

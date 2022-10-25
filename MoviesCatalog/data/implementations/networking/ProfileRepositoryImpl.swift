@@ -51,7 +51,7 @@ class ProfileRepositoryImpl: ProfileRepository {
                 method: .put,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
-                headers: NetworkingConstants.headers
+                headers: NetworkingHelper.getHeadersWithBearer(token: token)
             ) { $0.timeoutInterval = NetworkingConstants.timeout }
                 .validate()
                 .response { [self] result in

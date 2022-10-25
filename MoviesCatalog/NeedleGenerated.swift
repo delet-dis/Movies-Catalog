@@ -80,6 +80,9 @@ private class ProfileComponentDependency54eff3e2836331fcf5bcProvider: ProfileCom
     var logoutUseCase: LogoutUseCase {
         return mainComponent.logoutUseCase
     }
+    var getTokenUseCase: GetTokenUseCase {
+        return mainComponent.getTokenUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -149,6 +152,7 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.getUserProfileUseCase] = "getUserProfileUseCase-GetUserProfileUseCase"
         keyPathToName[\ProfileComponentDependency.saveUserProfileUseCase] = "saveUserProfileUseCase-SaveUserProfileUseCase"
         keyPathToName[\ProfileComponentDependency.logoutUseCase] = "logoutUseCase-LogoutUseCase"
+        keyPathToName[\ProfileComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
     }
 }
 extension MoviesComponent: Registration {

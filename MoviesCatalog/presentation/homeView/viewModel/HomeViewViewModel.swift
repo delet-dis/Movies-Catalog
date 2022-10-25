@@ -11,9 +11,14 @@ class HomeViewViewModel: ObservableObject {
     @Published private(set) var homeViewDislayingMode: HomeViewDisplayingModeEnum = .movies
 
     let moviesComponent: MoviesComponent?
+    let profileComponent: ProfileComponent?
 
-    init(moviesComponent: MoviesComponent? = nil) {
+    init(
+        moviesComponent: MoviesComponent? = nil,
+        profileComponent: ProfileComponent? = nil
+    ) {
         self.moviesComponent = moviesComponent
+        self.profileComponent = profileComponent
     }
 
     func showMovies() {

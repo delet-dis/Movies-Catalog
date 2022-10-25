@@ -70,6 +70,25 @@ private class HomeComponentDependency887e91671f4424758155Provider: HomeComponent
 private func factory9bc7b43729f663f09312e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return HomeComponentDependency887e91671f4424758155Provider()
 }
+private class ProfileComponentDependency54eff3e2836331fcf5bcProvider: ProfileComponentDependency {
+    var getUserProfileUseCase: GetUserProfileUseCase {
+        return mainComponent.getUserProfileUseCase
+    }
+    var saveUserProfileUseCase: SaveUserProfileUseCase {
+        return mainComponent.saveUserProfileUseCase
+    }
+    var logoutUseCase: LogoutUseCase {
+        return mainComponent.logoutUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->HomeComponent->ProfileComponent
+private func factorybd650a9e32c86f0fdd27f18a7758ab7ce8b9cf79(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ProfileComponentDependency54eff3e2836331fcf5bcProvider(mainComponent: parent2(component) as! MainComponent)
+}
 private class MoviesComponentDependencyc4af3944b260ec3bd2b5Provider: MoviesComponentDependency {
     var getTokenUseCase: GetTokenUseCase {
         return mainComponent.getTokenUseCase
@@ -125,6 +144,13 @@ extension HomeComponent: Registration {
 
     }
 }
+extension ProfileComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\ProfileComponentDependency.getUserProfileUseCase] = "getUserProfileUseCase-GetUserProfileUseCase"
+        keyPathToName[\ProfileComponentDependency.saveUserProfileUseCase] = "saveUserProfileUseCase-SaveUserProfileUseCase"
+        keyPathToName[\ProfileComponentDependency.logoutUseCase] = "logoutUseCase-LogoutUseCase"
+    }
+}
 extension MoviesComponent: Registration {
     public func registerItems() {
         keyPathToName[\MoviesComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
@@ -164,6 +190,7 @@ private func register1() {
     registerProviderFactory("^->MainComponent->LoginComponent->AuthorizationComponent", factorya6199ac68a26a06ced8ff18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->LoginComponent->RegistrationComponent", factory43ef21cc81db779b06e1f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f09312e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->HomeComponent->ProfileComponent", factorybd650a9e32c86f0fdd27f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->HomeComponent->MoviesComponent", factoryf7325156a5bbfdeeb2f5f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)

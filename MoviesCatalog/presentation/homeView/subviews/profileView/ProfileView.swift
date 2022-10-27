@@ -11,6 +11,9 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject private var viewModel: ProfileViewViewModel
 
+    @State private var areFieldsValid = false
+    @State private var isProgressViewShowing = false
+
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
@@ -30,12 +33,57 @@ struct ProfileView: View {
                         gender: $viewModel.gender
                     )
                 }
+
+                VStack {
+                    Spacer()
+
+                    Button {
+                        viewModel.saveUserProfile()
+                    } label: {
+                        Text(R.string.localizable.save())
+                            .foregroundColor(viewModel.areFieldsValid ?
+                                .white
+                                : Color(uiColor: R.color.accent() ?? .orange))
+                            .modifier(BodyModifier())
+                            .frame(maxWidth: .infinity)
+                    }
+                    .disabled(!areFieldsValid || isProgressViewShowing)
+                    .padding()
+                    .background(areFieldsValid ?
+                        Color(uiColor: R.color.accent() ?? .orange) :
+                        .gray.opacity(0))
+                    .cornerRadius(4)
+                    .overlay(
+                        areFieldsValid ?
+                            nil :
+                            RoundedRectangle(
+                                cornerRadius: 4
+                            ).stroke().foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+                    )
+                }
+                .padding(.horizontal, 16)
+
+                ProgressView()
+                    .opacity(isProgressViewShowing ? 1 : 0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 16)
         }
         .onAppear {
+            isProgressViewShowing = viewModel.isProgressViewShowing
+            areFieldsValid = viewModel.areFieldsValid
+
             viewModel.updateDisplayingData()
+        }
+        .onReceive(viewModel.$areFieldsValid) { value in
+            withAnimation(.default) {
+                self.areFieldsValid = value
+            }
+        }
+        .onReceive(viewModel.$isProgressViewShowing) { value in
+            withAnimation(.default) {
+                self.isProgressViewShowing = value
+            }
         }
         .SPAlert(
             isPresent: $viewModel.isAlertShowing,

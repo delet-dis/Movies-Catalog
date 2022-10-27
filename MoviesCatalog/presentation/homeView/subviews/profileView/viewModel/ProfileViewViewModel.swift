@@ -23,6 +23,8 @@ class ProfileViewViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    @Published private(set) var isProgressViewShowing = false
+
     private let dateFormatter = DateFormatter()
 
     private var subscribers: Set<AnyCancellable> = []
@@ -110,7 +112,7 @@ class ProfileViewViewModel: ObservableObject {
             return false
         }
 
-        if !AuthenticationDataValidatorHelper.isAvatarURLValid(avatarLinkText) {
+        if !AuthenticationDataValidatorHelper.isAvatarURLValid(avatarLinkText), !avatarLinkText.isEmpty {
             areFieldsValid = false
 
             return false
@@ -168,5 +170,43 @@ class ProfileViewViewModel: ObservableObject {
             birthDateAsString = dateFormatter.string(from: profileBirthDate)
         }
         gender = displayingProfile.gender
+    }
+
+    func saveUserProfile() {
+        if validateFields() {
+            isProgressViewShowing = true
+
+            guard let profileId = displayingProfile?.id, let nickName = displayingProfile?.nickName else {
+                return
+            }
+
+            let newProfile = Profile(
+                id: profileId,
+                nickName: nickName,
+                email: emailText,
+                avatarLink: avatarLinkText,
+                name: nameText,
+                birthDate: birthDate,
+                gender: gender
+            )
+
+            getTokenUseCase.execute { [self] result in
+                isProgressViewShowing = false
+
+                switch result {
+                case .success(let token):
+                    saveUserProfileUseCase.execute(token: token, newProfile: newProfile) { [self] result in
+                        switch result {
+                        case .success:
+                            updateDisplayingData()
+                        case .failure(let error):
+                            processError(error)
+                        }
+                    }
+                case .failure(let error):
+                    processError(error)
+                }
+            }
+        }
     }
 }

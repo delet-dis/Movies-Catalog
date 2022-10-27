@@ -54,7 +54,7 @@ struct FavoriteMoviesView: View {
             }
             .options(scaleOptions)
             .pagePadding(
-                vertical: .absolute(60)
+                horizontal: .absolute(120)
             )
             .padding(.bottom, 1)
         }

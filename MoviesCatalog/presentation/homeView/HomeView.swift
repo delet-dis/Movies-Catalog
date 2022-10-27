@@ -30,7 +30,7 @@ struct HomeView: View {
                 profileView
                     .tabItem {
                         Label {
-                            Text(R.string.localizable.moviesScreenTabDescription())
+                            Text(R.string.localizable.profileScreenTabDescription())
                                 .modifier(FootnoteModifier())
                         } icon: {
                             Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)

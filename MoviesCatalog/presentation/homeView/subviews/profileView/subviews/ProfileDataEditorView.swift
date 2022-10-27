@@ -173,28 +173,38 @@ struct ProfileDataEditorView: View {
                         }
                     }
 
-                    Picker(
-                        R.string.localizable.pickGender(),
-                        selection: $gender
-                    ) {
-                        EmptyView()
-                            .tag(GenderTypeEnum.none)
+                    VStack(spacing: 8) {
+                        HStack {
+                            Text(R.string.localizable.gender())
+                                .modifier(BodyModifier())
+                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
 
-                        Text(R.string.localizable.male())
-                            .tag(GenderTypeEnum.male)
+                            Spacer()
+                        }
 
-                        Text(R.string.localizable.female())
-                            .tag(GenderTypeEnum.female)
-                    }
-                    .pickerStyle(.segmented)
-                    .id(genderPickerId)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8).stroke().foregroundColor(
-                            Color(uiColor: R.color.gray() ?? .gray
+                        Picker(
+                            R.string.localizable.pickGender(),
+                            selection: $gender
+                        ) {
+                            EmptyView()
+                                .tag(GenderTypeEnum.none)
+
+                            Text(R.string.localizable.male())
+                                .tag(GenderTypeEnum.male)
+
+                            Text(R.string.localizable.female())
+                                .tag(GenderTypeEnum.female)
+                        }
+                        .pickerStyle(.segmented)
+                        .id(genderPickerId)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8).stroke().foregroundColor(
+                                Color(uiColor: R.color.gray() ?? .gray
+                                )
                             )
                         )
-                    )
-                    .padding(.bottom, 150)
+                        .padding(.bottom, 150)
+                    }
                 }
                 .padding(.leading, 1)
                 .padding(.trailing, 1)

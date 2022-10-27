@@ -33,42 +33,52 @@ struct ProfileView: View {
                         gender: $viewModel.gender
                     )
                 }
-
-                VStack {
-                    Spacer()
-
-                    Button {
-                        viewModel.saveUserProfile()
-                    } label: {
-                        Text(R.string.localizable.save())
-                            .foregroundColor(viewModel.areFieldsValid ?
-                                .white
-                                : Color(uiColor: R.color.accent() ?? .orange))
-                            .modifier(BodyModifier())
-                            .frame(maxWidth: .infinity)
-                    }
-                    .disabled(!areFieldsValid || isProgressViewShowing)
-                    .padding()
-                    .background(areFieldsValid ?
-                        Color(uiColor: R.color.accent() ?? .orange) :
-                        .gray.opacity(0))
-                    .cornerRadius(4)
-                    .overlay(
-                        areFieldsValid ?
-                            nil :
-                            RoundedRectangle(
-                                cornerRadius: 4
-                            ).stroke().foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-                    )
-                }
-                .padding(.horizontal, 16)
-
-                ProgressView()
-                    .opacity(isProgressViewShowing ? 1 : 0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            VStack(spacing: 8) {
+                Spacer()
+
+                Button {
+                    viewModel.saveUserProfile()
+                } label: {
+                    Text(R.string.localizable.save())
+                        .foregroundColor(viewModel.areFieldsValid ?
+                            .white
+                            : Color(uiColor: R.color.accent() ?? .orange))
+                        .modifier(BodyModifier())
+                        .frame(maxWidth: .infinity)
+                }
+                .disabled(!areFieldsValid || isProgressViewShowing)
+                .padding()
+                .background(areFieldsValid ?
+                    Color(uiColor: R.color.accent() ?? .orange) :
+                    .gray.opacity(0))
+                .cornerRadius(4)
+                .overlay(
+                    areFieldsValid ?
+                        nil :
+                        RoundedRectangle(
+                            cornerRadius: 4
+                        ).stroke().foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+                )
+
+                Button {
+                    viewModel.logout()
+                } label: {
+                    Text(R.string.localizable.logout())
+                        .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
+                        .modifier(BodyModifier())
+                        .padding(.vertical, 6)
+                }
+            }
+            .padding(.bottom, 16)
             .padding(.horizontal, 16)
+
+            ProgressView()
+                .opacity(isProgressViewShowing ? 1 : 0)
         }
+        .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .onAppear {
             isProgressViewShowing = viewModel.isProgressViewShowing
             areFieldsValid = viewModel.areFieldsValid
@@ -91,6 +101,13 @@ struct ProfileView: View {
             dismissOnTap: false,
             preset: .error,
             haptic: .error
+        )
+        .SPAlert(
+            isPresent: $viewModel.isSuccessAlertShowing,
+            message: viewModel.alertText,
+            dismissOnTap: false,
+            preset: .done,
+            haptic: .success
         )
     }
 }

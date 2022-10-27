@@ -15,6 +15,7 @@ class MoviesViewViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    private let getAuthStatusUseCase: GetAuthStatusUseCase
     private let getTokenUseCase: GetTokenUseCase
     private let getFavoritesUseCase: GetFavoritesUseCase
     private let deleteFavoriteUseCase: DeleteFavoriteUseCase
@@ -23,11 +24,13 @@ class MoviesViewViewModel: ObservableObject {
     private var displayingPage = 1
 
     init(
+        getAuthStatusUseCase: GetAuthStatusUseCase,
         getTokenUseCase: GetTokenUseCase,
         getFavoritesUseCase: GetFavoritesUseCase,
         deleteFavoriteUseCase: DeleteFavoriteUseCase,
         loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase
     ) {
+        self.getAuthStatusUseCase = getAuthStatusUseCase
         self.getTokenUseCase = getTokenUseCase
         self.getFavoritesUseCase = getFavoritesUseCase
         self.deleteFavoriteUseCase = deleteFavoriteUseCase
@@ -48,15 +51,24 @@ class MoviesViewViewModel: ObservableObject {
     }
 
     func getDisplayingFavorites() {
-        getTokenUseCase.execute { [self] result in
+        getAuthStatusUseCase.execute { [self] result in
             switch result {
-            case .success(let token):
-                getFavoritesUseCase.execute(token: token) { [self] result in
-                    switch result {
-                    case .success(let favorites):
-                        updateDisplayingFavorites(favorites)
-                    case .failure(let error):
-                        processError(error)
+            case .success(let isAuthorized):
+                if isAuthorized {
+                    getTokenUseCase.execute { [self] result in
+                        switch result {
+                        case .success(let token):
+                            getFavoritesUseCase.execute(token: token) { [self] result in
+                                switch result {
+                                case .success(let favorites):
+                                    updateDisplayingFavorites(favorites)
+                                case .failure(let error):
+                                    processError(error)
+                                }
+                            }
+                        case .failure(let error):
+                            processError(error)
+                        }
                     }
                 }
             case .failure(let error):

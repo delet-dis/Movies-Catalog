@@ -12,7 +12,7 @@ struct ProfileHeaderView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            if let avatarLink = profile.avatarLink {
+            if let avatarLink = profile.avatarLink, !avatarLink.isEmpty {
                 AsyncImage(url: URL(string: avatarLink)) { image in
                     image
                         .resizable()
@@ -39,6 +39,7 @@ struct ProfileHeaderView: View {
                 .bold()
                 .foregroundColor(.white)
         }
+        .padding(.horizontal, 16)
     }
 }
 

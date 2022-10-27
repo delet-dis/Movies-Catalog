@@ -21,6 +21,7 @@ class ProfileViewViewModel: ObservableObject {
     @Published private(set) var displayingProfile: Profile?
 
     @Published var isAlertShowing = false
+    @Published var isSuccessAlertShowing = false
     @Published private(set) var alertText = ""
 
     @Published private(set) var isProgressViewShowing = false
@@ -199,6 +200,8 @@ class ProfileViewViewModel: ObservableObject {
                         switch result {
                         case .success:
                             updateDisplayingData()
+
+                            isSuccessAlertShowing = true
                         case .failure(let error):
                             processError(error)
                         }
@@ -208,5 +211,9 @@ class ProfileViewViewModel: ObservableObject {
                 }
             }
         }
+    }
+
+    func logout() {
+        logoutUseCase.execute()
     }
 }

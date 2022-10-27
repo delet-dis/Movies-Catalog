@@ -21,8 +21,6 @@ struct ProfileDataEditorView: View {
 
     @State private var isDatePickerDisplaying = false
 
-    @Namespace var genderPickerId
-
     @FocusState private var focusedField: Field?
 
     init(
@@ -42,169 +40,159 @@ struct ProfileDataEditorView: View {
     }
 
     var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 16) {
-                    VStack(spacing: 8) {
-                        HStack {
-                            Text(R.string.localizable.email())
-                                .modifier(BodyModifier())
-                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 16) {
+                VStack(spacing: 8) {
+                    HStack {
+                        Text(R.string.localizable.email())
+                            .modifier(BodyModifier())
+                            .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
 
-                            Spacer()
-                        }
-
-                        TextField("", text: $emailText)
-                            .disableAutocorrection(true)
-                            .keyboardType(.emailAddress)
-                            .textInputAutocapitalization(.never)
-                            .submitLabel(.next)
-                            .modifier(BodySmallModifier())
-                            .textFieldStyle(
-                                TextFieldWithValidationAndPlaceholderStyle()
-                            )
-                            .focused($focusedField, equals: .email)
-                            .onSubmit {
-                                focusedField = .avatarLink
-                            }
+                        Spacer()
                     }
 
-                    VStack(spacing: 8) {
-                        HStack {
-                            Text(R.string.localizable.avatarLink())
-                                .modifier(BodyModifier())
-                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-
-                            Spacer()
-                        }
-
-                        TextField("", text: $avatarLinkText)
-                            .disableAutocorrection(true)
-                            .keyboardType(.URL)
-                            .textInputAutocapitalization(.never)
-                            .submitLabel(.next)
-                            .modifier(BodySmallModifier())
-                            .textFieldStyle(
-                                TextFieldWithValidationAndPlaceholderStyle()
-                            )
-                            .focused($focusedField, equals: .avatarLink)
-                            .onSubmit {
-                                focusedField = .name
-                            }
-                    }
-
-                    VStack(spacing: 8) {
-                        HStack {
-                            Text(R.string.localizable.name())
-                                .modifier(BodyModifier())
-                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-
-                            Spacer()
-                        }
-
-                        TextField("", text: $nameText)
-                            .disableAutocorrection(true)
-                            .textInputAutocapitalization(.words)
-                            .submitLabel(.next)
-                            .modifier(BodySmallModifier())
-                            .textFieldStyle(
-                                TextFieldWithValidationAndPlaceholderStyle()
-                            )
-                            .focused($focusedField, equals: .name)
-                            .onSubmit {
-                                focusedField = .birthDate
-                            }
-                    }
-
-                    VStack(spacing: 8) {
-                        HStack {
-                            Text(R.string.localizable.birthDate())
-                                .modifier(BodyModifier())
-                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-
-                            Spacer()
-                        }
-
-                        ZStack {
-                            HStack {
-                                TextField("", text: $birthDateAsString)
-                                    .textInputAutocapitalization(.never)
-                                    .submitLabel(.next)
-                                    .modifier(BodySmallModifier())
-                                    .textFieldStyle(
-                                        TextFieldWithValidationAndPlaceholderStyle()
-                                    )
-                                    .focused($focusedField, equals: .birthDate)
-                                    .disabled(true)
-                            }
-
-                            HStack {
-                                Spacer()
-
-                                Image(uiImage: R.image.calendarIcon() ?? .strokedCheckmark)
-                                    .padding(.trailing, 20)
-                                    .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-                            }
-                        }
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            focusedField = nil
-                            isDatePickerDisplaying.toggle()
-                        }
-                    }
-
-                    if isDatePickerDisplaying {
-                        DatePicker(
-                            R.string.localizable.birthDate(),
-                            selection: Binding<Date>(
-                                get: { birthDate ?? Date() },
-                                set: { birthDate = $0 }
-                            ),
-                            in: ...Date(),
-                            displayedComponents: [.date]
+                    TextField("", text: $emailText)
+                        .disableAutocorrection(true)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
+                        .modifier(BodySmallModifier())
+                        .textFieldStyle(
+                            TextFieldWithValidationAndPlaceholderStyle()
                         )
-                        .datePickerStyle(.graphical)
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                withAnimation {
-                                    proxy.scrollTo(genderPickerId)
-                                }
-                            }
+                        .focused($focusedField, equals: .email)
+                        .onSubmit {
+                            focusedField = .avatarLink
                         }
+                }
+
+                VStack(spacing: 8) {
+                    HStack {
+                        Text(R.string.localizable.avatarLink())
+                            .modifier(BodyModifier())
+                            .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+
+                        Spacer()
                     }
 
-                    VStack(spacing: 8) {
+                    TextField("", text: $avatarLinkText)
+                        .disableAutocorrection(true)
+                        .keyboardType(.URL)
+                        .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
+                        .modifier(BodySmallModifier())
+                        .textFieldStyle(
+                            TextFieldWithValidationAndPlaceholderStyle()
+                        )
+                        .focused($focusedField, equals: .avatarLink)
+                        .onSubmit {
+                            focusedField = .name
+                        }
+                }
+
+                VStack(spacing: 8) {
+                    HStack {
+                        Text(R.string.localizable.name())
+                            .modifier(BodyModifier())
+                            .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+
+                        Spacer()
+                    }
+
+                    TextField("", text: $nameText)
+                        .disableAutocorrection(true)
+                        .textInputAutocapitalization(.words)
+                        .submitLabel(.next)
+                        .modifier(BodySmallModifier())
+                        .textFieldStyle(
+                            TextFieldWithValidationAndPlaceholderStyle()
+                        )
+                        .focused($focusedField, equals: .name)
+                        .onSubmit {
+                            focusedField = .birthDate
+                        }
+                }
+
+                VStack(spacing: 8) {
+                    HStack {
+                        Text(R.string.localizable.birthDate())
+                            .modifier(BodyModifier())
+                            .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+
+                        Spacer()
+                    }
+
+                    ZStack {
                         HStack {
-                            Text(R.string.localizable.gender())
-                                .modifier(BodyModifier())
-                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-
-                            Spacer()
-                        }
-
-                        Picker(
-                            R.string.localizable.pickGender(),
-                            selection: $gender
-                        ) {
-                            EmptyView()
-                                .tag(GenderTypeEnum.none)
-
-                            Text(R.string.localizable.male())
-                                .tag(GenderTypeEnum.male)
-
-                            Text(R.string.localizable.female())
-                                .tag(GenderTypeEnum.female)
-                        }
-                        .pickerStyle(.segmented)
-                        .id(genderPickerId)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8).stroke().foregroundColor(
-                                Color(uiColor: R.color.gray() ?? .gray
+                            TextField("", text: $birthDateAsString)
+                                .textInputAutocapitalization(.never)
+                                .submitLabel(.next)
+                                .modifier(BodySmallModifier())
+                                .textFieldStyle(
+                                    TextFieldWithValidationAndPlaceholderStyle()
                                 )
+                                .focused($focusedField, equals: .birthDate)
+                                .disabled(true)
+                        }
+
+                        HStack {
+                            Spacer()
+
+                            Image(uiImage: R.image.calendarIcon() ?? .strokedCheckmark)
+                                .padding(.trailing, 20)
+                                .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+                        }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        focusedField = nil
+                        isDatePickerDisplaying.toggle()
+                    }
+                }
+
+                if isDatePickerDisplaying {
+                    DatePicker(
+                        R.string.localizable.birthDate(),
+                        selection: Binding<Date>(
+                            get: { birthDate ?? Date() },
+                            set: { birthDate = $0 }
+                        ),
+                        in: ...Date(),
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.graphical)
+                }
+
+                VStack(spacing: 8) {
+                    HStack {
+                        Text(R.string.localizable.gender())
+                            .modifier(BodyModifier())
+                            .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+
+                        Spacer()
+                    }
+
+                    Picker(
+                        R.string.localizable.pickGender(),
+                        selection: $gender
+                    ) {
+                        EmptyView()
+                            .tag(GenderTypeEnum.none)
+
+                        Text(R.string.localizable.male())
+                            .tag(GenderTypeEnum.male)
+
+                        Text(R.string.localizable.female())
+                            .tag(GenderTypeEnum.female)
+                    }
+                    .pickerStyle(.segmented)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8).stroke().foregroundColor(
+                            Color(uiColor: R.color.gray() ?? .gray
                             )
                         )
-                        .padding(.bottom, 150)
-                    }
+                    )
+                    .padding(.bottom, 150)
                 }
                 .padding(.leading, 1)
                 .padding(.trailing, 1)

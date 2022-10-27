@@ -14,7 +14,7 @@ struct MoviesView: View {
     @State private var isDisplayingFavoriteMovies = true
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
 
@@ -32,6 +32,7 @@ struct MoviesView: View {
                     .padding(.bottom, 100)
             }
         }
+        .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .refreshable {
             viewModel.refreshDisplayingData()
         }
@@ -91,10 +92,13 @@ struct MoviesView_Previews: PreviewProvider {
     private static let loadMoviesAtPositionUseCase =
         LoadMoviesAtPositionUseCase(moviesRepository: moviesRepository)
 
+    private static let getAuthStatusUseCase = GetAuthStatusUseCase()
+
     static var previews: some View {
         MoviesView()
             .environmentObject(
                 MoviesViewViewModel(
+                    getAuthStatusUseCase: getAuthStatusUseCase,
                     getTokenUseCase: getTokenUseCase,
                     getFavoritesUseCase: getFavoritesUseCase,
                     deleteFavoriteUseCase: deleteFavoriteUseCase,

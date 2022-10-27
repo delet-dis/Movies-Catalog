@@ -93,6 +93,9 @@ private func factorybd650a9e32c86f0fdd27f18a7758ab7ce8b9cf79(_ component: Needle
     return ProfileComponentDependency54eff3e2836331fcf5bcProvider(mainComponent: parent2(component) as! MainComponent)
 }
 private class MoviesComponentDependencyc4af3944b260ec3bd2b5Provider: MoviesComponentDependency {
+    var getAuthStatusUseCase: GetAuthStatusUseCase {
+        return mainComponent.getAuthStatusUseCase
+    }
     var getTokenUseCase: GetTokenUseCase {
         return mainComponent.getTokenUseCase
     }
@@ -157,6 +160,7 @@ extension ProfileComponent: Registration {
 }
 extension MoviesComponent: Registration {
     public func registerItems() {
+        keyPathToName[\MoviesComponentDependency.getAuthStatusUseCase] = "getAuthStatusUseCase-GetAuthStatusUseCase"
         keyPathToName[\MoviesComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
         keyPathToName[\MoviesComponentDependency.getFavoritesUseCase] = "getFavoritesUseCase-GetFavoritesUseCase"
         keyPathToName[\MoviesComponentDependency.deleteFavoriteUseCase] = "deleteFavoriteUseCase-DeleteFavoriteUseCase"

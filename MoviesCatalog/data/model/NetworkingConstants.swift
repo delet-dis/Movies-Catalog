@@ -16,6 +16,7 @@ class NetworkingConstants {
     ]
 
     static let unauthorizedStatusCode = 401
+    static let successStatusCode = 200
 
     static let timeout = TimeInterval(10)
 }

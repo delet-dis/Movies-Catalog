@@ -39,3 +39,9 @@
 
 "moviesScreenTabDescription" = "Главное";
 "profileScreenTabDescription" = "Профиль";
+
+"noNickname" = "Никнейма нет";
+"avatarLink" = "Ссылка на аватарку";
+"gender" = "Пол";
+"save" = "Сохранить";
+"logout" = "Выйти из аккаунта";

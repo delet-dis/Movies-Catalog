@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AuthenticationDataValidatorHelper {
     static func isUsernameValid(_ username: String) -> Bool {
@@ -48,6 +49,14 @@ class AuthenticationDataValidatorHelper {
         }
 
         return gender != GenderTypeEnum.none
+    }
+
+    static func isAvatarURLValid(_ avatarURL: String) -> Bool {
+        if let url = NSURL(string: avatarURL) {
+            return UIApplication.shared.canOpenURL(url as URL)
+        }
+
+        return false
     }
 
     private static func isEmptyAndBlank(_ string: String) -> Bool {

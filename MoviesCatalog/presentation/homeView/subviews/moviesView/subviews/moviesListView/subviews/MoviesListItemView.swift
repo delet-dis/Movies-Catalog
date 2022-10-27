@@ -70,7 +70,7 @@ struct MoviesListItemView: View {
 struct MoviesListItemView_Previews: PreviewProvider {
     static var previews: some View {
         MoviesListItemView(
-            displayingMovie: DisplayingMovie(movie: MockDataHelper.getMockMovie(), tapClosure: nil)
+            displayingMovie: DisplayingMovie(movie: MockDataHelper.getMovie(), tapClosure: nil)
         )
     }
 }

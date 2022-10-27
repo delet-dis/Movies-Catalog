@@ -9,6 +9,7 @@ import Alamofire
 import Foundation
 
 extension AFDataResponse {
+    // swiftlint: disable cyclomatic_complexity
     func processResult<T: Codable>(
         jsonDecoder: JSONDecoder,
         completion: ((Result<T, Error>) -> Void)?,
@@ -29,7 +30,13 @@ extension AFDataResponse {
         }
 
         guard let response = self.data else {
-            completion?(.failure(NetworkingErrorsEnum.unableToGetData))
+            if self.response?.statusCode == NetworkingConstants.successStatusCode,
+               T.self == VoidResponse.self {
+                // swiftlint:disable force_cast
+                completion?(.success(VoidResponse() as! T))
+            } else {
+                completion?(.failure(NetworkingErrorsEnum.unableToGetData))
+            }
 
             return
         }
@@ -61,6 +68,17 @@ extension AFDataResponse {
         }
 
         do {
+            // Thanks to the buggy api
+            if T.self == Profile.self {
+                let profile = Profile.getNormalizedProfileFromBrokenData(response)
+
+                if let profileAsGeneric = profile as? T {
+                    completion?(.success(profileAsGeneric))
+
+                    return
+                }
+            }
+
             let decodedResponse = try jsonDecoder.decode(T.self, from: response)
 
             completion?(.success(decodedResponse))

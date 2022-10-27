@@ -13,6 +13,7 @@ protocol ProfileComponentDependency: Dependency {
     var getUserProfileUseCase: GetUserProfileUseCase { get }
     var saveUserProfileUseCase: SaveUserProfileUseCase { get }
     var logoutUseCase: LogoutUseCase { get }
+    var getTokenUseCase: GetTokenUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
@@ -21,7 +22,8 @@ final class ProfileComponent: Component<ProfileComponentDependency> {
             ProfileViewViewModel(
                 getUserProfileUseCase: dependency.getUserProfileUseCase,
                 saveUserProfileUseCase: dependency.saveUserProfileUseCase,
-                logoutUseCase: dependency.logoutUseCase
+                logoutUseCase: dependency.logoutUseCase,
+                getTokenUseCase: dependency.getTokenUseCase
             )
         }
     }

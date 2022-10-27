@@ -39,3 +39,9 @@
 
 "moviesScreenTabDescription" = "Movies";
 "profileScreenTabDescription" = "Profile";
+
+"noNickname" = "No nickname";
+"avatarLink" = "Avatar link";
+"gender" = "Gender";
+"save" = "Save";
+"logout" = "Log out";

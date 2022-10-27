@@ -41,7 +41,7 @@ struct RegistrationView: View {
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
                             .textFieldStyle(
-                                TextFieldWithValidationStyle(
+                                TextFieldWithValidationAndPlaceholderStyle(
                                     validationState: viewModel.isUsernameValid,
                                     isPlaceholderDispalying: viewModel.usernameText.isEmpty,
                                     placeholderText: R.string.localizable.username()
@@ -59,7 +59,7 @@ struct RegistrationView: View {
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
                             .textFieldStyle(
-                                TextFieldWithValidationStyle(
+                                TextFieldWithValidationAndPlaceholderStyle(
                                     validationState: viewModel.isEmailValid,
                                     isPlaceholderDispalying: viewModel.emailText.isEmpty,
                                     placeholderText: R.string.localizable.email()
@@ -75,7 +75,7 @@ struct RegistrationView: View {
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
                             .textFieldStyle(
-                                TextFieldWithValidationStyle(
+                                TextFieldWithValidationAndPlaceholderStyle(
                                     validationState: viewModel.isNameValid,
                                     isPlaceholderDispalying: viewModel.nameText.isEmpty,
                                     placeholderText: R.string.localizable.name()
@@ -92,7 +92,7 @@ struct RegistrationView: View {
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
                             .textFieldStyle(
-                                TextFieldWithValidationStyle(
+                                TextFieldWithValidationAndPlaceholderStyle(
                                     validationState: viewModel.isPasswordValid,
                                     isPlaceholderDispalying: viewModel.passwordText.isEmpty,
                                     placeholderText: R.string.localizable.password()
@@ -109,7 +109,7 @@ struct RegistrationView: View {
                             .submitLabel(.next)
                             .modifier(BodySmallModifier())
                             .textFieldStyle(
-                                TextFieldWithValidationStyle(
+                                TextFieldWithValidationAndPlaceholderStyle(
                                     validationState: viewModel.isPasswordConfirmationValid,
                                     isPlaceholderDispalying: viewModel.confirmPasswordText.isEmpty,
                                     placeholderText: R.string.localizable.passwordConfirmation()
@@ -127,7 +127,7 @@ struct RegistrationView: View {
                                         .submitLabel(.next)
                                         .modifier(BodySmallModifier())
                                         .textFieldStyle(
-                                            TextFieldWithValidationStyle(
+                                            TextFieldWithValidationAndPlaceholderStyle(
                                                 validationState: viewModel.isBirthDateValid,
                                                 isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
                                                 placeholderText: R.string.localizable.birthDate()
@@ -271,10 +271,10 @@ struct RegistrationView: View {
             areFieldsValid = viewModel.areFieldsValid
             isDatePickerDisplaying = viewModel.isDatePickerDisplaying
 
-            setAppearance()
+            Self.applyCustomPickerStyle()
         }
         .onDisappear {
-            removeAppearance()
+            Self.removeCustomPickerStyle()
         }
         .onReceive(viewModel.$isProgressViewShowing) { value in
             withAnimation(.default) {
@@ -291,60 +291,6 @@ struct RegistrationView: View {
                 self.isDatePickerDisplaying = value
             }
         }
-    }
-
-    private func setAppearance() {
-        UIDatePicker.appearance().tintColor = R.color.accent() ?? .orange
-        UIDatePicker.appearance().backgroundColor = R.color.darkAccent() ?? .black
-
-        let font = R.font.ibmPlexSansRegular(size: 14) ?? .systemFont(ofSize: 14)
-
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [.foregroundColor: R.color.grayFaded() ?? .gray, NSAttributedString.Key.font: font], for: .normal
-        )
-
-        let defaultSize = CGSize(width: 20, height: 15)
-
-        let tintColorImage = UIImage(color: R.color.accent() ?? .orange, size: defaultSize)
-        UISegmentedControl.appearance().setBackgroundImage(
-            UIImage(color: .clear, size: defaultSize), for: .normal, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            tintColorImage, for: .selected, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            UIImage(color: (R.color.accent() ?? .orange).withAlphaComponent(0.2),
-                    size: defaultSize),
-            for: .highlighted, barMetrics: .default
-        )
-        UISegmentedControl.appearance().setBackgroundImage(
-            tintColorImage, for: [.highlighted, .selected], barMetrics: .default
-        )
-
-        UISegmentedControl.appearance().setDividerImage(
-            UIImage(color: R.color.gray() ?? .gray,
-                    size: CGSize(width: 0.5, height: 15)),
-            forLeftSegmentState: .normal,
-            rightSegmentState: .normal,
-            barMetrics: .default
-        )
-    }
-
-    private func removeAppearance() {
-        UIDatePicker.appearance().tintColor = nil
-        UIDatePicker.appearance().backgroundColor = nil
-
-        UISegmentedControl.appearance().setBackgroundImage(
-            nil,
-            for: [.normal, .highlighted, .selected],
-            barMetrics: .default
-        )
-        UISegmentedControl.appearance().setDividerImage(
-            nil,
-            forLeftSegmentState: .normal,
-            rightSegmentState: .normal,
-            barMetrics: .default
-        )
     }
 }
 

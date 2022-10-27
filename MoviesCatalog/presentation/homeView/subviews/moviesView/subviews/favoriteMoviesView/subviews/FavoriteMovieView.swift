@@ -66,7 +66,7 @@ struct FavoriteMovieView_Previews: PreviewProvider {
     static var previews: some View {
         FavoriteMovieView(
             displayingFavoriteMovie: DisplayingFavotireMovie(
-                movie: MockDataHelper.getMockMovie(),
+                movie: MockDataHelper.getMovie(),
                 tapClosure: nil,
                 deleteClosure: nil
             )

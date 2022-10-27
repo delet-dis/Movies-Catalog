@@ -63,7 +63,7 @@ struct HeaderMovieView: View {
 struct HeaderVideoView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderMovieView(
-            displayingMovie: DisplayingMovie(movie: MockDataHelper.getMockMovie(), tapClosure: nil)
+            displayingMovie: DisplayingMovie(movie: MockDataHelper.getMovie(), tapClosure: nil)
         )
     }
 }

@@ -30,7 +30,7 @@ struct AuthorizationView: View {
                         .submitLabel(.next)
                         .modifier(BodySmallModifier())
                         .textFieldStyle(
-                            TextFieldWithValidationStyle(
+                            TextFieldWithValidationAndPlaceholderStyle(
                                 validationState: viewModel.isUsernameValid,
                                 isPlaceholderDispalying: viewModel.usernameText.isEmpty,
                                 placeholderText: R.string.localizable.username()
@@ -46,7 +46,7 @@ struct AuthorizationView: View {
                         .textInputAutocapitalization(.never)
                         .submitLabel(.done)
                         .textFieldStyle(
-                            TextFieldWithValidationStyle(
+                            TextFieldWithValidationAndPlaceholderStyle(
                                 validationState: viewModel.isPasswordValid,
                                 isPlaceholderDispalying: viewModel.passwordText.isEmpty,
                                 placeholderText: R.string.localizable.password()

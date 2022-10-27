@@ -329,10 +329,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
     /// Image `CalendarIcon`.
     static let calendarIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "CalendarIcon")
+    /// Image `DefaultAvatarIcon`.
+    static let defaultAvatarIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "DefaultAvatarIcon")
     /// Image `PersonIcon`.
     static let personIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "PersonIcon")
     /// Image `SplashImage`.
@@ -344,6 +346,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "CalendarIcon", bundle: ..., traitCollection: ...)`
     static func calendarIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.calendarIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "DefaultAvatarIcon", bundle: ..., traitCollection: ...)`
+    static func defaultAvatarIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.defaultAvatarIcon, compatibleWith: traitCollection)
     }
     #endif
 
@@ -373,12 +382,16 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 32 localization keys.
     struct localizable {
       /// en translation: Authorization error
       ///
       /// Locales: en, ru
       static let authorizationError = Rswift.StringResource(key: "authorizationError", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Avatar link
+      ///
+      /// Locales: en, ru
+      static let avatarLink = Rswift.StringResource(key: "avatarLink", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Birth date
       ///
       /// Locales: en, ru
@@ -403,10 +416,18 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let gallery = Rswift.StringResource(key: "gallery", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Gender
+      ///
+      /// Locales: en, ru
+      static let gender = Rswift.StringResource(key: "gender", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: I have an account
       ///
       /// Locales: en, ru
       static let iHaveAnAccount = Rswift.StringResource(key: "iHaveAnAccount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Log out
+      ///
+      /// Locales: en, ru
+      static let logout = Rswift.StringResource(key: "logout", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Login
       ///
       /// Locales: en, ru
@@ -423,6 +444,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let name = Rswift.StringResource(key: "name", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: No nickname
+      ///
+      /// Locales: en, ru
+      static let noNickname = Rswift.StringResource(key: "noNickname", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Password
       ///
       /// Locales: en, ru
@@ -455,6 +480,10 @@ struct R: Rswift.Validatable {
       ///
       /// Locales: en, ru
       static let registration = Rswift.StringResource(key: "registration", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
+      /// en translation: Save
+      ///
+      /// Locales: en, ru
+      static let save = Rswift.StringResource(key: "save", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "ru"], comment: nil)
       /// en translation: Session in expired. Please login again
       ///
       /// Locales: en, ru
@@ -497,6 +526,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("authorizationError", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Avatar link
+      ///
+      /// Locales: en, ru
+      static func avatarLink(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("avatarLink", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "avatarLink"
+        }
+
+        return NSLocalizedString("avatarLink", bundle: bundle, comment: "")
       }
 
       /// en translation: Birth date
@@ -589,6 +633,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("gallery", bundle: bundle, comment: "")
       }
 
+      /// en translation: Gender
+      ///
+      /// Locales: en, ru
+      static func gender(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("gender", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "gender"
+        }
+
+        return NSLocalizedString("gender", bundle: bundle, comment: "")
+      }
+
       /// en translation: I have an account
       ///
       /// Locales: en, ru
@@ -602,6 +661,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("iHaveAnAccount", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Log out
+      ///
+      /// Locales: en, ru
+      static func logout(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("logout", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "logout"
+        }
+
+        return NSLocalizedString("logout", bundle: bundle, comment: "")
       }
 
       /// en translation: Login
@@ -662,6 +736,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("name", bundle: bundle, comment: "")
+      }
+
+      /// en translation: No nickname
+      ///
+      /// Locales: en, ru
+      static func noNickname(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("noNickname", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "noNickname"
+        }
+
+        return NSLocalizedString("noNickname", bundle: bundle, comment: "")
       }
 
       /// en translation: Password
@@ -782,6 +871,21 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("registration", bundle: bundle, comment: "")
+      }
+
+      /// en translation: Save
+      ///
+      /// Locales: en, ru
+      static func save(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("save", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "save"
+        }
+
+        return NSLocalizedString("save", bundle: bundle, comment: "")
       }
 
       /// en translation: Session in expired. Please login again

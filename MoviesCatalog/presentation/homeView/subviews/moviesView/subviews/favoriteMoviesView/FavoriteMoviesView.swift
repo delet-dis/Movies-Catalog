@@ -54,11 +54,11 @@ struct FavoriteMoviesView: View {
             }
             .options(scaleOptions)
             .pagePadding(
-                vertical: .absolute(60),
                 horizontal: .absolute(120)
             )
+            .padding(.bottom, 1)
         }
-        .frame(height: 212)
+        .frame(height: 213)
     }
 }
 
@@ -67,7 +67,7 @@ struct FavoriteMoviesView_Previews: PreviewProvider {
         FavoriteMoviesView(
             displayingFavotireMovies: [
                 DisplayingFavotireMovie(
-                    movie: MockDataHelper.getMockMovie(),
+                    movie: MockDataHelper.getMovie(),
                     tapClosure: nil,
                     deleteClosure: nil
                 )

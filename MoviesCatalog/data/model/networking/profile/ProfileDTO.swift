@@ -1,18 +1,16 @@
 //
-//  Profile.swift
+//  ProfileDTO.swift
 //  MoviesCatalog
 //
 //  Created by Igor Efimov on 25.10.2022.
 //
 
-import Foundation
-
-struct Profile: Codable {
+struct ProfileDTO: Codable {
     let id: String
     let nickName: String?
     let email: String
-    let avatarLink: String?
+    var avatarLink: String?
     let name: String
-    let birthDate: Date?
+    var birthDate: String?
     let gender: GenderTypeEnum
 }

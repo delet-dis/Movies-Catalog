@@ -28,7 +28,7 @@ extension AFDataResponse {
             return
         }
 
-        guard var response = self.data else {
+        guard let response = self.data else {
             completion?(.failure(NetworkingErrorsEnum.unableToGetData))
 
             return

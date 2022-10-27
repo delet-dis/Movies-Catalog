@@ -33,7 +33,7 @@ extension Profile {
         } catch {
             return nil
         }
-        
+
         return nil
     }
 }

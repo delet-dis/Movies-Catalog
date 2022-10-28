@@ -14,22 +14,29 @@ struct MoviesView: View {
     @State private var isDisplayingFavoriteMovies = true
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
+        ZStack {
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
 
-                if isDisplayingFavoriteMovies {
-                    FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
-                } else {
-                    EmptyView()
+                    if isDisplayingFavoriteMovies {
+                        FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
+                    } else {
+                        EmptyView()
+                    }
+
+                    MoviesListView(displayingMovies: viewModel.displayingMovies) {
+                        viewModel.requestMoreMovies()
+                    }
+
+                    Spacer()
+                        .padding(.bottom, 100)
                 }
+            }
+            .ignoresSafeArea()
 
-                MoviesListView(displayingMovies: viewModel.displayingMovies) {
-                    viewModel.requestMoreMovies()
-                }
-
-                Spacer()
-                    .padding(.bottom, 100)
+            NavigationLink("", isActive: $viewModel.isMovieDetailsDisplaying) {
+                Text("Test")
             }
         }
         .background(Color(uiColor: R.color.darkAccent() ?? .black))

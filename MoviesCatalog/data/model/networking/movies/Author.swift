@@ -8,7 +8,7 @@
 import Foundation
 
 struct Author: Codable {
-    let userID: String
+    let userID: String?
     let nickName: String
-    let avatar: String
+    let avatar: String?
 }

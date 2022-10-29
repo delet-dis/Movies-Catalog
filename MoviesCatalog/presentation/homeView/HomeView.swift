@@ -13,41 +13,46 @@ struct HomeView: View {
     @State private var viewDisplayingMode: HomeViewDisplayingModeEnum = .movies
 
     var body: some View {
-        TabView(selection: $viewDisplayingMode) {
-            if let moviesView = viewModel.moviesComponent?.moviesView {
-                moviesView
-                    .tabItem {
-                        Label {
-                            Text(R.string.localizable.moviesScreenTabDescription())
-                                .modifier(FootnoteModifier())
-                        } icon: {
-                            Image(uiImage: R.image.tvIcon() ?? .strokedCheckmark)
+        NavigationView {
+            TabView(selection: $viewDisplayingMode) {
+                if let moviesView = viewModel.moviesComponent?.moviesView {
+                    moviesView
+                        .tabItem {
+                            Label {
+                                Text(R.string.localizable.moviesScreenTabDescription())
+                                    .modifier(FootnoteModifier())
+                            } icon: {
+                                Image(uiImage: R.image.tvIcon() ?? .strokedCheckmark)
+                            }
                         }
-                    }
-            }
+                }
 
-            if let profileView = viewModel.profileComponent?.profileView {
-                profileView
-                    .tabItem {
-                        Label {
-                            Text(R.string.localizable.profileScreenTabDescription())
-                                .modifier(FootnoteModifier())
-                        } icon: {
-                            Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)
+                if let profileView = viewModel.profileComponent?.profileView {
+                    profileView
+                        .tabItem {
+                            Label {
+                                Text(R.string.localizable.profileScreenTabDescription())
+                                    .modifier(FootnoteModifier())
+                            } icon: {
+                                Image(uiImage: R.image.personIcon() ?? .strokedCheckmark)
+                            }
                         }
-                    }
+                }
             }
-        }
-        .onAppear {
-            setAppearance()
-        }
-        .onDisappear {
-            removeAppearance()
+            .onAppear {
+                setAppearance()
+            }
+            .onDisappear {
+                removeAppearance()
+            }
         }
         .accentColor(Color(uiColor: R.color.accent() ?? .orange))
     }
 
     private func setAppearance() {
+        let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         UITabBar.appearance().unselectedItemTintColor = R.color.gray()
     }
 

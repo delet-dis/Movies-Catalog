@@ -55,6 +55,8 @@
 		301A7E102904163500D69188 /* MoviesRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A7E0F2904163500D69188 /* MoviesRepositoryImpl.swift */; };
 		301A7E132904192600D69188 /* LoadMoviesAtPositionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A7E122904192600D69188 /* LoadMoviesAtPositionUseCase.swift */; };
 		301A7E152904199E00D69188 /* LoadMovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A7E142904199E00D69188 /* LoadMovieDetailsUseCase.swift */; };
+		307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */; };
+		307F4532290D8DCB009A30C4 /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */; };
 		3092CAFC290785E400ED7DF9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFB290785E400ED7DF9 /* Profile.swift */; };
 		3092CAFF2907869A00ED7DF9 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */; };
 		3092CB01290786F500ED7DF9 /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */; };
@@ -175,6 +177,8 @@
 		301A7E0F2904163500D69188 /* MoviesRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepositoryImpl.swift; sourceTree = "<group>"; };
 		301A7E122904192600D69188 /* LoadMoviesAtPositionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoviesAtPositionUseCase.swift; sourceTree = "<group>"; };
 		301A7E142904199E00D69188 /* LoadMovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMovieDetailsUseCase.swift; sourceTree = "<group>"; };
+		307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationComntrollerExtensions.swift; sourceTree = "<group>"; };
+		307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		3092CAFB290785E400ED7DF9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				30F3883128FFCD8D00346326 /* MovieExtensions.swift */,
 				30F3883A28FFDB7900346326 /* ColorExtensions.swift */,
 				30F46FF229082CF40048B05C /* ProfileExtensions.swift */,
+				307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				30F3882B28FFC52500346326 /* MockDataHelper.swift */,
 				3092CB02290787B000ED7DF9 /* NetworkingHelper.swift */,
 				30F46FEC2907B4930048B05C /* StatefulPreviewWrapper.swift */,
+				307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -1234,10 +1240,12 @@
 				3005414628FC6B7300D6CD6F /* LoginComponent.swift in Sources */,
 				3005412428FB155A00D6CD6F /* AFDataReposnseExtensions.swift in Sources */,
 				30F46FF1290827DC0048B05C /* ProfileDTO.swift in Sources */,
+				307F4532290D8DCB009A30C4 /* RoundedCornerShape.swift in Sources */,
 				30F387F228FD5DD200346326 /* UIImageExtensions.swift in Sources */,
 				300540F728FB038400D6CD6F /* TextModifiers.swift in Sources */,
 				3005413028FBB06800D6CD6F /* AuthenticationDataValidatorHelper.swift in Sources */,
 				30F3881628FFB7FD00346326 /* HomeView.swift in Sources */,
+				307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */,
 				3005411F28FB108700D6CD6F /* NetworkingConstants.swift in Sources */,
 				30F3886B2902BC4A00346326 /* Favorites.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationAndPlaceholderStyle.swift in Sources */,

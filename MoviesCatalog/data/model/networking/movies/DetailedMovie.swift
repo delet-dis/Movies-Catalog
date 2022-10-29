@@ -17,9 +17,9 @@ struct DetailedMovie: Codable {
     let reviews: [DetailedReview]
     let time: Int
     let tagline: String
-    let welcomeDescription: String
+    let welcomeDescription: String?
     let director: String
-    let budget: String
-    let fees: String
+    let budget: Int
+    let fees: Int
     let ageLimit: Int
 }

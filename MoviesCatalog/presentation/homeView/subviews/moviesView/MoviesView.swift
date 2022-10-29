@@ -34,15 +34,19 @@ struct MoviesView: View {
                 }
             }
             .ignoresSafeArea()
+            .refreshable {
+                viewModel.refreshDisplayingData()
+            }
 
             NavigationLink("", isActive: $viewModel.isMovieDetailsDisplaying) {
-                Text("Test")
+                viewModel.movieDetailsComponent?.movieDetailsView
+                    .onAppear {
+                        viewModel.movieDetailsComponent?
+                            .movieDetailsViewViewModel.setDisplayingMovieId(viewModel.displayingMovieId)
+                    }
             }
         }
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
-        .refreshable {
-            viewModel.refreshDisplayingData()
-        }
         .onAppear {
             getDisplayingData()
         }

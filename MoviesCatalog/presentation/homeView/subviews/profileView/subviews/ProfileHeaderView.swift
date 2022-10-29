@@ -12,7 +12,7 @@ struct ProfileHeaderView: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            if let avatarLink = profile.avatarLink, !avatarLink.isEmpty {
+            if let avatarLink = profile.avatarLink, !avatarLink.isEmpty && isAvatarLinkValid(avatarLink) {
                 AsyncImage(url: URL(string: avatarLink)) { image in
                     image
                         .resizable()
@@ -27,11 +27,9 @@ struct ProfileHeaderView: View {
                 }
                 .clipShape(Circle())
             } else {
-                ZStack {
-                    Image(uiImage: R.image.defaultAvatarIcon() ?? .strokedCheckmark)
-                        .resizable()
-                        .frame(width: 88, height: 88)
-                }
+                Image(uiImage: R.image.defaultAvatarIcon() ?? .strokedCheckmark)
+                    .resizable()
+                    .frame(width: 88, height: 88)
             }
 
             Text(profile.nickName ?? R.string.localizable.noNickname())
@@ -40,6 +38,10 @@ struct ProfileHeaderView: View {
                 .foregroundColor(.white)
         }
         .padding(.horizontal, 16)
+    }
+
+    private func isAvatarLinkValid(_ avatarLink: String) -> Bool {
+        AuthenticationDataValidatorHelper.isEmailValid(avatarLink)
     }
 }
 

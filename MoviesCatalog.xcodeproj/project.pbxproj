@@ -57,6 +57,7 @@
 		301A7E152904199E00D69188 /* LoadMovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A7E142904199E00D69188 /* LoadMovieDetailsUseCase.swift */; };
 		307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */; };
 		307F4532290D8DCB009A30C4 /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */; };
+		307F4534290EBC31009A30C4 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */; };
 		3092CAFC290785E400ED7DF9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFB290785E400ED7DF9 /* Profile.swift */; };
 		3092CAFF2907869A00ED7DF9 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */; };
 		3092CB01290786F500ED7DF9 /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */; };
@@ -179,6 +180,7 @@
 		301A7E142904199E00D69188 /* LoadMovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationComntrollerExtensions.swift; sourceTree = "<group>"; };
 		307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
+		307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		3092CAFB290785E400ED7DF9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				30F3883A28FFDB7900346326 /* ColorExtensions.swift */,
 				30F46FF229082CF40048B05C /* ProfileExtensions.swift */,
 				307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */,
+				307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				3092CAFF2907869A00ED7DF9 /* ProfileRepository.swift in Sources */,
 				30F3883928FFD38200346326 /* RatingView.swift in Sources */,
 				3005414428FC69F900D6CD6F /* LoginView.swift in Sources */,
+				307F4534290EBC31009A30C4 /* UIApplicationExtensions.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
 				301A7E062904101900D69188 /* MoviesPage.swift in Sources */,
 				30F3880528FE513B00346326 /* NSErrorExtensions.swift in Sources */,

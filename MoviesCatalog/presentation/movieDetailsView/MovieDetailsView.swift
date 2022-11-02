@@ -83,7 +83,7 @@ struct MovieDetailsView: View {
                     .padding(.leading, 16)
                 }
 
-                VStack {
+                VStack(spacing: 16) {
                     HStack {
                         Text(viewModel.displayingDetailedMovie?.description)
                             .modifier(BodySmallModifier())
@@ -93,7 +93,9 @@ struct MovieDetailsView: View {
                     }
 
                     if let displayingDetailedMovie = viewModel.displayingDetailedMovie {
-                        AboutMovieView(displayingMovie: displayingDetailedMovie)
+                        AboutMovieView(detailedMovie: displayingDetailedMovie)
+
+                        MovieGenresView(genres: displayingDetailedMovie.genres)
                     }
                 }
                 .padding(.horizontal, 16)

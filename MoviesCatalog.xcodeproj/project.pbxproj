@@ -61,6 +61,7 @@
 		3029C1072912965200368AC7 /* AboutMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029C1062912965200368AC7 /* AboutMovieView.swift */; };
 		3029C1092912983D00368AC7 /* AboutMovieViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029C1082912983D00368AC7 /* AboutMovieViewSection.swift */; };
 		3029C10B29129B5600368AC7 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3029C10A29129B5600368AC7 /* Montserrat-Medium.ttf */; };
+		3029C1122912A7D000368AC7 /* MovieGenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3029C1112912A7CF00368AC7 /* MovieGenresView.swift */; };
 		307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */; };
 		307F4532290D8DCB009A30C4 /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */; };
 		307F4534290EBC31009A30C4 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */; };
@@ -190,6 +191,7 @@
 		3029C1062912965200368AC7 /* AboutMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMovieView.swift; sourceTree = "<group>"; };
 		3029C1082912983D00368AC7 /* AboutMovieViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMovieViewSection.swift; sourceTree = "<group>"; };
 		3029C10A29129B5600368AC7 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		3029C1112912A7CF00368AC7 /* MovieGenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenresView.swift; sourceTree = "<group>"; };
 		307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationComntrollerExtensions.swift; sourceTree = "<group>"; };
 		307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
@@ -580,7 +582,24 @@
 		3029C1052912963D00368AC7 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				3029C10E2912A79000368AC7 /* aboutMovieView */,
+				3029C1112912A7CF00368AC7 /* MovieGenresView.swift */,
+			);
+			path = subviews;
+			sourceTree = "<group>";
+		};
+		3029C10E2912A79000368AC7 /* aboutMovieView */ = {
+			isa = PBXGroup;
+			children = (
+				3029C10F2912A79D00368AC7 /* subviews */,
 				3029C1062912965200368AC7 /* AboutMovieView.swift */,
+			);
+			path = aboutMovieView;
+			sourceTree = "<group>";
+		};
+		3029C10F2912A79D00368AC7 /* subviews */ = {
+			isa = PBXGroup;
+			children = (
 				3029C1082912983D00368AC7 /* AboutMovieViewSection.swift */,
 			);
 			path = subviews;
@@ -1280,6 +1299,7 @@
 				30F3881628FFB7FD00346326 /* HomeView.swift in Sources */,
 				307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */,
 				3005411F28FB108700D6CD6F /* NetworkingConstants.swift in Sources */,
+				3029C1122912A7D000368AC7 /* MovieGenresView.swift in Sources */,
 				30F3886B2902BC4A00346326 /* Favorites.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationAndPlaceholderStyle.swift in Sources */,
 				3092CB0E29078A5D00ED7DF9 /* ProfileViewViewModel.swift in Sources */,

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AboutMovieView: View {
-    var displayingMovie: DetailedMovie
+    var detailedMovie: DetailedMovie
 
     let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -29,42 +29,42 @@ struct AboutMovieView: View {
             VStack(spacing: 4) {
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.year(),
-                    sectionText: String(displayingMovie.year)
+                    sectionText: String(detailedMovie.year)
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.country(),
-                    sectionText: displayingMovie.country
+                    sectionText: detailedMovie.country
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.time(),
-                    sectionText: "\(displayingMovie.time) \(R.string.localizable.min())"
+                    sectionText: "\(detailedMovie.time) \(R.string.localizable.min())"
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.tagline(),
-                    sectionText: displayingMovie.tagline
+                    sectionText: detailedMovie.tagline
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.director(),
-                    sectionText: displayingMovie.director
+                    sectionText: detailedMovie.director
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.budget(),
-                    sectionText: "$\(numberFormatter.string(from: displayingMovie.budget as NSNumber) ?? "")"
+                    sectionText: "$\(numberFormatter.string(from: detailedMovie.budget as NSNumber) ?? "")"
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.worldwideFees(),
-                    sectionText: "$\(numberFormatter.string(from: displayingMovie.fees as NSNumber) ?? "")"
+                    sectionText: "$\(numberFormatter.string(from: detailedMovie.fees as NSNumber) ?? "")"
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.age(),
-                    sectionText: "\(displayingMovie.ageLimit)+"
+                    sectionText: "\(detailedMovie.ageLimit)+"
                 )
             }
         }
@@ -73,6 +73,6 @@ struct AboutMovieView: View {
 
 struct AboutMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutMovieView(displayingMovie: MockDataHelper.getDetailedMovie())
+        AboutMovieView(detailedMovie: MockDataHelper.getDetailedMovie())
     }
 }

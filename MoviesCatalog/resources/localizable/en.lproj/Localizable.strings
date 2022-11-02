@@ -57,3 +57,7 @@
 "age" = "Age";
 "min" = "min.";
 "genres" = "Genres";
+"reviews" = "Reviews";
+
+"anonymousUser" = "Anonymous user";
+"myReview" = "my review";

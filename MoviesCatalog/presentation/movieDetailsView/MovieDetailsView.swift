@@ -111,6 +111,8 @@ struct MovieDetailsView: View {
                         AboutMovieView(detailedMovie: displayingDetailedMovie)
 
                         MovieGenresView(genres: displayingDetailedMovie.genres)
+
+//                        MovieReviewsView(reviewAddClosure: {}, displayingDetailedReviews: displayingDetailedMovie.reviews)
                     }
                 }
                 .padding(.horizontal, 16)

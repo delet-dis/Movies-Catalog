@@ -80,4 +80,13 @@ class MockDataHelper {
             ageLimit: 12
         )
     }
+
+    static func getDisplayingDetailedReview() -> DisplayingDetailedReview {
+        DisplayingDetailedReview(
+            detailedReview: getDetailedReview(),
+            isUserReview: true,
+            editClosure: {},
+            removeClosure: {}
+        )
+    }
 }

@@ -10,13 +10,6 @@ import SwiftUI
 struct AboutMovieView: View {
     var detailedMovie: DetailedMovie
 
-    let numberFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.groupingSeparator = " "
-        return numberFormatter
-    }()
-
     var body: some View {
         VStack(spacing: 8) {
             HStack {
@@ -54,12 +47,12 @@ struct AboutMovieView: View {
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.budget(),
-                    sectionText: "$\(numberFormatter.string(from: detailedMovie.budget as NSNumber) ?? "")"
+                    sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(detailedMovie.budget) ?? "")"
                 )
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.worldwideFees(),
-                    sectionText: "$\(numberFormatter.string(from: detailedMovie.fees as NSNumber) ?? "")"
+                    sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(detailedMovie.fees) ?? "")"
                 )
 
                 AboutMovieViewSection(

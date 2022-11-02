@@ -9,12 +9,15 @@ import SwiftUI
 
 struct RatingView: View {
     var rating: Double
+    var isDecimal: Bool = true
 
     @State var ratingColor: Color = .gray
 
     var body: some View {
         ZStack {
-            Text(!rating.isNaN ? String(format: "%.1f", rating) : "-")
+            Text(!rating.isNaN ?
+                isDecimal ? String(format: "%.1f", rating) : String(format: "%.0f", rating) :
+                "-")
                 .foregroundColor(ratingColor)
                 .brightness(-0.3)
                 .modifier(BodyModifier())

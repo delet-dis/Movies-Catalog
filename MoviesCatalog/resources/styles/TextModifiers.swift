@@ -72,3 +72,12 @@ struct TitleModifier: ViewModifier {
             .padding(.vertical, (40 - uiFont.lineHeight) / 2)
     }
 }
+
+struct MontserratModifier: ViewModifier{
+    private let uiFont = R.font.montserratMedium(size: 12) ?? .systemFont(ofSize: 12)
+
+    func body(content: Content) -> some View {
+        content
+            .font(Font(uiFont))
+    }
+}

@@ -59,7 +59,7 @@ struct MoviesView: View {
             haptic: .error
         )
         .onReceive(viewModel.$displayingFavoriteMovies) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isDisplayingFavoriteMovies = !value.isEmpty
             }
         }

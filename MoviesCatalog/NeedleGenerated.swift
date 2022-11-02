@@ -125,6 +125,15 @@ private class MovieDetailsComponentDependency1308afb98216b0e51640Provider: Movie
     var loadMovieDetailsUseCase: LoadMovieDetailsUseCase {
         return mainComponent.loadMovieDetailsUseCase
     }
+    var getFavoriteStatusUseCase: GetFavoriteStatusUseCase {
+        return mainComponent.getFavoriteStatusUseCase
+    }
+    var toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase {
+        return mainComponent.toggleFavoriteStatusUseCase
+    }
+    var getTokenUseCase: GetTokenUseCase {
+        return mainComponent.getTokenUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -188,6 +197,9 @@ extension MoviesComponent: Registration {
 extension MovieDetailsComponent: Registration {
     public func registerItems() {
         keyPathToName[\MovieDetailsComponentDependency.loadMovieDetailsUseCase] = "loadMovieDetailsUseCase-LoadMovieDetailsUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.getFavoriteStatusUseCase] = "getFavoriteStatusUseCase-GetFavoriteStatusUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.toggleFavoriteStatusUseCase] = "toggleFavoriteStatusUseCase-ToggleFavoriteStatusUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
     }
 }
 extension MainComponent: Registration {

@@ -130,12 +130,12 @@ struct AuthorizationView: View {
             areFieldsValid = viewModel.areFieldsValid
         }
         .onReceive(viewModel.$isProgressViewShowing) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isProgressViewShowing = value
             }
         }
         .onReceive(viewModel.$areFieldsValid) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.areFieldsValid = value
             }
         }

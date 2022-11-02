@@ -73,4 +73,52 @@ class FavoritesRepositoryImpl: FavoritesRepository {
                 )
             }
     }
+
+    func toggleFavoriteStatus(token: String, movieId: String, completion: ((Result<Bool, Error>) -> Void)?) {
+        getFavoriteStatus(token: token, movieId: movieId) { [self] result in
+            switch result {
+            case .success(let isFavorite):
+                if isFavorite {
+                    deleteFavorite(token: token, id: movieId) { result in
+                        switch result {
+                        case .success:
+                            completion?(.success(!isFavorite))
+                        case .failure(let error):
+                            completion?(.failure(error))
+                        }
+                    }
+                } else {
+                    addFavotire(token: token, id: movieId) { result in
+                        switch result {
+                        case .success:
+                            completion?(.success(!isFavorite))
+                        case .failure(let error):
+                            completion?(.failure(error))
+                        }
+                    }
+                }
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
+
+    func getFavoriteStatus(
+        token: String,
+        movieId: String,
+        completion: ((Result<Bool, Error>) -> Void)?
+    ) {
+        getFavorites(token: token) { result in
+            switch result {
+            case .success(let favorites):
+                if favorites.movies.contains(where: { $0.id == movieId }) {
+                    completion?(.success(true))
+                } else {
+                    completion?(.success(false))
+                }
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
 }

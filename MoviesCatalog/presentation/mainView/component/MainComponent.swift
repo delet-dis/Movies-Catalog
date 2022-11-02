@@ -104,6 +104,18 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase {
+        shared {
+            ToggleFavoriteStatusUseCase(favoritesRepository: favoritesRepository)
+        }
+    }
+
+    var getFavoriteStatusUseCase: GetFavoriteStatusUseCase {
+        shared {
+            GetFavoriteStatusUseCase(favoritesRepository: favoritesRepository)
+        }
+    }
+
     var moviesRepository: MoviesRepositoryImpl {
         shared {
             MoviesRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)

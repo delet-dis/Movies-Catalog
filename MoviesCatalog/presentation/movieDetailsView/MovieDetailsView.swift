@@ -13,6 +13,8 @@ struct MovieDetailsView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var isCollapsedHeaderShowing = false
+    @State private var isFavorite = false
+    @State private var isAbleToShowNavigationBar = false
 
     private static let headerImageHeight: CGFloat = 250
     private static let navigationBarHeight: CGFloat = 56
@@ -21,16 +23,16 @@ struct MovieDetailsView: View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 GeometryReader { geometry -> AnyView in
-                    if (geometry.frame(in: .global).minY + 250) < 0 {
+                    if (geometry.frame(in: .global).minY + Self.headerImageHeight) < 0 {
                         DispatchQueue.main.async {
-                            withAnimation(.easeInOut(duration: 0.3)) {
+                            withAnimation {
                                 isCollapsedHeaderShowing = true
                             }
                         }
 
                     } else {
                         DispatchQueue.main.async {
-                            withAnimation(.easeInOut(duration: 0.3)) {
+                            withAnimation {
                                 isCollapsedHeaderShowing = false
                             }
                         }
@@ -82,12 +84,17 @@ struct MovieDetailsView: View {
                 }
 
                 VStack {
-                    Text(viewModel.displayingDetailedMovie?.description)
-                        .modifier(BodySmallModifier())
+                    HStack {
+                        Text(viewModel.displayingDetailedMovie?.description)
+                            .modifier(BodySmallModifier())
                         .multilineTextAlignment(.leading)
 
-                    Spacer()
-                        .frame(height: 1000)
+                        Spacer()
+                    }
+
+                    if let displayingDetailedMovie = viewModel.displayingDetailedMovie {
+                        AboutMovieView(displayingMovie: displayingDetailedMovie)
+                    }
                 }
                 .padding(.horizontal, 16)
             }
@@ -111,10 +118,14 @@ struct MovieDetailsView: View {
 
                         Spacer()
 
-                        Image(systemName: "heart")
-                            .resizable()
-                            .frame(width: 21, height: 19)
-                            .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
+                        Button {
+                            viewModel.toggleFavoriteState()
+                        } label: {
+                            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                                .resizable()
+                                .frame(width: 21, height: 19)
+                                .foregroundColor(Color(uiColor: R.color.accent() ?? .orange))
+                        }
                     }
                     .frame(height: Self.navigationBarHeight)
                     .padding(.horizontal, 16)
@@ -124,11 +135,26 @@ struct MovieDetailsView: View {
 
                 Spacer()
             }
-            .opacity(isCollapsedHeaderShowing ? 1 : 0)
+            .opacity(isCollapsedHeaderShowing && isAbleToShowNavigationBar ? 1 : 0)
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
+        .onAppear {
+            isFavorite = isFavorite
+        }
+        .onReceive(viewModel.$isFavorite) { value in
+            withAnimation {
+                self.isFavorite = value
+            }
+        }
+        .onAppear {
+            isAbleToShowNavigationBar = false
+
+            DispatchQueue.runAsyncOnMain(delay: .normal) {
+                isAbleToShowNavigationBar = true
+            }
+        }
     }
 }
 
@@ -138,11 +164,41 @@ struct MovieDetailsView_Previews: PreviewProvider {
     )
     private static let loadMovieDetailsUseCase = LoadMovieDetailsUseCase(moviesRepository: moviesRepository)
 
+    private static let authRepository = AuthRepositoryImpl(
+        jsonDecoder: JSONDecoder(),
+        jsonEncoder: JSONEncoder()
+    )
+    private static let keychainRepository = KeychainRepositoryImpl()
+    private static let saveTokenUseCase = SaveTokenUseCase(keychainRepository: keychainRepository)
+    private static let getTokenUseCase = GetTokenUseCase(keychainRepository: keychainRepository)
+
+    private static let saveAuthStatusUseCase = SaveAuthStatusUseCase()
+    private static let logoutUseCase = LogoutUseCase(
+        authRepository: authRepository,
+        saveAuthStatusUseCase: saveAuthStatusUseCase,
+        saveTokenUseCase: saveTokenUseCase
+    )
+
+    private static let favoritesRepository = FavoritesRepositoryImpl(
+        jsonDecoder: JSONDecoder(),
+        jsonEncoder: JSONEncoder(),
+        logoutUseCase: logoutUseCase
+    )
+    private static let toggleFavoriteStatusUseCase = ToggleFavoriteStatusUseCase(
+        favoritesRepository: favoritesRepository
+    )
+    private static let getFavoriteStatusUseCase = GetFavoriteStatusUseCase(
+        favoritesRepository: favoritesRepository
+    )
+
     static var previews: some View {
         MovieDetailsView()
             .environmentObject(
                 MovieDetailsViewViewModel(
-                    loadMovieDetailsUseCase: loadMovieDetailsUseCase
+                    loadMovieDetailsUseCase: loadMovieDetailsUseCase,
+                    getFavoriteStatusUseCase: getFavoriteStatusUseCase,
+                    toggleFavoriteStatusUseCase: toggleFavoriteStatusUseCase,
+                    getTokenUseCase: getTokenUseCase
                 )
             )
     }

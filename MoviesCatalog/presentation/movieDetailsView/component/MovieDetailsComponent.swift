@@ -11,13 +11,19 @@ import SwiftUI
 
 protocol MovieDetailsComponentDependency: Dependency {
     var loadMovieDetailsUseCase: LoadMovieDetailsUseCase { get }
+    var getFavoriteStatusUseCase: GetFavoriteStatusUseCase { get }
+    var toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase { get }
+    var getTokenUseCase: GetTokenUseCase { get }
 }
 
 final class MovieDetailsComponent: Component<MovieDetailsComponentDependency> {
     var movieDetailsViewViewModel: MovieDetailsViewViewModel {
         shared {
             MovieDetailsViewViewModel(
-                loadMovieDetailsUseCase: dependency.loadMovieDetailsUseCase
+                loadMovieDetailsUseCase: dependency.loadMovieDetailsUseCase,
+                getFavoriteStatusUseCase: dependency.getFavoriteStatusUseCase,
+                toggleFavoriteStatusUseCase: dependency.toggleFavoriteStatusUseCase,
+                getTokenUseCase: dependency.getTokenUseCase
             )
         }
     }

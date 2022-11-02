@@ -120,36 +120,36 @@ struct RegistrationView: View {
                                 focusedField = .birthDate
                             }
 
-                            ZStack {
-                                HStack {
-                                    TextField("", text: $viewModel.birthDateAsString)
-                                        .textInputAutocapitalization(.never)
-                                        .submitLabel(.next)
-                                        .modifier(BodySmallModifier())
-                                        .textFieldStyle(
-                                            TextFieldWithValidationAndPlaceholderStyle(
-                                                validationState: viewModel.isBirthDateValid,
-                                                isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
-                                                placeholderText: R.string.localizable.birthDate()
-                                            )
+                        ZStack {
+                            HStack {
+                                TextField("", text: $viewModel.birthDateAsString)
+                                    .textInputAutocapitalization(.never)
+                                    .submitLabel(.next)
+                                    .modifier(BodySmallModifier())
+                                    .textFieldStyle(
+                                        TextFieldWithValidationAndPlaceholderStyle(
+                                            validationState: viewModel.isBirthDateValid,
+                                            isPlaceholderDispalying: viewModel.birthDateAsString.isEmpty,
+                                            placeholderText: R.string.localizable.birthDate()
                                         )
-                                        .focused($focusedField, equals: .birthDate)
-                                        .disabled(true)
-                                }
-
-                                HStack {
-                                    Spacer()
-
-                                    Image(uiImage: R.image.calendarIcon() ?? .strokedCheckmark)
-                                        .padding(.trailing, 20)
-                                        .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-                                }
+                                    )
+                                    .focused($focusedField, equals: .birthDate)
+                                    .disabled(true)
                             }
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                focusedField = nil
-                                viewModel.isDatePickerDisplaying.toggle()
+
+                            HStack {
+                                Spacer()
+
+                                Image(uiImage: R.image.calendarIcon() ?? .strokedCheckmark)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
                             }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            focusedField = nil
+                            viewModel.isDatePickerDisplaying.toggle()
+                        }
 
                         if isDatePickerDisplaying {
                             DatePicker(
@@ -277,17 +277,17 @@ struct RegistrationView: View {
             Self.removeCustomPickerStyle()
         }
         .onReceive(viewModel.$isProgressViewShowing) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isProgressViewShowing = value
             }
         }
         .onReceive(viewModel.$areFieldsValid) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.areFieldsValid = value
             }
         }
         .onReceive(viewModel.$isDatePickerDisplaying) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isDatePickerDisplaying = value
             }
         }

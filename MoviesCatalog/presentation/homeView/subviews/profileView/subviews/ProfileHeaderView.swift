@@ -41,7 +41,7 @@ struct ProfileHeaderView: View {
     }
 
     private func isAvatarLinkValid(_ avatarLink: String) -> Bool {
-        AuthenticationDataValidatorHelper.isEmailValid(avatarLink)
+        AuthenticationDataValidatorHelper.isAvatarURLValid(avatarLink)
     }
 }
 

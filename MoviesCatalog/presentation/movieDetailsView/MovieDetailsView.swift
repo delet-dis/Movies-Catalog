@@ -69,6 +69,21 @@ struct MovieDetailsView: View {
                 .aspectRatio(contentMode: .fit)
                 .overlay {
                     VStack {
+                        HStack {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(uiImage: R.image.chevronLeft() ?? .strokedCheckmark)
+                                    .foregroundColor(Color(uiColor: R.color.baseWhite() ?? .white))
+                            }
+                            .padding(
+                                .top,
+                                Self.navigationBarHeight / 2 + UIApplication.shared.statusBarHeight
+                            )
+
+                            Spacer()
+                        }
+
                         Spacer()
 
                         HStack {
@@ -87,7 +102,7 @@ struct MovieDetailsView: View {
                     HStack {
                         Text(viewModel.displayingDetailedMovie?.description)
                             .modifier(BodySmallModifier())
-                        .multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.leading)
 
                         Spacer()
                     }

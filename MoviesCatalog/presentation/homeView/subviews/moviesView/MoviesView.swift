@@ -25,8 +25,10 @@ struct MoviesView: View {
                         EmptyView()
                     }
 
-                    MoviesListView(displayingMovies: viewModel.displayingMovies) {
-                        viewModel.requestMoreMovies()
+                    if !viewModel.displayingMovies.isEmpty {
+                        MoviesListView(displayingMovies: viewModel.displayingMovies) {
+                            viewModel.requestMoreMovies()
+                        }
                     }
 
                     Spacer()

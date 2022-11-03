@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class ProfileRepositoryImpl: ProfileRepository {
-    private static let url = NetworkingConstants.baseUrl + "/api/account/profile"
+    private static let url = "\(NetworkingConstants.baseUrl)/api/account/profile"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder

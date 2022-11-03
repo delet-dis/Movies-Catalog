@@ -50,6 +50,7 @@ struct MovieDetailsView: View {
                                 Rectangle()
                                     .skeleton(with: true)
                                     .shape(type: .rectangle)
+                                    .foregroundColor(Color(uiColor: R.color.darkAccent() ?? .gray))
                                     .frame(height: Self.headerImageHeight, alignment: .center)
                             }
                             .clipShape(Rectangle())
@@ -61,6 +62,7 @@ struct MovieDetailsView: View {
                             Rectangle()
                                 .frame(height: Self.headerImageHeight)
                                 .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
+                                .foregroundColor(Color(uiColor: R.color.darkAccent() ?? .gray))
                                 .offset(y: geometry.frame(in: .global).minY / 5)
                         )
                     }
@@ -110,11 +112,19 @@ struct MovieDetailsView: View {
                     if let displayingDetailedMovie = viewModel.displayingDetailedMovie {
                         AboutMovieView(detailedMovie: displayingDetailedMovie)
 
-                        MovieGenresView(genres: displayingDetailedMovie.genres)
+                        if let genres = displayingDetailedMovie.genres {
+                            MovieGenresView(genres: genres)
+                        }
 
-//                        MovieReviewsView(reviewAddClosure: {}, displayingDetailedReviews: displayingDetailedMovie.reviews)
+                        if let reviews = viewModel.displayingDetailedReviews {
+                            MovieReviewsView(
+                                reviewAddClosure: {},
+                                displayingDetailedReviews: reviews
+                            )
+                        }
                     }
                 }
+                .padding(.bottom, 100)
                 .padding(.horizontal, 16)
             }
 
@@ -174,6 +184,9 @@ struct MovieDetailsView: View {
                 isAbleToShowNavigationBar = true
             }
         }
+        .onDisappear {
+            viewModel.resetDisplayingData()
+        }
     }
 }
 
@@ -210,6 +223,12 @@ struct MovieDetailsView_Previews: PreviewProvider {
         favoritesRepository: favoritesRepository
     )
 
+    private static let profileRepository = ProfileRepositoryImpl(
+        jsonDecoder: JSONDecoder(), jsonEncoder: JSONEncoder()
+    )
+
+    private static let getUserProfileUseCase = GetUserProfileUseCase(profileRepository: profileRepository)
+
     static var previews: some View {
         MovieDetailsView()
             .environmentObject(
@@ -217,7 +236,8 @@ struct MovieDetailsView_Previews: PreviewProvider {
                     loadMovieDetailsUseCase: loadMovieDetailsUseCase,
                     getFavoriteStatusUseCase: getFavoriteStatusUseCase,
                     toggleFavoriteStatusUseCase: toggleFavoriteStatusUseCase,
-                    getTokenUseCase: getTokenUseCase
+                    getTokenUseCase: getTokenUseCase,
+                    getUserProfileUseCase: getUserProfileUseCase
                 )
             )
     }

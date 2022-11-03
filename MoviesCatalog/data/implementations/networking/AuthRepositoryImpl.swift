@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class AuthRepositoryImpl: AuthRepository {
-    private static let url = NetworkingConstants.baseUrl + "/api/account/"
+    private static let url = "\(NetworkingConstants.baseUrl)/api/account/"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder

@@ -85,8 +85,8 @@ class MockDataHelper {
         DisplayingDetailedReview(
             detailedReview: getDetailedReview(),
             isUserReview: true,
-            editClosure: {},
-            removeClosure: {}
+            editClosure: {_ in},
+            removeClosure: {_ in}
         )
     }
 }

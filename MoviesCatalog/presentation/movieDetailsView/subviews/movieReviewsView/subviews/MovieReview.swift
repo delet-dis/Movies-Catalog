@@ -17,7 +17,7 @@ struct MovieReview: View {
         VStack {
             HStack(spacing: 8) {
                 if !displayingDetailedReview.detailedReview.isAnonymous,
-                   let avatarLink = displayingDetailedReview.detailedReview.author.avatar,
+                   let avatarLink = displayingDetailedReview.detailedReview.author?.avatar,
                    !avatarLink.isEmpty && isAvatarLinkValid(avatarLink) {
                     AsyncImage(url: URL(string: avatarLink)) { image in
                         image
@@ -42,7 +42,7 @@ struct MovieReview: View {
                     Text(
                         displayingDetailedReview.detailedReview.isAnonymous ?
                             R.string.localizable.anonymousUser() :
-                            displayingDetailedReview.detailedReview.author.nickName
+                            displayingDetailedReview.detailedReview.author?.nickName
                     )
                     .font(Font(UIFont.systemFont(ofSize: 24, weight: .bold)))
                     .bold()
@@ -76,7 +76,9 @@ struct MovieReview: View {
                             displayingDetailedReview.detailedReview.createDateTime
                         )
                     )
-
+                    .modifier(PlexSansSmallModifier())
+                    .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
+                    
                     Spacer()
                 }
 
@@ -84,7 +86,7 @@ struct MovieReview: View {
                    let removeClosure = displayingDetailedReview.removeClosure {
                     HStack(spacing: 8) {
                         Button {
-                            editClosure()
+                            editClosure(displayingDetailedReview.detailedReview.id)
                         } label: {
                             ZStack {
                                 Circle()
@@ -97,7 +99,7 @@ struct MovieReview: View {
                         }
 
                         Button {
-                            removeClosure()
+                            removeClosure(displayingDetailedReview.detailedReview.id)
                         } label: {
                             ZStack {
                                 Circle()

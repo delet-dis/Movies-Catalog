@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class FavoritesRepositoryImpl: FavoritesRepository {
-    private static let url = NetworkingConstants.baseUrl + "/api/favorites/"
+    private static let url = "\(NetworkingConstants.baseUrl)/api/favorites/"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder

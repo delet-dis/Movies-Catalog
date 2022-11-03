@@ -45,15 +45,19 @@ struct AboutMovieView: View {
                     sectionText: detailedMovie.director
                 )
 
-                AboutMovieViewSection(
-                    sectionNameText: R.string.localizable.budget(),
-                    sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(detailedMovie.budget) ?? "")"
-                )
+                if let budget = detailedMovie.budget {
+                    AboutMovieViewSection(
+                        sectionNameText: R.string.localizable.budget(),
+                        sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(budget) ?? "")"
+                    )
+                }
 
-                AboutMovieViewSection(
-                    sectionNameText: R.string.localizable.worldwideFees(),
-                    sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(detailedMovie.fees) ?? "")"
-                )
+                if let fees = detailedMovie.fees {
+                    AboutMovieViewSection(
+                        sectionNameText: R.string.localizable.worldwideFees(),
+                        sectionText: "$\(NumberFormatterHelper.formatNumberBySpaces(fees) ?? "")"
+                    )
+                }
 
                 AboutMovieViewSection(
                     sectionNameText: R.string.localizable.age(),

@@ -35,6 +35,6 @@ struct MovieGenresView: View {
 
 struct MovieGenresView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieGenresView(genres: MockDataHelper.getDetailedMovie().genres)
+        MovieGenresView(genres: MockDataHelper.getDetailedMovie().genres ?? [])
     }
 }

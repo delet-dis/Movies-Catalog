@@ -31,7 +31,7 @@ struct MovieReviewsView: View {
                 }
             }
 
-            LazyVStack {
+            VStack {
                 ForEach(displayingDetailedReviews) { review in
                     MovieReview(displayingDetailedReview: review)
                 }

@@ -86,12 +86,12 @@ struct ProfileView: View {
             viewModel.updateDisplayingData()
         }
         .onReceive(viewModel.$areFieldsValid) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.areFieldsValid = value
             }
         }
         .onReceive(viewModel.$isProgressViewShowing) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isProgressViewShowing = value
             }
         }

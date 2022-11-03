@@ -17,6 +17,10 @@ private func parent2(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
     return component.parent.parent
 }
 
+private func parent3(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Scope {
+    return component.parent.parent.parent
+}
+
 // MARK: - Providers
 
 #if !NEEDLE_DYNAMIC
@@ -117,6 +121,31 @@ private class MoviesComponentDependencyc4af3944b260ec3bd2b5Provider: MoviesCompo
 private func factoryf7325156a5bbfdeeb2f5f18a7758ab7ce8b9cf79(_ component: NeedleFoundation.Scope) -> AnyObject {
     return MoviesComponentDependencyc4af3944b260ec3bd2b5Provider(mainComponent: parent2(component) as! MainComponent)
 }
+private class MovieDetailsComponentDependency1308afb98216b0e51640Provider: MovieDetailsComponentDependency {
+    var loadMovieDetailsUseCase: LoadMovieDetailsUseCase {
+        return mainComponent.loadMovieDetailsUseCase
+    }
+    var getFavoriteStatusUseCase: GetFavoriteStatusUseCase {
+        return mainComponent.getFavoriteStatusUseCase
+    }
+    var toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase {
+        return mainComponent.toggleFavoriteStatusUseCase
+    }
+    var getTokenUseCase: GetTokenUseCase {
+        return mainComponent.getTokenUseCase
+    }
+    var getUserProfileUseCase: GetUserProfileUseCase {
+        return mainComponent.getUserProfileUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->HomeComponent->MoviesComponent->MovieDetailsComponent
+private func factory50ea0c04081e891860616c336a169e0a154aa5b8(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MovieDetailsComponentDependency1308afb98216b0e51640Provider(mainComponent: parent3(component) as! MainComponent)
+}
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
 
 
@@ -165,6 +194,16 @@ extension MoviesComponent: Registration {
         keyPathToName[\MoviesComponentDependency.getFavoritesUseCase] = "getFavoritesUseCase-GetFavoritesUseCase"
         keyPathToName[\MoviesComponentDependency.deleteFavoriteUseCase] = "deleteFavoriteUseCase-DeleteFavoriteUseCase"
         keyPathToName[\MoviesComponentDependency.loadMoviesAtPositionUseCase] = "loadMoviesAtPositionUseCase-LoadMoviesAtPositionUseCase"
+
+    }
+}
+extension MovieDetailsComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\MovieDetailsComponentDependency.loadMovieDetailsUseCase] = "loadMovieDetailsUseCase-LoadMovieDetailsUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.getFavoriteStatusUseCase] = "getFavoriteStatusUseCase-GetFavoriteStatusUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.toggleFavoriteStatusUseCase] = "toggleFavoriteStatusUseCase-ToggleFavoriteStatusUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.getUserProfileUseCase] = "getUserProfileUseCase-GetUserProfileUseCase"
     }
 }
 extension MainComponent: Registration {
@@ -200,6 +239,7 @@ private func register1() {
     registerProviderFactory("^->MainComponent->HomeComponent", factory9bc7b43729f663f09312e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->HomeComponent->ProfileComponent", factorybd650a9e32c86f0fdd27f18a7758ab7ce8b9cf79)
     registerProviderFactory("^->MainComponent->HomeComponent->MoviesComponent", factoryf7325156a5bbfdeeb2f5f18a7758ab7ce8b9cf79)
+    registerProviderFactory("^->MainComponent->HomeComponent->MoviesComponent->MovieDetailsComponent", factory50ea0c04081e891860616c336a169e0a154aa5b8)
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }

@@ -30,7 +30,7 @@ struct FlexboxView<Item, Content>: View where Item: Hashable, Content: View {
 
     var body: some View {
         self.contentView
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: self.alignment)
+            .frame(maxWidth: .infinity, alignment: self.alignment)
             .background(
                 GeometryReader { geo in
                     Color.clear.onAppear {

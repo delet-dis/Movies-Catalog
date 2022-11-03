@@ -15,11 +15,16 @@ class MoviesViewViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    @Published var isMovieDetailsDisplaying = false
+    @Published private(set) var displayingMovieId = ""
+
     private let getAuthStatusUseCase: GetAuthStatusUseCase
     private let getTokenUseCase: GetTokenUseCase
     private let getFavoritesUseCase: GetFavoritesUseCase
     private let deleteFavoriteUseCase: DeleteFavoriteUseCase
     private let loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase
+
+    let movieDetailsComponent: MovieDetailsComponent?
 
     private var displayingPage = 1
 
@@ -28,13 +33,16 @@ class MoviesViewViewModel: ObservableObject {
         getTokenUseCase: GetTokenUseCase,
         getFavoritesUseCase: GetFavoritesUseCase,
         deleteFavoriteUseCase: DeleteFavoriteUseCase,
-        loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase
+        loadMoviesAtPositionUseCase: LoadMoviesAtPositionUseCase,
+        movieDetailsComponent: MovieDetailsComponent? = nil
     ) {
         self.getAuthStatusUseCase = getAuthStatusUseCase
         self.getTokenUseCase = getTokenUseCase
         self.getFavoritesUseCase = getFavoritesUseCase
         self.deleteFavoriteUseCase = deleteFavoriteUseCase
         self.loadMoviesAtPositionUseCase = loadMoviesAtPositionUseCase
+
+        self.movieDetailsComponent = movieDetailsComponent
     }
 
     private func processError(_ error: Error) {
@@ -81,8 +89,8 @@ class MoviesViewViewModel: ObservableObject {
         var tempDisplayingFavoriteMovies: [DisplayingFavotireMovie] = []
 
         favorites.movies.forEach { movie in
-            tempDisplayingFavoriteMovies.append(DisplayingFavotireMovie(movie: movie) {
-                print("movie tap")
+            tempDisplayingFavoriteMovies.append(DisplayingFavotireMovie(movie: movie) { [self] in
+                displayMovie(movieId: movie.id)
             } deleteClosure: { [self] in
                 deleteFavoriteMovie(movie)
             }
@@ -122,8 +130,8 @@ class MoviesViewViewModel: ObservableObject {
         }
 
         movies.forEach { movie in
-            displayingMovies.append(DisplayingMovie(movie: movie) {
-                print("movie tap")
+            displayingMovies.append(DisplayingMovie(movie: movie) { [self] in
+                displayMovie(movieId: movie.id)
             })
         }
 
@@ -145,5 +153,10 @@ class MoviesViewViewModel: ObservableObject {
 
         getDispalyingMovies()
         getDisplayingFavorites()
+    }
+
+    private func displayMovie(movieId: String) {
+        displayingMovieId = movieId
+        isMovieDetailsDisplaying = true
     }
 }

@@ -24,12 +24,14 @@ struct MoviesListView: View {
 
             LazyVStack(spacing: 16) {
                 ForEach(Array(displayingMovies.enumerated()), id: \.element.id) { index, movie in
-                    MoviesListItemView(displayingMovie: movie)
-                        .onAppear {
-                            if index == displayingMovies.count - 1 {
-                                requestNewMoviesClosure?()
+                    if index != 0 {
+                        MoviesListItemView(displayingMovie: movie)
+                            .onAppear {
+                                if index == displayingMovies.count - 1 {
+                                    requestNewMoviesClosure?()
+                                }
                             }
-                        }
+                    }
                 }
             }
         }

@@ -18,6 +18,12 @@ protocol MoviesComponentDependency: Dependency {
 }
 
 final class MoviesComponent: Component<MoviesComponentDependency> {
+    var movieDetailsComponent: MovieDetailsComponent {
+        shared {
+            MovieDetailsComponent(parent: self)
+        }
+    }
+
     var moviesViewViewModel: MoviesViewViewModel {
         shared {
             MoviesViewViewModel(
@@ -25,7 +31,8 @@ final class MoviesComponent: Component<MoviesComponentDependency> {
                 getTokenUseCase: dependency.getTokenUseCase,
                 getFavoritesUseCase: dependency.getFavoritesUseCase,
                 deleteFavoriteUseCase: dependency.deleteFavoriteUseCase,
-                loadMoviesAtPositionUseCase: dependency.loadMoviesAtPositionUseCase
+                loadMoviesAtPositionUseCase: dependency.loadMoviesAtPositionUseCase,
+                movieDetailsComponent: movieDetailsComponent
             )
         }
     }

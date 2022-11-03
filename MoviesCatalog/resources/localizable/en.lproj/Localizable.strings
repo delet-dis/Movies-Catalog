@@ -45,3 +45,19 @@
 "gender" = "Gender";
 "save" = "Save";
 "logout" = "Log out";
+
+"aboutFilm" = "About film";
+"year" = "Year";
+"country" = "Country";
+"time" = "Time";
+"tagline" = "Tagline";
+"director" = "Director";
+"budget" = "Budget";
+"worldwideFees" = "Worldwide fees";
+"age" = "Age";
+"min" = "min.";
+"genres" = "Genres";
+"reviews" = "Reviews";
+
+"anonymousUser" = "Anonymous user";
+"myReview" = "my review";

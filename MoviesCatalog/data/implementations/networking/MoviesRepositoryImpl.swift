@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 class MoviesRepositoryImpl: MoviesRepository {
-    private static let url = NetworkingConstants.baseUrl + "/api/movies/"
+    private static let url = "\(NetworkingConstants.baseUrl)/api/movies/"
 
     private let jsonDecoder: JSONDecoder
     private let jsonEncoder: JSONEncoder

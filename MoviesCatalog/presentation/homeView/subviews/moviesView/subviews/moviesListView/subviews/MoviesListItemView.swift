@@ -50,6 +50,8 @@ struct MoviesListItemView: View {
                             // swiftlint:disable:next line_length
                             Text("\(displayingMovie.movie.genres[position].name)\(position != displayingMovie.movie.genres.count - 1 ? ", " : "")")
                         }
+
+                        Spacer()
                     }
 
                     HStack {

@@ -10,8 +10,8 @@ import Foundation
 struct DetailedReview: Codable {
     let id: String
     let rating: Int
-    let reviewText: String
+    let reviewText: String?
     let isAnonymous: Bool
     let createDateTime: String
-    let author: Author
+    let author: Author?
 }

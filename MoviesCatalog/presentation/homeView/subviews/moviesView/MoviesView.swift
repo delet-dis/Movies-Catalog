@@ -14,28 +14,41 @@ struct MoviesView: View {
     @State private var isDisplayingFavoriteMovies = true
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
+        ZStack {
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    HeaderMovieView(displayingMovie: viewModel.displayingHeaderMovie)
 
-                if isDisplayingFavoriteMovies {
-                    FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
-                } else {
-                    EmptyView()
+                    if isDisplayingFavoriteMovies {
+                        FavoriteMoviesView(displayingFavotireMovies: viewModel.displayingFavoriteMovies)
+                    } else {
+                        EmptyView()
+                    }
+
+                    if !viewModel.displayingMovies.isEmpty {
+                        MoviesListView(displayingMovies: viewModel.displayingMovies) {
+                            viewModel.requestMoreMovies()
+                        }
+                    }
+
+                    Spacer()
+                        .padding(.bottom, 100)
                 }
+            }
+            .ignoresSafeArea()
+            .refreshable {
+                viewModel.refreshDisplayingData()
+            }
 
-                MoviesListView(displayingMovies: viewModel.displayingMovies) {
-                    viewModel.requestMoreMovies()
-                }
-
-                Spacer()
-                    .padding(.bottom, 100)
+            NavigationLink("", isActive: $viewModel.isMovieDetailsDisplaying) {
+                viewModel.movieDetailsComponent?.movieDetailsView
+                    .onAppear {
+                        viewModel.movieDetailsComponent?
+                            .movieDetailsViewViewModel.setDisplayingMovieId(viewModel.displayingMovieId)
+                    }
             }
         }
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
-        .refreshable {
-            viewModel.refreshDisplayingData()
-        }
         .onAppear {
             getDisplayingData()
         }
@@ -48,7 +61,7 @@ struct MoviesView: View {
             haptic: .error
         )
         .onReceive(viewModel.$displayingFavoriteMovies) { value in
-            withAnimation(.default) {
+            withAnimation {
                 self.isDisplayingFavoriteMovies = !value.isEmpty
             }
         }

@@ -78,7 +78,7 @@ struct MovieReview: View {
                     )
                     .modifier(PlexSansSmallModifier())
                     .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-                    
+
                     Spacer()
                 }
 

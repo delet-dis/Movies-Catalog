@@ -43,7 +43,7 @@ class MockDataHelper {
 
     static func getAuthor() -> Author {
         Author(
-            userID: UUID().uuidString,
+            userId: UUID().uuidString,
             nickName: "test",
             avatar: nil
         )
@@ -85,8 +85,8 @@ class MockDataHelper {
         DisplayingDetailedReview(
             detailedReview: getDetailedReview(),
             isUserReview: true,
-            editClosure: {_ in},
-            removeClosure: {_ in}
+            editClosure: {},
+            removeClosure: {}
         )
     }
 }

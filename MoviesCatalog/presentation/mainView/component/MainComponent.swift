@@ -162,6 +162,30 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
+    var reviewRepository: ReviewRepository {
+        shared {
+            ReviewRepositoryImpl(jsonDecoder: jsonDecoder, jsonEncoder: jsonEncoder)
+        }
+    }
+
+    var addReviewUseCase: AddReviewUseCase {
+        shared {
+            AddReviewUseCase(reviewRepository: reviewRepository)
+        }
+    }
+
+    var editReviewUseCase: EditReviewUseCase {
+        shared {
+            EditReviewUseCase(reviewRepository: reviewRepository)
+        }
+    }
+
+    var deleteReviewUseCase: DeleteReviewUseCase {
+        shared {
+            DeleteReviewUseCase(reviewRepository: reviewRepository)
+        }
+    }
+
     var loginComponent: LoginComponent {
         shared {
             LoginComponent(parent: self)

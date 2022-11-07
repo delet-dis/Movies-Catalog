@@ -16,11 +16,18 @@ class MovieDetailsViewViewModel: ObservableObject {
     @Published var isAlertShowing = false
     @Published private(set) var alertText = ""
 
+    @Published private(set) var saveReviewClosure: ((ReviewRequest) -> Void)?
+    @Published private(set) var isMovieReviewDialogDisplaying = false
+    @Published private(set) var displayingReview: DetailedReview?
+
     private let getFavoriteStatusUseCase: GetFavoriteStatusUseCase
     private let toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase
     private let getTokenUseCase: GetTokenUseCase
     private let getUserProfileUseCase: GetUserProfileUseCase
     private let loadMovieDetailsUseCase: LoadMovieDetailsUseCase
+    private let addReviewUseCase: AddReviewUseCase
+    private let editReviewUseCase: EditReviewUseCase
+    private let deleteReviewUseCase: DeleteReviewUseCase
 
     private var displayingMovieId: String = "" {
         didSet {
@@ -33,13 +40,19 @@ class MovieDetailsViewViewModel: ObservableObject {
         getFavoriteStatusUseCase: GetFavoriteStatusUseCase,
         toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase,
         getTokenUseCase: GetTokenUseCase,
-        getUserProfileUseCase: GetUserProfileUseCase
+        getUserProfileUseCase: GetUserProfileUseCase,
+        addReviewUseCase: AddReviewUseCase,
+        editReviewUseCase: EditReviewUseCase,
+        deleteReviewUseCase: DeleteReviewUseCase
     ) {
         self.loadMovieDetailsUseCase = loadMovieDetailsUseCase
         self.getFavoriteStatusUseCase = getFavoriteStatusUseCase
         self.toggleFavoriteStatusUseCase = toggleFavoriteStatusUseCase
         self.getTokenUseCase = getTokenUseCase
         self.getUserProfileUseCase = getUserProfileUseCase
+        self.addReviewUseCase = addReviewUseCase
+        self.editReviewUseCase = editReviewUseCase
+        self.deleteReviewUseCase = deleteReviewUseCase
     }
 
     func setDisplayingMovieId(_ displayingMovieId: String) {
@@ -124,13 +137,17 @@ class MovieDetailsViewViewModel: ObservableObject {
                                 tempDisplayingDetailedReviews.append(
                                     DisplayingDetailedReview(
                                         detailedReview: review,
-                                        isUserReview: profile.id == review.author?.userID,
-                                        editClosure: profile.id == review.author?.userID ? { reviewId in
-                                            print(reviewId)
+                                        isUserReview: profile.id == review.author?.userId,
+                                        editClosure: profile.id == review.author?.userId ? { [self] in
+                                            displayMovieReviewView(
+                                                movieId: displayingDetailedMovie.id,
+                                                review: review
+                                            )
                                         } :
                                             nil,
-                                        removeClosure: profile.id == review.author?.userID ? { reviewId in
-                                            print(reviewId)
+                                        removeClosure:
+                                        profile.id == review.author?.userId ? { [self] in
+                                            deleteReview(reviewId: review.id)
                                         } :
                                             nil
                                     )
@@ -155,9 +172,93 @@ class MovieDetailsViewViewModel: ObservableObject {
         }
     }
 
+    private func displayMovieReviewView(movieId: String, review: DetailedReview? = nil) {
+        saveReviewClosure = { [self] reviewRequest in
+            getTokenUseCase.execute { [self] result in
+                switch result {
+                case .success(let token):
+                    displayingReview = review
+
+                    if let review = review {
+                        editReviewUseCase.execute(
+                            token: token,
+                            movieId: movieId,
+                            reviewId: review.id,
+                            review: reviewRequest
+                        ) { [self] result in
+                            switch result {
+                            case .success:
+                                updateDisplayingData()
+
+                                saveReviewClosure = nil
+                                isMovieReviewDialogDisplaying = false
+                            case .failure(let error):
+                                processError(error)
+                            }
+                        }
+                    } else {
+                        addReviewUseCase.execute(
+                            token: token,
+                            movieId: movieId,
+                            review: reviewRequest
+                        ) { [self] result in
+                            switch result {
+                            case .success:
+                                updateDisplayingData()
+
+                                saveReviewClosure = nil
+                                isMovieReviewDialogDisplaying = false
+                            case .failure(let error):
+                                processError(error)
+                            }
+                        }
+                    }
+
+                case .failure(let error):
+                    processError(error)
+                }
+            }
+        }
+
+        isMovieReviewDialogDisplaying = true
+    }
+
+    private func deleteReview(reviewId: String) {
+        guard let displayingDetailedMovie = displayingDetailedMovie else {
+            return
+        }
+
+        getTokenUseCase.execute { [self] result in
+            switch result {
+            case .success(let token):
+                deleteReviewUseCase.execute(
+                    token: token,
+                    movieId: displayingDetailedMovie.id,
+                    reviewId: reviewId
+                ) { [self] result in
+                    updateDisplayingData()
+
+                    if case .failure(let error) = result {
+                        processError(error)
+                    }
+                }
+            case .failure(let error):
+                processError(error)
+            }
+        }
+    }
+
     func resetDisplayingData() {
         displayingDetailedMovie = nil
         displayingDetailedReviews = nil
         isFavorite = false
+    }
+
+    func hideMovieReviewDialog() {
+        isMovieReviewDialogDisplaying = false
+    }
+
+    func showMovieReviewDialog() {
+        displayMovieReviewView(movieId: displayingMovieId)
     }
 }

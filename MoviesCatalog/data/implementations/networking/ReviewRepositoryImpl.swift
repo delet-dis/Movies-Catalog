@@ -23,19 +23,26 @@ class ReviewRepositoryImpl: ReviewRepository {
         review: ReviewRequest,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     ) {
-        AF.request(
-            getUrlForReviewAdding(movieId: movieId),
-            method: .post,
-            encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
-        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        do {
+            let encodedParameters = try jsonEncoder.encode(review)
+            let parameters = try JSONSerialization.jsonObject(
+                with: encodedParameters, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                getUrlForReviewAdding(movieId: movieId),
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            ) { $0.timeoutInterval = NetworkingConstants.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 
     func editReview(
@@ -45,19 +52,26 @@ class ReviewRepositoryImpl: ReviewRepository {
         review: ReviewRequest,
         completion: ((Result<VoidResponse, Error>) -> Void)?
     ) {
-        AF.request(
-            getUrlForReviewEditingOrDeleting(movieId: movieId, reviewId: reviewId) + "/edit",
-            method: .post,
-            encoding: JSONEncoding.default,
-            headers: NetworkingHelper.getHeadersWithBearer(token: token)
-        ) { $0.timeoutInterval = NetworkingConstants.timeout }
-            .validate()
-            .response { [self] result in
-                result.processResult(
-                    jsonDecoder: jsonDecoder,
-                    completion: completion
-                )
-            }
+        do {
+            let encodedParameters = try jsonEncoder.encode(review)
+            let parameters = try JSONSerialization.jsonObject(
+                with: encodedParameters, options: .allowFragments
+            ) as? [String: Any]
+
+            AF.request(
+                getUrlForReviewEditingOrDeleting(movieId: movieId, reviewId: reviewId) + "edit",
+                method: .put,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: NetworkingHelper.getHeadersWithBearer(token: token)
+            ) { $0.timeoutInterval = NetworkingConstants.timeout }
+                .validate()
+                .response { [self] result in
+                    result.processResult(jsonDecoder: jsonDecoder, completion: completion)
+                }
+        } catch {
+            completion?(.failure(error))
+        }
     }
 
     func deleteReview(
@@ -67,8 +81,8 @@ class ReviewRepositoryImpl: ReviewRepository {
         completion: ((Result<VoidResponse, Error>) -> Void)?
     ) {
         AF.request(
-            getUrlForReviewEditingOrDeleting(movieId: movieId, reviewId: reviewId) + "/delete",
-            method: .post,
+            getUrlForReviewEditingOrDeleting(movieId: movieId, reviewId: reviewId) + "delete",
+            method: .delete,
             encoding: JSONEncoding.default,
             headers: NetworkingHelper.getHeadersWithBearer(token: token)
         ) { $0.timeoutInterval = NetworkingConstants.timeout }

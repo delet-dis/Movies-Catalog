@@ -15,6 +15,7 @@ struct MovieDetailsView: View {
     @State private var isCollapsedHeaderShowing = false
     @State private var isFavorite = false
     @State private var isAbleToShowNavigationBar = false
+    @State private var isMovieReviewDialogDisplaying = false
 
     private static let headerImageHeight: CGFloat = 250
     private static let navigationBarHeight: CGFloat = 56
@@ -118,7 +119,7 @@ struct MovieDetailsView: View {
 
                         if let reviews = viewModel.displayingDetailedReviews {
                             MovieReviewsView(
-                                reviewAddClosure: {},
+                                reviewAddClosure: { viewModel.showMovieReviewDialog() },
                                 displayingDetailedReviews: reviews
                             )
                         }
@@ -165,12 +166,25 @@ struct MovieDetailsView: View {
                 Spacer()
             }
             .opacity(isCollapsedHeaderShowing && isAbleToShowNavigationBar ? 1 : 0)
+
+            MovieReviewDialog(saveReviewClosure: { review in
+                viewModel.saveReviewClosure?(review)
+            }, cancelClosure: {
+                viewModel.hideMovieReviewDialog()
+            }, displayingReview: viewModel.displayingReview)
+                .opacity(isMovieReviewDialogDisplaying ? 1 : 0)
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)
         .background(Color(uiColor: R.color.darkAccent() ?? .black))
         .onAppear {
             isFavorite = isFavorite
+            isMovieReviewDialogDisplaying = viewModel.isMovieReviewDialogDisplaying
+        }
+        .onReceive(viewModel.$isMovieReviewDialogDisplaying) { value in
+            withAnimation {
+                self.isMovieReviewDialogDisplaying = value
+            }
         }
         .onReceive(viewModel.$isFavorite) { value in
             withAnimation {
@@ -229,6 +243,13 @@ struct MovieDetailsView_Previews: PreviewProvider {
 
     private static let getUserProfileUseCase = GetUserProfileUseCase(profileRepository: profileRepository)
 
+    private static let reviewRepository = ReviewRepositoryImpl(
+        jsonDecoder: JSONDecoder(), jsonEncoder: JSONEncoder()
+    )
+    private static let addReviewUseCase = AddReviewUseCase(reviewRepository: reviewRepository)
+    private static let editReviewUseCase = EditReviewUseCase(reviewRepository: reviewRepository)
+    private static let deleteReviewUseCase = DeleteReviewUseCase(reviewRepository: reviewRepository)
+
     static var previews: some View {
         MovieDetailsView()
             .environmentObject(
@@ -237,7 +258,10 @@ struct MovieDetailsView_Previews: PreviewProvider {
                     getFavoriteStatusUseCase: getFavoriteStatusUseCase,
                     toggleFavoriteStatusUseCase: toggleFavoriteStatusUseCase,
                     getTokenUseCase: getTokenUseCase,
-                    getUserProfileUseCase: getUserProfileUseCase
+                    getUserProfileUseCase: getUserProfileUseCase,
+                    addReviewUseCase: addReviewUseCase,
+                    editReviewUseCase: editReviewUseCase,
+                    deleteReviewUseCase: deleteReviewUseCase
                 )
             )
     }

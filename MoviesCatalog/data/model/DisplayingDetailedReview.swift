@@ -11,6 +11,6 @@ struct DisplayingDetailedReview: Identifiable {
     let id = UUID().uuidString
     let detailedReview: DetailedReview
     let isUserReview: Bool
-    let editClosure: ((String) -> Void)?
-    let removeClosure: ((String) -> Void)?
+    let editClosure: (() -> Void)?
+    let removeClosure: (() -> Void)?
 }

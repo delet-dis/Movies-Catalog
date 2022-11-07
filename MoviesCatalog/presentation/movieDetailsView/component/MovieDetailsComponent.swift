@@ -15,6 +15,9 @@ protocol MovieDetailsComponentDependency: Dependency {
     var toggleFavoriteStatusUseCase: ToggleFavoriteStatusUseCase { get }
     var getTokenUseCase: GetTokenUseCase { get }
     var getUserProfileUseCase: GetUserProfileUseCase { get }
+    var addReviewUseCase: AddReviewUseCase { get }
+    var editReviewUseCase: EditReviewUseCase { get }
+    var deleteReviewUseCase: DeleteReviewUseCase { get }
 }
 
 final class MovieDetailsComponent: Component<MovieDetailsComponentDependency> {
@@ -25,7 +28,10 @@ final class MovieDetailsComponent: Component<MovieDetailsComponentDependency> {
                 getFavoriteStatusUseCase: dependency.getFavoriteStatusUseCase,
                 toggleFavoriteStatusUseCase: dependency.toggleFavoriteStatusUseCase,
                 getTokenUseCase: dependency.getTokenUseCase,
-                getUserProfileUseCase: dependency.getUserProfileUseCase
+                getUserProfileUseCase: dependency.getUserProfileUseCase,
+                addReviewUseCase: dependency.addReviewUseCase,
+                editReviewUseCase: dependency.editReviewUseCase,
+                deleteReviewUseCase: dependency.deleteReviewUseCase
             )
         }
     }

@@ -139,6 +139,8 @@ class MovieDetailsViewViewModel: ObservableObject {
                                         detailedReview: review,
                                         isUserReview: profile.id == review.author?.userId,
                                         editClosure: profile.id == review.author?.userId ? { [self] in
+                                            displayingReview = review
+
                                             displayMovieReviewView(
                                                 movieId: displayingDetailedMovie.id,
                                                 review: review
@@ -256,6 +258,7 @@ class MovieDetailsViewViewModel: ObservableObject {
 
     func hideMovieReviewDialog() {
         isMovieReviewDialogDisplaying = false
+        displayingReview = nil
     }
 
     func showMovieReviewDialog() {

@@ -167,12 +167,16 @@ struct MovieDetailsView: View {
             }
             .opacity(isCollapsedHeaderShowing && isAbleToShowNavigationBar ? 1 : 0)
 
-            MovieReviewDialog(saveReviewClosure: { review in
-                viewModel.saveReviewClosure?(review)
-            }, cancelClosure: {
-                viewModel.hideMovieReviewDialog()
-            }, displayingReview: viewModel.displayingReview)
-                .opacity(isMovieReviewDialogDisplaying ? 1 : 0)
+            if isMovieReviewDialogDisplaying {
+                MovieReviewDialog(saveReviewClosure: { review in
+                    viewModel.saveReviewClosure?(review)
+                }, cancelClosure: {
+                    viewModel.hideMovieReviewDialog()
+                }, displayingReview: viewModel.displayingReview)
+                    .opacity(isMovieReviewDialogDisplaying ? 1 : 0)
+            } else {
+                EmptyView()
+            }
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)

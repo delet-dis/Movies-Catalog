@@ -137,6 +137,15 @@ private class MovieDetailsComponentDependency1308afb98216b0e51640Provider: Movie
     var getUserProfileUseCase: GetUserProfileUseCase {
         return mainComponent.getUserProfileUseCase
     }
+    var addReviewUseCase: AddReviewUseCase {
+        return mainComponent.addReviewUseCase
+    }
+    var editReviewUseCase: EditReviewUseCase {
+        return mainComponent.editReviewUseCase
+    }
+    var deleteReviewUseCase: DeleteReviewUseCase {
+        return mainComponent.deleteReviewUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -204,6 +213,9 @@ extension MovieDetailsComponent: Registration {
         keyPathToName[\MovieDetailsComponentDependency.toggleFavoriteStatusUseCase] = "toggleFavoriteStatusUseCase-ToggleFavoriteStatusUseCase"
         keyPathToName[\MovieDetailsComponentDependency.getTokenUseCase] = "getTokenUseCase-GetTokenUseCase"
         keyPathToName[\MovieDetailsComponentDependency.getUserProfileUseCase] = "getUserProfileUseCase-GetUserProfileUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.addReviewUseCase] = "addReviewUseCase-AddReviewUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.editReviewUseCase] = "editReviewUseCase-EditReviewUseCase"
+        keyPathToName[\MovieDetailsComponentDependency.deleteReviewUseCase] = "deleteReviewUseCase-DeleteReviewUseCase"
     }
 }
 extension MainComponent: Registration {

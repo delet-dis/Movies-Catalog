@@ -73,6 +73,12 @@
 		307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */; };
 		307F4532290D8DCB009A30C4 /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */; };
 		307F4534290EBC31009A30C4 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */; };
+		308B1FEB2918B9F600F40DCA /* AddReviewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FEA2918B9F600F40DCA /* AddReviewUseCase.swift */; };
+		308B1FED2918BA6200F40DCA /* EditReviewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FEC2918BA6200F40DCA /* EditReviewUseCase.swift */; };
+		308B1FEF2918BB6800F40DCA /* DeleteReviewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FEE2918BB6800F40DCA /* DeleteReviewUseCase.swift */; };
+		308B1FF22918C27A00F40DCA /* MovieReviewDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FF12918C27A00F40DCA /* MovieReviewDialog.swift */; };
+		308B1FF72918D96D00F40DCA /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FF62918D96D00F40DCA /* RatingStarsView.swift */; };
+		308B1FF929191D9600F40DCA /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1FF829191D9600F40DCA /* CheckboxView.swift */; };
 		3092CAFC290785E400ED7DF9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFB290785E400ED7DF9 /* Profile.swift */; };
 		3092CAFF2907869A00ED7DF9 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */; };
 		3092CB01290786F500ED7DF9 /* ProfileRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */; };
@@ -211,6 +217,12 @@
 		307F452F290D8679009A30C4 /* UINavigationComntrollerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationComntrollerExtensions.swift; sourceTree = "<group>"; };
 		307F4531290D8DCB009A30C4 /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		307F4533290EBC31009A30C4 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		308B1FEA2918B9F600F40DCA /* AddReviewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewUseCase.swift; sourceTree = "<group>"; };
+		308B1FEC2918BA6200F40DCA /* EditReviewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReviewUseCase.swift; sourceTree = "<group>"; };
+		308B1FEE2918BB6800F40DCA /* DeleteReviewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteReviewUseCase.swift; sourceTree = "<group>"; };
+		308B1FF12918C27A00F40DCA /* MovieReviewDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewDialog.swift; sourceTree = "<group>"; };
+		308B1FF62918D96D00F40DCA /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
+		308B1FF829191D9600F40DCA /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		3092CAFB290785E400ED7DF9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3092CAFE2907869A00ED7DF9 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
 		3092CB00290786F500ED7DF9 /* ProfileRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -536,6 +548,7 @@
 		3005412528FB185500D6CD6F /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				308B1FE92918B9E900F40DCA /* review */,
 				3092CAFD2907868100ED7DF9 /* profile */,
 				301A7E112904191800D69188 /* movies */,
 				30F388702903B3EA00346326 /* favoritesRepository */,
@@ -604,6 +617,7 @@
 		3029C1052912963D00368AC7 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				308B1FF02918C26C00F40DCA /* movieReviewDialog */,
 				3029C1132912C02600368AC7 /* movieReviewsView */,
 				3029C10E2912A79000368AC7 /* aboutMovieView */,
 				3029C1112912A7CF00368AC7 /* MovieGenresView.swift */,
@@ -651,6 +665,24 @@
 				3029C122291380B200368AC7 /* ReviewRequest.swift */,
 			);
 			path = review;
+			sourceTree = "<group>";
+		};
+		308B1FE92918B9E900F40DCA /* review */ = {
+			isa = PBXGroup;
+			children = (
+				308B1FEA2918B9F600F40DCA /* AddReviewUseCase.swift */,
+				308B1FEC2918BA6200F40DCA /* EditReviewUseCase.swift */,
+				308B1FEE2918BB6800F40DCA /* DeleteReviewUseCase.swift */,
+			);
+			path = review;
+			sourceTree = "<group>";
+		};
+		308B1FF02918C26C00F40DCA /* movieReviewDialog */ = {
+			isa = PBXGroup;
+			children = (
+				308B1FF12918C27A00F40DCA /* MovieReviewDialog.swift */,
+			);
+			path = movieReviewDialog;
 			sourceTree = "<group>";
 		};
 		3092CAFA290785D900ED7DF9 /* profile */ = {
@@ -961,6 +993,8 @@
 			children = (
 				30F3883828FFD38200346326 /* RatingView.swift */,
 				30F3884E290105AC00346326 /* FlexboxView.swift */,
+				308B1FF62918D96D00F40DCA /* RatingStarsView.swift */,
+				308B1FF829191D9600F40DCA /* CheckboxView.swift */,
 			);
 			path = subviews;
 			sourceTree = "<group>";
@@ -1289,6 +1323,7 @@
 				3005414428FC69F900D6CD6F /* LoginView.swift in Sources */,
 				307F4534290EBC31009A30C4 /* UIApplicationExtensions.swift in Sources */,
 				30B9699528FAAE070026E190 /* MainView.swift in Sources */,
+				308B1FF929191D9600F40DCA /* CheckboxView.swift in Sources */,
 				301A7E062904101900D69188 /* MoviesPage.swift in Sources */,
 				30F3880528FE513B00346326 /* NSErrorExtensions.swift in Sources */,
 				30F387EB28FD1ED700346326 /* RegistrationView.swift in Sources */,
@@ -1307,6 +1342,8 @@
 				30F387E928FD1ECA00346326 /* RegistrationViewViewModel.swift in Sources */,
 				30B9697D28FAACF00026E190 /* MoviesCatalogApp.swift in Sources */,
 				30F3881428FFB7EA00346326 /* HomeComponent.swift in Sources */,
+				308B1FED2918BA6200F40DCA /* EditReviewUseCase.swift in Sources */,
+				308B1FF22918C27A00F40DCA /* MovieReviewDialog.swift in Sources */,
 				30F3882A28FFC3CA00346326 /* Genre.swift in Sources */,
 				301A7E152904199E00D69188 /* LoadMovieDetailsUseCase.swift in Sources */,
 				30F46FFA290BB4100048B05C /* MovieDetailsViewViewModel.swift in Sources */,
@@ -1352,10 +1389,12 @@
 				30F3881628FFB7FD00346326 /* HomeView.swift in Sources */,
 				307F4530290D8679009A30C4 /* UINavigationComntrollerExtensions.swift in Sources */,
 				3005411F28FB108700D6CD6F /* NetworkingConstants.swift in Sources */,
+				308B1FEF2918BB6800F40DCA /* DeleteReviewUseCase.swift in Sources */,
 				3029C1122912A7D000368AC7 /* MovieGenresView.swift in Sources */,
 				30F3886B2902BC4A00346326 /* Favorites.swift in Sources */,
 				3029C11E2912CAC700368AC7 /* DateFormatterHelper.swift in Sources */,
 				300540EC28FB008C00D6CD6F /* TextFieldWithValidationAndPlaceholderStyle.swift in Sources */,
+				308B1FEB2918B9F600F40DCA /* AddReviewUseCase.swift in Sources */,
 				3092CB0E29078A5D00ED7DF9 /* ProfileViewViewModel.swift in Sources */,
 				30B969A728FAAFC30026E190 /* KeychainRepository.swift in Sources */,
 				3005413728FC569A00D6CD6F /* NetworkingErrorsEnum.swift in Sources */,
@@ -1365,6 +1404,7 @@
 				3005413928FC591D00D6CD6F /* NetworkingError.swift in Sources */,
 				30F3883B28FFDB7900346326 /* ColorExtensions.swift in Sources */,
 				30F3884D2900FB0300346326 /* MoviesListItemView.swift in Sources */,
+				308B1FF72918D96D00F40DCA /* RatingStarsView.swift in Sources */,
 				3029C11A2912C40800368AC7 /* MovieReview.swift in Sources */,
 				30B969A328FAAF010026E190 /* R.generated.swift in Sources */,
 				3029C11C2912C91F00368AC7 /* NumberFormatterHelper.swift in Sources */,

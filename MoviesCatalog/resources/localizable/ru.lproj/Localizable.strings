@@ -61,3 +61,7 @@
 
 "anonymousUser" = "Анонимный пользователь";
 "myReview" = "мой отзыв";
+"leaveAReview" = "Оставить отзыв";
+"review" = "Отзыв";
+"anonymousReview" = "Анонимный отзыв";
+"cancel" = "Отменить";

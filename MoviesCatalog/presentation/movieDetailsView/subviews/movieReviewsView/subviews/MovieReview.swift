@@ -78,7 +78,7 @@ struct MovieReview: View {
                     )
                     .modifier(PlexSansSmallModifier())
                     .foregroundColor(Color(uiColor: R.color.gray() ?? .gray))
-                    
+
                     Spacer()
                 }
 
@@ -86,7 +86,7 @@ struct MovieReview: View {
                    let removeClosure = displayingDetailedReview.removeClosure {
                     HStack(spacing: 8) {
                         Button {
-                            editClosure(displayingDetailedReview.detailedReview.id)
+                            editClosure()
                         } label: {
                             ZStack {
                                 Circle()
@@ -99,7 +99,7 @@ struct MovieReview: View {
                         }
 
                         Button {
-                            removeClosure(displayingDetailedReview.detailedReview.id)
+                            removeClosure()
                         } label: {
                             ZStack {
                                 Circle()
